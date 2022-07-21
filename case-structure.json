@@ -1,0 +1,134 @@
+{
+  "instance": "<casename>ExplanationExperience",
+  "classes": [
+    "Explanation Experience"
+  ],
+  "hasDescription": {
+    "instance": "<Description>",
+    "classes": [
+      "Description"
+    ],
+    "hasAIModel": {
+      "instance": "<casename>Model",
+      "classes": [
+        "Artificial Intelligence Model"
+      ],
+      "solves": {
+        "instance": "<casename><AITaskType>",
+        "classes": [
+          "<AITaskType>"
+        ]
+      },
+      "utilises": {
+        "instance": "<casename><AIMethodType>",
+        "classes": [
+          "<AIMethodType>"
+        ]
+      },
+      "trainedOn": {
+        "instance": "<casename>Dataset",
+        "classes": [
+          "Dataset"
+        ],
+        "hasDataType": {
+          "instance": "<DataType>",
+          "classes": [
+            "Data Type"
+          ]
+        }
+      }
+    },
+    "hasExplainer": {
+      "instance": "<casename>Explainer",
+      "classes": [
+        "Explainer"
+      ],
+      "utilises": {
+        "instance": "<casename>ExplainabilityTechnique",
+        "classes": [
+          "Explainability Technique"
+        ],
+        "hasPortability": {
+          "instance": "<Portability>",
+          "classes": [
+            "Portability"
+          ]
+        },
+        "hasExplanationScope": {
+          "instance": "<ExplanationScope>",
+          "classes": [
+            "Explanation Scope"
+          ]
+        },
+        "targetType": {
+          "instance": "<ExplanationTarget>",
+          "classes": [
+            "Explanation Target"
+          ]
+        },
+        "hasPresentation": {
+          "instance": "<InformationContentEntity>",
+          "classes": [
+            "textual entity"
+          ]
+        },
+        "hasConcurrentness": {
+          "instance": "<ExplainerConcurrentness>",
+          "classes": [
+            "Explainer Concurrentness"
+          ]
+        },
+        "hasOutputType": {
+          "instance": "<Explanation>",
+          "classes": [
+            "Explanation"
+          ]
+        }
+      }
+    },
+    "hasUser": {
+      "instance": "<casename><UserName>User",
+      "classes": [
+        "User"
+      ],
+      "hasIntent": {
+        "instance": "<Intent>",
+        "classes": [
+          "<IntentType>"
+        ]
+      },
+      "hasResources": {
+        "instance": "<Technical Facilities>",
+        "classes": [
+          "Technical Facilities"
+        ],
+        "canHandle": [
+          {
+            "instance": "<ExplanationModality>",
+            "classes": [
+              "ExplanationModality"
+            ]
+          }
+        ]
+      },
+      "possess": {
+        "instance": "<casename>UserDomain",
+        "classes": [
+          "Domain Knowledge"
+        ],
+        "levelOfKnowledge": {
+          "instance": "<KnowledgeLevel>",
+          "classes": [
+            "KnowledgeLevel"
+          ]
+        }
+      },
+      "asks": {
+        "instance": "<UserQuestion>",
+        "classes": [
+          "<UserQuestionType>"
+        ]
+      }
+    }
+  }
+}
