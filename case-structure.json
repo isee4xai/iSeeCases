@@ -14,15 +14,15 @@
         "Artificial Intelligence Model"
       ],
       "solves": {
-        "instance": "<casename><AITaskType>",
+        "instance": "<casename><AITask>",
         "classes": [
-          "<AITaskType>"
+          "<AITask>"
         ]
       },
       "utilises": {
-        "instance": "<casename><AIMethodType>",
+        "instance": "<casename><AIMethod>",
         "classes": [
-          "<AIMethodType>"
+          "<AIMethod>"
         ]
       },
       "trainedOn": {
@@ -92,9 +92,9 @@
         "User"
       ],
       "hasIntent": {
-        "instance": "<Intent>",
+        "instance": "<casename>Intent",
         "classes": [
-          "<IntentType>"
+          "<Intent>"
         ]
       },
       "hasResources": {
@@ -124,9 +124,9 @@
         }
       },
       "asks": {
-        "instance": "<UserQuestion>",
+        "instance": "<casename>UserQuestion",
         "classes": [
-          "<UserQuestionType>"
+          "<UserQuestion>"
         ]
       }
     }
