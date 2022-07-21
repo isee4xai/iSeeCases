@@ -8,6 +8,8 @@ This repo will contain the common iSee Case Structure JSON and it will contain t
 
 
 ### To be Added
-Any code snippets related to tools/convertors 
+- Any code snippets related to tools/convertors 
+_(e.g. iSee Cockpit JSON -> ```Case Structure``` , ```Case Structure``` -> iSee Cockpit JSON)_
+- Vertical hierachy Class generator
 
-(e.g. iSee Cockpit JSON -> ```Case Structure``` , ```Case Structure``` -> iSee Cockpit JSON)
+
