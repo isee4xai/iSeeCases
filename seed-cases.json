@@ -1,0 +1,2280 @@
+[
+    {
+        "instance": "ShoprExplanationExperience",
+        "classes": [
+            "Explanation Experience"
+        ],
+        "hasDescription": {
+            "instance": "Recommend clothing to shoppers based on user feedback",
+            "classes": [
+                "Description"
+            ],
+            "hasAIModel": {
+                "instance": "ShoprModel",
+                "classes": [
+                    "Artificial Intelligence Model"
+                ],
+                "solves": {
+                    "instance": "ShoprRecommendation",
+                    "classes": [
+                        "Recommendation"
+                    ]
+                },
+                "utilises": {
+                    "instance": "ShoprCase based Recommender",
+                    "classes": [
+                        "Case based Recommender"
+                    ]
+                },
+                "trainedOn": {
+                    "instance": "ShoprDataset",
+                    "classes": [
+                        "Dataset"
+                    ],
+                    "hasDataType": {
+                        "instance": "Tabular",
+                        "classes": [
+                            "Data Type"
+                        ]
+                    }
+                }
+            },
+            "hasExplainer": {
+                "instance": "ShoprExplainer",
+                "classes": [
+                    "Explainer"
+                ],
+                "utilises": {
+                    "instance": "ShoprExplainabilityTechnique",
+                    "classes": [
+                        "Explainability Technique"
+                    ],
+                    "hasPortability": {
+                        "instance": "model-specific",
+                        "classes": [
+                            "Portability"
+                        ]
+                    },
+                    "hasExplanationScope": {
+                        "instance": "local",
+                        "classes": [
+                            "Explanation Scope"
+                        ]
+                    },
+                    "targetType": {
+                        "instance": "prediction",
+                        "classes": [
+                            "Explanation Target"
+                        ]
+                    },
+                    "hasPresentation": {
+                        "instance": "Any",
+                        "classes": [
+                            "textual entity"
+                        ]
+                    },
+                    "hasConcurrentness": {
+                        "instance": "post-hoc",
+                        "classes": [
+                            "Explainer Concurrentness"
+                        ]
+                    },
+                    "hasOutputType": {
+                        "instance": "Content Based Explanation",
+                        "classes": [
+                            "Explanation"
+                        ]
+                    }
+                }
+            },
+            "hasUser": {
+                "instance": "ShoprShopperUser",
+                "classes": [
+                    "User"
+                ],
+                "hasIntent": {
+                    "instance": "Understand system recommendation",
+                    "classes": [
+                        "Trust, Scruitability"
+                    ]
+                },
+                "hasResources": {
+                    "instance": "ScreenDisplay",
+                    "classes": [
+                        "Technical Facilities"
+                    ],
+                    "canHandle": [
+                        {
+                            "instance": "Any",
+                            "classes": [
+                                "ExplanationModality"
+                            ]
+                        }
+                    ]
+                },
+                "possess": {
+                    "instance": "ShoprUserDomain",
+                    "classes": [
+                        "Domain Knowledge"
+                    ],
+                    "levelOfKnowledge": {
+                        "instance": "high",
+                        "classes": [
+                            "KnowledgeLevel"
+                        ]
+                    }
+                },
+                "asks": {
+                    "instance": "Why does the system recommend clothing item Y to shopper X?",
+                    "classes": [
+                        "Why Question"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "instance": "DeepSHAPGlobalExplanationExperience",
+        "classes": [
+            "Explanation Experience"
+        ],
+        "hasDescription": {
+            "instance": "Predict patient mortality base on clinical, nutritional and behaviorial factors",
+            "classes": [
+                "Description"
+            ],
+            "hasAIModel": {
+                "instance": "DeepSHAPGlobalModel",
+                "classes": [
+                    "Artificial Intelligence Model"
+                ],
+                "solves": {
+                    "instance": "DeepSHAPGlobalBinary Classification",
+                    "classes": [
+                        "Binary Classification"
+                    ]
+                },
+                "utilises": {
+                    "instance": "DeepSHAPGlobalNeural Network",
+                    "classes": [
+                        "Neural Network"
+                    ]
+                },
+                "trainedOn": {
+                    "instance": "DeepSHAPGlobalDataset",
+                    "classes": [
+                        "Dataset"
+                    ],
+                    "hasDataType": {
+                        "instance": "Tabular",
+                        "classes": [
+                            "Data Type"
+                        ]
+                    }
+                }
+            },
+            "hasExplainer": {
+                "instance": "DeepSHAPGlobalExplainer",
+                "classes": [
+                    "Explainer"
+                ],
+                "utilises": {
+                    "instance": "DeepSHAPGlobalExplainabilityTechnique",
+                    "classes": [
+                        "Explainability Technique"
+                    ],
+                    "hasPortability": {
+                        "instance": "model-agnostic",
+                        "classes": [
+                            "Portability"
+                        ]
+                    },
+                    "hasExplanationScope": {
+                        "instance": "global",
+                        "classes": [
+                            "Explanation Scope"
+                        ]
+                    },
+                    "targetType": {
+                        "instance": "model",
+                        "classes": [
+                            "Explanation Target"
+                        ]
+                    },
+                    "hasPresentation": {
+                        "instance": "Any",
+                        "classes": [
+                            "textual entity"
+                        ]
+                    },
+                    "hasConcurrentness": {
+                        "instance": "post-hoc",
+                        "classes": [
+                            "Explainer Concurrentness"
+                        ]
+                    },
+                    "hasOutputType": {
+                        "instance": "Feature Importance Explanation",
+                        "classes": [
+                            "Explanation"
+                        ]
+                    }
+                }
+            },
+            "hasUser": {
+                "instance": "DeepSHAPGlobalClinicianUser",
+                "classes": [
+                    "User"
+                ],
+                "hasIntent": {
+                    "instance": "Understand how model make decisions",
+                    "classes": [
+                        "Transparency"
+                    ]
+                },
+                "hasResources": {
+                    "instance": "ScreenDisplay",
+                    "classes": [
+                        "Technical Facilities"
+                    ],
+                    "canHandle": [
+                        {
+                            "instance": "Any",
+                            "classes": [
+                                "ExplanationModality"
+                            ]
+                        }
+                    ]
+                },
+                "possess": {
+                    "instance": "DeepSHAPGlobalUserDomain",
+                    "classes": [
+                        "Domain Knowledge"
+                    ],
+                    "levelOfKnowledge": {
+                        "instance": "high",
+                        "classes": [
+                            "KnowledgeLevel"
+                        ]
+                    }
+                },
+                "asks": {
+                    "instance": "What/How features contributed to predicting mortality Y for patient X?",
+                    "classes": [
+                        "What/How Question"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "instance": "DeepSHAPLocalExplanationExperience",
+        "classes": [
+            "Explanation Experience"
+        ],
+        "hasDescription": {
+            "instance": "Predict patient mortality base on clinical, nutritional and behaviorial factors",
+            "classes": [
+                "Description"
+            ],
+            "hasAIModel": {
+                "instance": "DeepSHAPLocalModel",
+                "classes": [
+                    "Artificial Intelligence Model"
+                ],
+                "solves": {
+                    "instance": "DeepSHAPLocalBinary Classification",
+                    "classes": [
+                        "Binary Classification"
+                    ]
+                },
+                "utilises": {
+                    "instance": "DeepSHAPLocalNeural Network",
+                    "classes": [
+                        "Neural Network"
+                    ]
+                },
+                "trainedOn": {
+                    "instance": "DeepSHAPLocalDataset",
+                    "classes": [
+                        "Dataset"
+                    ],
+                    "hasDataType": {
+                        "instance": "Tabular",
+                        "classes": [
+                            "Data Type"
+                        ]
+                    }
+                }
+            },
+            "hasExplainer": {
+                "instance": "DeepSHAPLocalExplainer",
+                "classes": [
+                    "Explainer"
+                ],
+                "utilises": {
+                    "instance": "DeepSHAPLocalExplainabilityTechnique",
+                    "classes": [
+                        "Explainability Technique"
+                    ],
+                    "hasPortability": {
+                        "instance": "model-agnostic",
+                        "classes": [
+                            "Portability"
+                        ]
+                    },
+                    "hasExplanationScope": {
+                        "instance": "local",
+                        "classes": [
+                            "Explanation Scope"
+                        ]
+                    },
+                    "targetType": {
+                        "instance": "prediction",
+                        "classes": [
+                            "Explanation Target"
+                        ]
+                    },
+                    "hasPresentation": {
+                        "instance": "Any",
+                        "classes": [
+                            "textual entity"
+                        ]
+                    },
+                    "hasConcurrentness": {
+                        "instance": "post-hoc",
+                        "classes": [
+                            "Explainer Concurrentness"
+                        ]
+                    },
+                    "hasOutputType": {
+                        "instance": "Feature Importance Explanation",
+                        "classes": [
+                            "Explanation"
+                        ]
+                    }
+                }
+            },
+            "hasUser": {
+                "instance": "DeepSHAPLocalClinicianUser",
+                "classes": [
+                    "User"
+                ],
+                "hasIntent": {
+                    "instance": "Understand why model made a decision",
+                    "classes": [
+                        "Transparency/Education"
+                    ]
+                },
+                "hasResources": {
+                    "instance": "ScreenDisplay",
+                    "classes": [
+                        "Technical Facilities"
+                    ],
+                    "canHandle": [
+                        {
+                            "instance": "Any",
+                            "classes": [
+                                "ExplanationModality"
+                            ]
+                        }
+                    ]
+                },
+                "possess": {
+                    "instance": "DeepSHAPLocalUserDomain",
+                    "classes": [
+                        "Domain Knowledge"
+                    ],
+                    "levelOfKnowledge": {
+                        "instance": "high",
+                        "classes": [
+                            "KnowledgeLevel"
+                        ]
+                    }
+                },
+                "asks": {
+                    "instance": "What/How features contributed to predicting mortality Y for patient X?",
+                    "classes": [
+                        "What/How Question"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "instance": "DisCERNExplanationExperience",
+        "classes": [
+            "Explanation Experience"
+        ],
+        "hasDescription": {
+            "instance": "predict lung cancer risk given clinical data of patients",
+            "classes": [
+                "Description"
+            ],
+            "hasAIModel": {
+                "instance": "DisCERNModel",
+                "classes": [
+                    "Artificial Intelligence Model"
+                ],
+                "solves": {
+                    "instance": "DisCERNMulti-class Classification",
+                    "classes": [
+                        "Multi-class Classification"
+                    ]
+                },
+                "utilises": {
+                    "instance": "DisCERNRandomForest",
+                    "classes": [
+                        "RandomForest"
+                    ]
+                },
+                "trainedOn": {
+                    "instance": "DisCERNDataset",
+                    "classes": [
+                        "Dataset"
+                    ],
+                    "hasDataType": {
+                        "instance": "Tabular",
+                        "classes": [
+                            "Data Type"
+                        ]
+                    }
+                }
+            },
+            "hasExplainer": {
+                "instance": "DisCERNExplainer",
+                "classes": [
+                    "Explainer"
+                ],
+                "utilises": {
+                    "instance": "DisCERNExplainabilityTechnique",
+                    "classes": [
+                        "Explainability Technique"
+                    ],
+                    "hasPortability": {
+                        "instance": "model-agnostic",
+                        "classes": [
+                            "Portability"
+                        ]
+                    },
+                    "hasExplanationScope": {
+                        "instance": "local",
+                        "classes": [
+                            "Explanation Scope"
+                        ]
+                    },
+                    "targetType": {
+                        "instance": "prediction",
+                        "classes": [
+                            "Explanation Target"
+                        ]
+                    },
+                    "hasPresentation": {
+                        "instance": "Computational Entity",
+                        "classes": [
+                            "textual entity"
+                        ]
+                    },
+                    "hasConcurrentness": {
+                        "instance": "post-hoc",
+                        "classes": [
+                            "Explainer Concurrentness"
+                        ]
+                    },
+                    "hasOutputType": {
+                        "instance": "Counterfactual Explanation",
+                        "classes": [
+                            "Explanation"
+                        ]
+                    }
+                }
+            },
+            "hasUser": {
+                "instance": "DisCERNPatient/ClinicianUser",
+                "classes": [
+                    "User"
+                ],
+                "hasIntent": {
+                    "instance": "Reducing cancer risk",
+                    "classes": [
+                        "Education, Taking Action"
+                    ]
+                },
+                "hasResources": {
+                    "instance": "ScreenDisplay",
+                    "classes": [
+                        "Technical Facilities"
+                    ],
+                    "canHandle": [
+                        {
+                            "instance": "Any",
+                            "classes": [
+                                "ExplanationModality"
+                            ]
+                        }
+                    ]
+                },
+                "possess": {
+                    "instance": "DisCERNUserDomain",
+                    "classes": [
+                        "Domain Knowledge"
+                    ],
+                    "levelOfKnowledge": {
+                        "instance": "low/high",
+                        "classes": [
+                            "KnowledgeLevel"
+                        ]
+                    }
+                },
+                "asks": {
+                    "instance": "How can patient X reduce cancer risk Y to lower",
+                    "classes": [
+                        "How/What-if Question"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "instance": "COLESentimentExplanationExperience",
+        "classes": [
+            "Explanation Experience"
+        ],
+        "hasDescription": {
+            "instance": "predict sentiment of a given sentence",
+            "classes": [
+                "Description"
+            ],
+            "hasAIModel": {
+                "instance": "COLESentimentModel",
+                "classes": [
+                    "Artificial Intelligence Model"
+                ],
+                "solves": {
+                    "instance": "COLESentimentSentimentAnalysis",
+                    "classes": [
+                        "SentimentAnalysis"
+                    ]
+                },
+                "utilises": {
+                    "instance": "COLESentimentBERT+MLP",
+                    "classes": [
+                        "BERT+MLP"
+                    ]
+                },
+                "trainedOn": {
+                    "instance": "COLESentimentDataset",
+                    "classes": [
+                        "Dataset"
+                    ],
+                    "hasDataType": {
+                        "instance": "Text",
+                        "classes": [
+                            "Data Type"
+                        ]
+                    }
+                }
+            },
+            "hasExplainer": {
+                "instance": "COLESentimentExplainer",
+                "classes": [
+                    "Explainer"
+                ],
+                "utilises": {
+                    "instance": "COLESentimentExplainabilityTechnique",
+                    "classes": [
+                        "Explainability Technique"
+                    ],
+                    "hasPortability": {
+                        "instance": "model-specific",
+                        "classes": [
+                            "Portability"
+                        ]
+                    },
+                    "hasExplanationScope": {
+                        "instance": "local",
+                        "classes": [
+                            "Explanation Scope"
+                        ]
+                    },
+                    "targetType": {
+                        "instance": "prediction",
+                        "classes": [
+                            "Explanation Target"
+                        ]
+                    },
+                    "hasPresentation": {
+                        "instance": "Any",
+                        "classes": [
+                            "textual entity"
+                        ]
+                    },
+                    "hasConcurrentness": {
+                        "instance": "post-hoc",
+                        "classes": [
+                            "Explainer Concurrentness"
+                        ]
+                    },
+                    "hasOutputType": {
+                        "instance": "Instance based Explanation",
+                        "classes": [
+                            "Explanation"
+                        ]
+                    }
+                }
+            },
+            "hasUser": {
+                "instance": "COLESentimentAny UserUser",
+                "classes": [
+                    "User"
+                ],
+                "hasIntent": {
+                    "instance": "Understand system prediction",
+                    "classes": [
+                        "Trust, Transparency"
+                    ]
+                },
+                "hasResources": {
+                    "instance": "ScreenDisplay",
+                    "classes": [
+                        "Technical Facilities"
+                    ],
+                    "canHandle": [
+                        {
+                            "instance": "Any",
+                            "classes": [
+                                "ExplanationModality"
+                            ]
+                        }
+                    ]
+                },
+                "possess": {
+                    "instance": "COLESentimentUserDomain",
+                    "classes": [
+                        "Domain Knowledge"
+                    ],
+                    "levelOfKnowledge": {
+                        "instance": "low",
+                        "classes": [
+                            "KnowledgeLevel"
+                        ]
+                    }
+                },
+                "asks": {
+                    "instance": "Why does the system predict sentiment Y for tweet X?",
+                    "classes": [
+                        "Why question"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "instance": "COLEImageExplanationExperience",
+        "classes": [
+            "Explanation Experience"
+        ],
+        "hasDescription": {
+            "instance": "predict category of a given an image",
+            "classes": [
+                "Description"
+            ],
+            "hasAIModel": {
+                "instance": "COLEImageModel",
+                "classes": [
+                    "Artificial Intelligence Model"
+                ],
+                "solves": {
+                    "instance": "COLEImageMulti-class Classification",
+                    "classes": [
+                        "Multi-class Classification"
+                    ]
+                },
+                "utilises": {
+                    "instance": "COLEImageConvolutional Neural Network",
+                    "classes": [
+                        "Convolutional Neural Network"
+                    ]
+                },
+                "trainedOn": {
+                    "instance": "COLEImageDataset",
+                    "classes": [
+                        "Dataset"
+                    ],
+                    "hasDataType": {
+                        "instance": "Image",
+                        "classes": [
+                            "Data Type"
+                        ]
+                    }
+                }
+            },
+            "hasExplainer": {
+                "instance": "COLEImageExplainer",
+                "classes": [
+                    "Explainer"
+                ],
+                "utilises": {
+                    "instance": "COLEImageExplainabilityTechnique",
+                    "classes": [
+                        "Explainability Technique"
+                    ],
+                    "hasPortability": {
+                        "instance": "model-specific",
+                        "classes": [
+                            "Portability"
+                        ]
+                    },
+                    "hasExplanationScope": {
+                        "instance": "local",
+                        "classes": [
+                            "Explanation Scope"
+                        ]
+                    },
+                    "targetType": {
+                        "instance": "prediction",
+                        "classes": [
+                            "Explanation Target"
+                        ]
+                    },
+                    "hasPresentation": {
+                        "instance": "Any",
+                        "classes": [
+                            "textual entity"
+                        ]
+                    },
+                    "hasConcurrentness": {
+                        "instance": "post-hoc",
+                        "classes": [
+                            "Explainer Concurrentness"
+                        ]
+                    },
+                    "hasOutputType": {
+                        "instance": "Instance based Explanation",
+                        "classes": [
+                            "Explanation"
+                        ]
+                    }
+                }
+            },
+            "hasUser": {
+                "instance": "COLEImageAny UserUser",
+                "classes": [
+                    "User"
+                ],
+                "hasIntent": {
+                    "instance": "Understand system prediction",
+                    "classes": [
+                        "Trust, Transparency"
+                    ]
+                },
+                "hasResources": {
+                    "instance": "ScreenDisplay",
+                    "classes": [
+                        "Technical Facilities"
+                    ],
+                    "canHandle": [
+                        {
+                            "instance": "Any",
+                            "classes": [
+                                "ExplanationModality"
+                            ]
+                        }
+                    ]
+                },
+                "possess": {
+                    "instance": "COLEImageUserDomain",
+                    "classes": [
+                        "Domain Knowledge"
+                    ],
+                    "levelOfKnowledge": {
+                        "instance": "low",
+                        "classes": [
+                            "KnowledgeLevel"
+                        ]
+                    }
+                },
+                "asks": {
+                    "instance": "Why does the system predict category Y for image X?",
+                    "classes": [
+                        "Why question"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "instance": "DkNNExplanationExperience",
+        "classes": [
+            "Explanation Experience"
+        ],
+        "hasDescription": {
+            "instance": "predict character given an image",
+            "classes": [
+                "Description"
+            ],
+            "hasAIModel": {
+                "instance": "DkNNModel",
+                "classes": [
+                    "Artificial Intelligence Model"
+                ],
+                "solves": {
+                    "instance": "DkNNMulti-class Classification",
+                    "classes": [
+                        "Multi-class Classification"
+                    ]
+                },
+                "utilises": {
+                    "instance": "DkNNCNN",
+                    "classes": [
+                        "CNN"
+                    ]
+                },
+                "trainedOn": {
+                    "instance": "DkNNDataset",
+                    "classes": [
+                        "Dataset"
+                    ],
+                    "hasDataType": {
+                        "instance": "Image",
+                        "classes": [
+                            "Data Type"
+                        ]
+                    }
+                }
+            },
+            "hasExplainer": {
+                "instance": "DkNNExplainer",
+                "classes": [
+                    "Explainer"
+                ],
+                "utilises": {
+                    "instance": "DkNNExplainabilityTechnique",
+                    "classes": [
+                        "Explainability Technique"
+                    ],
+                    "hasPortability": {
+                        "instance": "model-specific",
+                        "classes": [
+                            "Portability"
+                        ]
+                    },
+                    "hasExplanationScope": {
+                        "instance": "local",
+                        "classes": [
+                            "Explanation Scope"
+                        ]
+                    },
+                    "targetType": {
+                        "instance": "prediction",
+                        "classes": [
+                            "Explanation Target"
+                        ]
+                    },
+                    "hasPresentation": {
+                        "instance": "Computational Entity",
+                        "classes": [
+                            "textual entity"
+                        ]
+                    },
+                    "hasConcurrentness": {
+                        "instance": "post-hoc",
+                        "classes": [
+                            "Explainer Concurrentness"
+                        ]
+                    },
+                    "hasOutputType": {
+                        "instance": "Instance based Explanation",
+                        "classes": [
+                            "Explanation"
+                        ]
+                    }
+                }
+            },
+            "hasUser": {
+                "instance": "DkNNAnyUserUser",
+                "classes": [
+                    "User"
+                ],
+                "hasIntent": {
+                    "instance": "Understand system prediction",
+                    "classes": [
+                        "Transparency, Trust"
+                    ]
+                },
+                "hasResources": {
+                    "instance": "ScreenDisplay",
+                    "classes": [
+                        "Technical Facilities"
+                    ],
+                    "canHandle": [
+                        {
+                            "instance": "Any",
+                            "classes": [
+                                "ExplanationModality"
+                            ]
+                        }
+                    ]
+                },
+                "possess": {
+                    "instance": "DkNNUserDomain",
+                    "classes": [
+                        "Domain Knowledge"
+                    ],
+                    "levelOfKnowledge": {
+                        "instance": "low",
+                        "classes": [
+                            "KnowledgeLevel"
+                        ]
+                    }
+                },
+                "asks": {
+                    "instance": "Why does the system predict character Y and not character Z and for image X?",
+                    "classes": [
+                        "Why Question"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "instance": "SmoothGradExplanationExperience",
+        "classes": [
+            "Explanation Experience"
+        ],
+        "hasDescription": {
+            "instance": "predict the category of a given image",
+            "classes": [
+                "Description"
+            ],
+            "hasAIModel": {
+                "instance": "SmoothGradModel",
+                "classes": [
+                    "Artificial Intelligence Model"
+                ],
+                "solves": {
+                    "instance": "SmoothGradMulti-class Classification",
+                    "classes": [
+                        "Multi-class Classification"
+                    ]
+                },
+                "utilises": {
+                    "instance": "SmoothGradConvolutional Neural Network",
+                    "classes": [
+                        "Convolutional Neural Network"
+                    ]
+                },
+                "trainedOn": {
+                    "instance": "SmoothGradDataset",
+                    "classes": [
+                        "Dataset"
+                    ],
+                    "hasDataType": {
+                        "instance": "Image",
+                        "classes": [
+                            "Data Type"
+                        ]
+                    }
+                }
+            },
+            "hasExplainer": {
+                "instance": "SmoothGradExplainer",
+                "classes": [
+                    "Explainer"
+                ],
+                "utilises": {
+                    "instance": "SmoothGradExplainabilityTechnique",
+                    "classes": [
+                        "Explainability Technique"
+                    ],
+                    "hasPortability": {
+                        "instance": "model-specific",
+                        "classes": [
+                            "Portability"
+                        ]
+                    },
+                    "hasExplanationScope": {
+                        "instance": "local",
+                        "classes": [
+                            "Explanation Scope"
+                        ]
+                    },
+                    "targetType": {
+                        "instance": "prediction",
+                        "classes": [
+                            "Explanation Target"
+                        ]
+                    },
+                    "hasPresentation": {
+                        "instance": "Image",
+                        "classes": [
+                            "textual entity"
+                        ]
+                    },
+                    "hasConcurrentness": {
+                        "instance": "post-hoc",
+                        "classes": [
+                            "Explainer Concurrentness"
+                        ]
+                    },
+                    "hasOutputType": {
+                        "instance": "Saliency Map Explanation",
+                        "classes": [
+                            "Explanation"
+                        ]
+                    }
+                }
+            },
+            "hasUser": {
+                "instance": "SmoothGradAny UserUser",
+                "classes": [
+                    "User"
+                ],
+                "hasIntent": {
+                    "instance": "Understand how system works",
+                    "classes": [
+                        "Transparancy, Trust"
+                    ]
+                },
+                "hasResources": {
+                    "instance": "ScreenDisplay",
+                    "classes": [
+                        "Technical Facilities"
+                    ],
+                    "canHandle": [
+                        {
+                            "instance": "Any",
+                            "classes": [
+                                "ExplanationModality"
+                            ]
+                        }
+                    ]
+                },
+                "possess": {
+                    "instance": "SmoothGradUserDomain",
+                    "classes": [
+                        "Domain Knowledge"
+                    ],
+                    "levelOfKnowledge": {
+                        "instance": "Any",
+                        "classes": [
+                            "KnowledgeLevel"
+                        ]
+                    }
+                },
+                "asks": {
+                    "instance": "Why does the system predict category Y for image X?",
+                    "classes": [
+                        "Why Question"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "instance": "IntGradImageExplanationExperience",
+        "classes": [
+            "Explanation Experience"
+        ],
+        "hasDescription": {
+            "instance": "predict the category of a given image",
+            "classes": [
+                "Description"
+            ],
+            "hasAIModel": {
+                "instance": "IntGradImageModel",
+                "classes": [
+                    "Artificial Intelligence Model"
+                ],
+                "solves": {
+                    "instance": "IntGradImageMulti-class Classification",
+                    "classes": [
+                        "Multi-class Classification"
+                    ]
+                },
+                "utilises": {
+                    "instance": "IntGradImageConvolutional Neural Network",
+                    "classes": [
+                        "Convolutional Neural Network"
+                    ]
+                },
+                "trainedOn": {
+                    "instance": "IntGradImageDataset",
+                    "classes": [
+                        "Dataset"
+                    ],
+                    "hasDataType": {
+                        "instance": "Image",
+                        "classes": [
+                            "Data Type"
+                        ]
+                    }
+                }
+            },
+            "hasExplainer": {
+                "instance": "IntGradImageExplainer",
+                "classes": [
+                    "Explainer"
+                ],
+                "utilises": {
+                    "instance": "IntGradImageExplainabilityTechnique",
+                    "classes": [
+                        "Explainability Technique"
+                    ],
+                    "hasPortability": {
+                        "instance": "model-specific",
+                        "classes": [
+                            "Portability"
+                        ]
+                    },
+                    "hasExplanationScope": {
+                        "instance": "local",
+                        "classes": [
+                            "Explanation Scope"
+                        ]
+                    },
+                    "targetType": {
+                        "instance": "prediction",
+                        "classes": [
+                            "Explanation Target"
+                        ]
+                    },
+                    "hasPresentation": {
+                        "instance": "Image",
+                        "classes": [
+                            "textual entity"
+                        ]
+                    },
+                    "hasConcurrentness": {
+                        "instance": "post-hoc",
+                        "classes": [
+                            "Explainer Concurrentness"
+                        ]
+                    },
+                    "hasOutputType": {
+                        "instance": "Saliency Map Explanation",
+                        "classes": [
+                            "Explanation"
+                        ]
+                    }
+                }
+            },
+            "hasUser": {
+                "instance": "IntGradImageAny UserUser",
+                "classes": [
+                    "User"
+                ],
+                "hasIntent": {
+                    "instance": "Understand how system works",
+                    "classes": [
+                        "Transparancy, Trust"
+                    ]
+                },
+                "hasResources": {
+                    "instance": "ScreenDisplay",
+                    "classes": [
+                        "Technical Facilities"
+                    ],
+                    "canHandle": [
+                        {
+                            "instance": "Any",
+                            "classes": [
+                                "ExplanationModality"
+                            ]
+                        }
+                    ]
+                },
+                "possess": {
+                    "instance": "IntGradImageUserDomain",
+                    "classes": [
+                        "Domain Knowledge"
+                    ],
+                    "levelOfKnowledge": {
+                        "instance": "Any",
+                        "classes": [
+                            "KnowledgeLevel"
+                        ]
+                    }
+                },
+                "asks": {
+                    "instance": "Why does the system predict category Y for image X?",
+                    "classes": [
+                        "Why Question"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "instance": "IntGradRetinopathyExplanationExperience",
+        "classes": [
+            "Explanation Experience"
+        ],
+        "hasDescription": {
+            "instance": "predict if a given medical image contains diabetic retinopathy",
+            "classes": [
+                "Description"
+            ],
+            "hasAIModel": {
+                "instance": "IntGradRetinopathyModel",
+                "classes": [
+                    "Artificial Intelligence Model"
+                ],
+                "solves": {
+                    "instance": "IntGradRetinopathyBinary Classification",
+                    "classes": [
+                        "Binary Classification"
+                    ]
+                },
+                "utilises": {
+                    "instance": "IntGradRetinopathyConvolutional Neural Network",
+                    "classes": [
+                        "Convolutional Neural Network"
+                    ]
+                },
+                "trainedOn": {
+                    "instance": "IntGradRetinopathyDataset",
+                    "classes": [
+                        "Dataset"
+                    ],
+                    "hasDataType": {
+                        "instance": "Image",
+                        "classes": [
+                            "Data Type"
+                        ]
+                    }
+                }
+            },
+            "hasExplainer": {
+                "instance": "IntGradRetinopathyExplainer",
+                "classes": [
+                    "Explainer"
+                ],
+                "utilises": {
+                    "instance": "IntGradRetinopathyExplainabilityTechnique",
+                    "classes": [
+                        "Explainability Technique"
+                    ],
+                    "hasPortability": {
+                        "instance": "model-specific",
+                        "classes": [
+                            "Portability"
+                        ]
+                    },
+                    "hasExplanationScope": {
+                        "instance": "local",
+                        "classes": [
+                            "Explanation Scope"
+                        ]
+                    },
+                    "targetType": {
+                        "instance": "prediction",
+                        "classes": [
+                            "Explanation Target"
+                        ]
+                    },
+                    "hasPresentation": {
+                        "instance": "Image",
+                        "classes": [
+                            "textual entity"
+                        ]
+                    },
+                    "hasConcurrentness": {
+                        "instance": "post-hoc",
+                        "classes": [
+                            "Explainer Concurrentness"
+                        ]
+                    },
+                    "hasOutputType": {
+                        "instance": "Saliency Map Explanation",
+                        "classes": [
+                            "Explanation"
+                        ]
+                    }
+                }
+            },
+            "hasUser": {
+                "instance": "IntGradRetinopathyClinician, OptomologistUser",
+                "classes": [
+                    "User"
+                ],
+                "hasIntent": {
+                    "instance": "Understand how system works",
+                    "classes": [
+                        "Transparancy, Trust, Education"
+                    ]
+                },
+                "hasResources": {
+                    "instance": "ScreenDisplay",
+                    "classes": [
+                        "Technical Facilities"
+                    ],
+                    "canHandle": [
+                        {
+                            "instance": "Any",
+                            "classes": [
+                                "ExplanationModality"
+                            ]
+                        }
+                    ]
+                },
+                "possess": {
+                    "instance": "IntGradRetinopathyUserDomain",
+                    "classes": [
+                        "Domain Knowledge"
+                    ],
+                    "levelOfKnowledge": {
+                        "instance": "High",
+                        "classes": [
+                            "KnowledgeLevel"
+                        ]
+                    }
+                },
+                "asks": {
+                    "instance": "Why does the system predict RDR for image X?",
+                    "classes": [
+                        "Why Question"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "instance": "IntGradTextClassificationExplanationExperience",
+        "classes": [
+            "Explanation Experience"
+        ],
+        "hasDescription": {
+            "instance": "predict the question category based on question text",
+            "classes": [
+                "Description"
+            ],
+            "hasAIModel": {
+                "instance": "IntGradTextClassificationModel",
+                "classes": [
+                    "Artificial Intelligence Model"
+                ],
+                "solves": {
+                    "instance": "IntGradTextClassificationMulti-class Classification",
+                    "classes": [
+                        "Multi-class Classification"
+                    ]
+                },
+                "utilises": {
+                    "instance": "IntGradTextClassificationConvolutional Neural Network",
+                    "classes": [
+                        "Convolutional Neural Network"
+                    ]
+                },
+                "trainedOn": {
+                    "instance": "IntGradTextClassificationDataset",
+                    "classes": [
+                        "Dataset"
+                    ],
+                    "hasDataType": {
+                        "instance": "text",
+                        "classes": [
+                            "Data Type"
+                        ]
+                    }
+                }
+            },
+            "hasExplainer": {
+                "instance": "IntGradTextClassificationExplainer",
+                "classes": [
+                    "Explainer"
+                ],
+                "utilises": {
+                    "instance": "IntGradTextClassificationExplainabilityTechnique",
+                    "classes": [
+                        "Explainability Technique"
+                    ],
+                    "hasPortability": {
+                        "instance": "model-specific",
+                        "classes": [
+                            "Portability"
+                        ]
+                    },
+                    "hasExplanationScope": {
+                        "instance": "local",
+                        "classes": [
+                            "Explanation Scope"
+                        ]
+                    },
+                    "targetType": {
+                        "instance": "prediction",
+                        "classes": [
+                            "Explanation Target"
+                        ]
+                    },
+                    "hasPresentation": {
+                        "instance": "Text",
+                        "classes": [
+                            "textual entity"
+                        ]
+                    },
+                    "hasConcurrentness": {
+                        "instance": "post-hoc",
+                        "classes": [
+                            "Explainer Concurrentness"
+                        ]
+                    },
+                    "hasOutputType": {
+                        "instance": "Saliency Map Explanation",
+                        "classes": [
+                            "Explanation"
+                        ]
+                    }
+                }
+            },
+            "hasUser": {
+                "instance": "IntGradTextClassificationAny UserUser",
+                "classes": [
+                    "User"
+                ],
+                "hasIntent": {
+                    "instance": "Understand how system works",
+                    "classes": [
+                        "Transparancy, Trust"
+                    ]
+                },
+                "hasResources": {
+                    "instance": "ScreenDisplay",
+                    "classes": [
+                        "Technical Facilities"
+                    ],
+                    "canHandle": [
+                        {
+                            "instance": "Any",
+                            "classes": [
+                                "ExplanationModality"
+                            ]
+                        }
+                    ]
+                },
+                "possess": {
+                    "instance": "IntGradTextClassificationUserDomain",
+                    "classes": [
+                        "Domain Knowledge"
+                    ],
+                    "levelOfKnowledge": {
+                        "instance": "low",
+                        "classes": [
+                            "KnowledgeLevel"
+                        ]
+                    }
+                },
+                "asks": {
+                    "instance": "Why does the system predict category Y for question text X?",
+                    "classes": [
+                        "Why Question"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "instance": "GradCAMModelFailDetectionExplanationExperience",
+        "classes": [
+            "Explanation Experience"
+        ],
+        "hasDescription": {
+            "instance": "predict the category of a given image",
+            "classes": [
+                "Description"
+            ],
+            "hasAIModel": {
+                "instance": "GradCAMModelFailDetectionModel",
+                "classes": [
+                    "Artificial Intelligence Model"
+                ],
+                "solves": {
+                    "instance": "GradCAMModelFailDetectionMulti-class Classification",
+                    "classes": [
+                        "Multi-class Classification"
+                    ]
+                },
+                "utilises": {
+                    "instance": "GradCAMModelFailDetectionConvolutional Neural Network",
+                    "classes": [
+                        "Convolutional Neural Network"
+                    ]
+                },
+                "trainedOn": {
+                    "instance": "GradCAMModelFailDetectionDataset",
+                    "classes": [
+                        "Dataset"
+                    ],
+                    "hasDataType": {
+                        "instance": "Image",
+                        "classes": [
+                            "Data Type"
+                        ]
+                    }
+                }
+            },
+            "hasExplainer": {
+                "instance": "GradCAMModelFailDetectionExplainer",
+                "classes": [
+                    "Explainer"
+                ],
+                "utilises": {
+                    "instance": "GradCAMModelFailDetectionExplainabilityTechnique",
+                    "classes": [
+                        "Explainability Technique"
+                    ],
+                    "hasPortability": {
+                        "instance": "model-specific",
+                        "classes": [
+                            "Portability"
+                        ]
+                    },
+                    "hasExplanationScope": {
+                        "instance": "global",
+                        "classes": [
+                            "Explanation Scope"
+                        ]
+                    },
+                    "targetType": {
+                        "instance": "model",
+                        "classes": [
+                            "Explanation Target"
+                        ]
+                    },
+                    "hasPresentation": {
+                        "instance": "Image",
+                        "classes": [
+                            "textual entity"
+                        ]
+                    },
+                    "hasConcurrentness": {
+                        "instance": "post-hoc",
+                        "classes": [
+                            "Explainer Concurrentness"
+                        ]
+                    },
+                    "hasOutputType": {
+                        "instance": "Saliency Map Explanation",
+                        "classes": [
+                            "Explanation"
+                        ]
+                    }
+                }
+            },
+            "hasUser": {
+                "instance": "GradCAMModelFailDetectionModel DeveloperUser",
+                "classes": [
+                    "User"
+                ],
+                "hasIntent": {
+                    "instance": "Understand model weaknesses, debug model",
+                    "classes": [
+                        "Debugging"
+                    ]
+                },
+                "hasResources": {
+                    "instance": "ScreenDisplay",
+                    "classes": [
+                        "Technical Facilities"
+                    ],
+                    "canHandle": [
+                        {
+                            "instance": "Any",
+                            "classes": [
+                                "ExplanationModality"
+                            ]
+                        }
+                    ]
+                },
+                "possess": {
+                    "instance": "GradCAMModelFailDetectionUserDomain",
+                    "classes": [
+                        "Domain Knowledge"
+                    ],
+                    "levelOfKnowledge": {
+                        "instance": "High",
+                        "classes": [
+                            "KnowledgeLevel"
+                        ]
+                    }
+                },
+                "asks": {
+                    "instance": "What mistakes are the model making?",
+                    "classes": [
+                        "What Question"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "instance": "GradCAMBiasDetectionExplanationExperience",
+        "classes": [
+            "Explanation Experience"
+        ],
+        "hasDescription": {
+            "instance": "predict the category of a given image",
+            "classes": [
+                "Description"
+            ],
+            "hasAIModel": {
+                "instance": "GradCAMBiasDetectionModel",
+                "classes": [
+                    "Artificial Intelligence Model"
+                ],
+                "solves": {
+                    "instance": "GradCAMBiasDetectionMulti-class Classification",
+                    "classes": [
+                        "Multi-class Classification"
+                    ]
+                },
+                "utilises": {
+                    "instance": "GradCAMBiasDetectionConvolutional Neural Network",
+                    "classes": [
+                        "Convolutional Neural Network"
+                    ]
+                },
+                "trainedOn": {
+                    "instance": "GradCAMBiasDetectionDataset",
+                    "classes": [
+                        "Dataset"
+                    ],
+                    "hasDataType": {
+                        "instance": "Image",
+                        "classes": [
+                            "Data Type"
+                        ]
+                    }
+                }
+            },
+            "hasExplainer": {
+                "instance": "GradCAMBiasDetectionExplainer",
+                "classes": [
+                    "Explainer"
+                ],
+                "utilises": {
+                    "instance": "GradCAMBiasDetectionExplainabilityTechnique",
+                    "classes": [
+                        "Explainability Technique"
+                    ],
+                    "hasPortability": {
+                        "instance": "model-specific",
+                        "classes": [
+                            "Portability"
+                        ]
+                    },
+                    "hasExplanationScope": {
+                        "instance": "global",
+                        "classes": [
+                            "Explanation Scope"
+                        ]
+                    },
+                    "targetType": {
+                        "instance": "model",
+                        "classes": [
+                            "Explanation Target"
+                        ]
+                    },
+                    "hasPresentation": {
+                        "instance": "Image",
+                        "classes": [
+                            "textual entity"
+                        ]
+                    },
+                    "hasConcurrentness": {
+                        "instance": "post-hoc",
+                        "classes": [
+                            "Explainer Concurrentness"
+                        ]
+                    },
+                    "hasOutputType": {
+                        "instance": "Sensitivity Map Explanation",
+                        "classes": [
+                            "Explanation"
+                        ]
+                    }
+                }
+            },
+            "hasUser": {
+                "instance": "GradCAMBiasDetectionModel DeveloperUser",
+                "classes": [
+                    "User"
+                ],
+                "hasIntent": {
+                    "instance": "Understand model bias, debug model",
+                    "classes": [
+                        "Debugging"
+                    ]
+                },
+                "hasResources": {
+                    "instance": "ScreenDisplay",
+                    "classes": [
+                        "Technical Facilities"
+                    ],
+                    "canHandle": [
+                        {
+                            "instance": "Any",
+                            "classes": [
+                                "ExplanationModality"
+                            ]
+                        }
+                    ]
+                },
+                "possess": {
+                    "instance": "GradCAMBiasDetectionUserDomain",
+                    "classes": [
+                        "Domain Knowledge"
+                    ],
+                    "levelOfKnowledge": {
+                        "instance": "High",
+                        "classes": [
+                            "KnowledgeLevel"
+                        ]
+                    }
+                },
+                "asks": {
+                    "instance": "Is this model bias?",
+                    "classes": [
+                        "About Question"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "instance": "GradCAMImageSensitivityExplanationExperience",
+        "classes": [
+            "Explanation Experience"
+        ],
+        "hasDescription": {
+            "instance": "predict the category of a given image",
+            "classes": [
+                "Description"
+            ],
+            "hasAIModel": {
+                "instance": "GradCAMImageSensitivityModel",
+                "classes": [
+                    "Artificial Intelligence Model"
+                ],
+                "solves": {
+                    "instance": "GradCAMImageSensitivityMulti-class Classification",
+                    "classes": [
+                        "Multi-class Classification"
+                    ]
+                },
+                "utilises": {
+                    "instance": "GradCAMImageSensitivityConvolutional Neural Network",
+                    "classes": [
+                        "Convolutional Neural Network"
+                    ]
+                },
+                "trainedOn": {
+                    "instance": "GradCAMImageSensitivityDataset",
+                    "classes": [
+                        "Dataset"
+                    ],
+                    "hasDataType": {
+                        "instance": "Image",
+                        "classes": [
+                            "Data Type"
+                        ]
+                    }
+                }
+            },
+            "hasExplainer": {
+                "instance": "GradCAMImageSensitivityExplainer",
+                "classes": [
+                    "Explainer"
+                ],
+                "utilises": {
+                    "instance": "GradCAMImageSensitivityExplainabilityTechnique",
+                    "classes": [
+                        "Explainability Technique"
+                    ],
+                    "hasPortability": {
+                        "instance": "model-specific",
+                        "classes": [
+                            "Portability"
+                        ]
+                    },
+                    "hasExplanationScope": {
+                        "instance": "local",
+                        "classes": [
+                            "Explanation Scope"
+                        ]
+                    },
+                    "targetType": {
+                        "instance": "prediction",
+                        "classes": [
+                            "Explanation Target"
+                        ]
+                    },
+                    "hasPresentation": {
+                        "instance": "Image",
+                        "classes": [
+                            "textual entity"
+                        ]
+                    },
+                    "hasConcurrentness": {
+                        "instance": "post-hoc",
+                        "classes": [
+                            "Explainer Concurrentness"
+                        ]
+                    },
+                    "hasOutputType": {
+                        "instance": "Saliency Map Explanation",
+                        "classes": [
+                            "Explanation"
+                        ]
+                    }
+                }
+            },
+            "hasUser": {
+                "instance": "GradCAMImageSensitivityAny UserUser",
+                "classes": [
+                    "User"
+                ],
+                "hasIntent": {
+                    "instance": "Understand model recommendation",
+                    "classes": [
+                        "Transparency, Trust"
+                    ]
+                },
+                "hasResources": {
+                    "instance": "ScreenDisplay",
+                    "classes": [
+                        "Technical Facilities"
+                    ],
+                    "canHandle": [
+                        {
+                            "instance": "Any",
+                            "classes": [
+                                "ExplanationModality"
+                            ]
+                        }
+                    ]
+                },
+                "possess": {
+                    "instance": "GradCAMImageSensitivityUserDomain",
+                    "classes": [
+                        "Domain Knowledge"
+                    ],
+                    "levelOfKnowledge": {
+                        "instance": "low",
+                        "classes": [
+                            "KnowledgeLevel"
+                        ]
+                    }
+                },
+                "asks": {
+                    "instance": "Why does the system predict category Y for image X?",
+                    "classes": [
+                        "Why Question"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "instance": "GradCAMImageCounterfactualExplanationExperience",
+        "classes": [
+            "Explanation Experience"
+        ],
+        "hasDescription": {
+            "instance": "predict the category of a given image",
+            "classes": [
+                "Description"
+            ],
+            "hasAIModel": {
+                "instance": "GradCAMImageCounterfactualModel",
+                "classes": [
+                    "Artificial Intelligence Model"
+                ],
+                "solves": {
+                    "instance": "GradCAMImageCounterfactualMulti-class Classification",
+                    "classes": [
+                        "Multi-class Classification"
+                    ]
+                },
+                "utilises": {
+                    "instance": "GradCAMImageCounterfactualConvolutional Neural Network",
+                    "classes": [
+                        "Convolutional Neural Network"
+                    ]
+                },
+                "trainedOn": {
+                    "instance": "GradCAMImageCounterfactualDataset",
+                    "classes": [
+                        "Dataset"
+                    ],
+                    "hasDataType": {
+                        "instance": "Image",
+                        "classes": [
+                            "Data Type"
+                        ]
+                    }
+                }
+            },
+            "hasExplainer": {
+                "instance": "GradCAMImageCounterfactualExplainer",
+                "classes": [
+                    "Explainer"
+                ],
+                "utilises": {
+                    "instance": "GradCAMImageCounterfactualExplainabilityTechnique",
+                    "classes": [
+                        "Explainability Technique"
+                    ],
+                    "hasPortability": {
+                        "instance": "model-specific",
+                        "classes": [
+                            "Portability"
+                        ]
+                    },
+                    "hasExplanationScope": {
+                        "instance": "local",
+                        "classes": [
+                            "Explanation Scope"
+                        ]
+                    },
+                    "targetType": {
+                        "instance": "prediction",
+                        "classes": [
+                            "Explanation Target"
+                        ]
+                    },
+                    "hasPresentation": {
+                        "instance": "Image",
+                        "classes": [
+                            "textual entity"
+                        ]
+                    },
+                    "hasConcurrentness": {
+                        "instance": "post-hoc",
+                        "classes": [
+                            "Explainer Concurrentness"
+                        ]
+                    },
+                    "hasOutputType": {
+                        "instance": "Saliency Map Explanation",
+                        "classes": [
+                            "Explanation"
+                        ]
+                    }
+                }
+            },
+            "hasUser": {
+                "instance": "GradCAMImageCounterfactualAny UserUser",
+                "classes": [
+                    "User"
+                ],
+                "hasIntent": {
+                    "instance": "Understand model recommendation is not as expected",
+                    "classes": [
+                        "Transparency, Trust, Actionable"
+                    ]
+                },
+                "hasResources": {
+                    "instance": "ScreenDisplay",
+                    "classes": [
+                        "Technical Facilities"
+                    ],
+                    "canHandle": [
+                        {
+                            "instance": "Any",
+                            "classes": [
+                                "ExplanationModality"
+                            ]
+                        }
+                    ]
+                },
+                "possess": {
+                    "instance": "GradCAMImageCounterfactualUserDomain",
+                    "classes": [
+                        "Domain Knowledge"
+                    ],
+                    "levelOfKnowledge": {
+                        "instance": "low",
+                        "classes": [
+                            "KnowledgeLevel"
+                        ]
+                    }
+                },
+                "asks": {
+                    "instance": "Why does the system not predict category Z for image X?",
+                    "classes": [
+                        "Why-not Question"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "instance": "DeepLIFTCharactersExplanationExperience",
+        "classes": [
+            "Explanation Experience"
+        ],
+        "hasDescription": {
+            "instance": "predict category of a given an image of a character",
+            "classes": [
+                "Description"
+            ],
+            "hasAIModel": {
+                "instance": "DeepLIFTCharactersModel",
+                "classes": [
+                    "Artificial Intelligence Model"
+                ],
+                "solves": {
+                    "instance": "DeepLIFTCharactersMulti-class Classification",
+                    "classes": [
+                        "Multi-class Classification"
+                    ]
+                },
+                "utilises": {
+                    "instance": "DeepLIFTCharactersConvolutional Neural Network",
+                    "classes": [
+                        "Convolutional Neural Network"
+                    ]
+                },
+                "trainedOn": {
+                    "instance": "DeepLIFTCharactersDataset",
+                    "classes": [
+                        "Dataset"
+                    ],
+                    "hasDataType": {
+                        "instance": "Image",
+                        "classes": [
+                            "Data Type"
+                        ]
+                    }
+                }
+            },
+            "hasExplainer": {
+                "instance": "DeepLIFTCharactersExplainer",
+                "classes": [
+                    "Explainer"
+                ],
+                "utilises": {
+                    "instance": "DeepLIFTCharactersExplainabilityTechnique",
+                    "classes": [
+                        "Explainability Technique"
+                    ],
+                    "hasPortability": {
+                        "instance": "model-specific",
+                        "classes": [
+                            "Portability"
+                        ]
+                    },
+                    "hasExplanationScope": {
+                        "instance": "local",
+                        "classes": [
+                            "Explanation Scope"
+                        ]
+                    },
+                    "targetType": {
+                        "instance": "prediction",
+                        "classes": [
+                            "Explanation Target"
+                        ]
+                    },
+                    "hasPresentation": {
+                        "instance": "Image",
+                        "classes": [
+                            "textual entity"
+                        ]
+                    },
+                    "hasConcurrentness": {
+                        "instance": "post-hoc",
+                        "classes": [
+                            "Explainer Concurrentness"
+                        ]
+                    },
+                    "hasOutputType": {
+                        "instance": "Saliency Map Explanation",
+                        "classes": [
+                            "Explanation"
+                        ]
+                    }
+                }
+            },
+            "hasUser": {
+                "instance": "DeepLIFTCharactersAny UserUser",
+                "classes": [
+                    "User"
+                ],
+                "hasIntent": {
+                    "instance": "Understand system prediction",
+                    "classes": [
+                        "Trust, Transparency"
+                    ]
+                },
+                "hasResources": {
+                    "instance": "ScreenDisplay",
+                    "classes": [
+                        "Technical Facilities"
+                    ],
+                    "canHandle": [
+                        {
+                            "instance": "Any",
+                            "classes": [
+                                "ExplanationModality"
+                            ]
+                        }
+                    ]
+                },
+                "possess": {
+                    "instance": "DeepLIFTCharactersUserDomain",
+                    "classes": [
+                        "Domain Knowledge"
+                    ],
+                    "levelOfKnowledge": {
+                        "instance": "low",
+                        "classes": [
+                            "KnowledgeLevel"
+                        ]
+                    }
+                },
+                "asks": {
+                    "instance": "Why does the system predict category Y for image X?",
+                    "classes": [
+                        "Why question"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "instance": "DeepLIFTDNAExplanationExperience",
+        "classes": [
+            "Explanation Experience"
+        ],
+        "hasDescription": {
+            "instance": "classify given DNA sequence for motifs",
+            "classes": [
+                "Description"
+            ],
+            "hasAIModel": {
+                "instance": "DeepLIFTDNAModel",
+                "classes": [
+                    "Artificial Intelligence Model"
+                ],
+                "solves": {
+                    "instance": "DeepLIFTDNAMulti-label Classification",
+                    "classes": [
+                        "Multi-label Classification"
+                    ]
+                },
+                "utilises": {
+                    "instance": "DeepLIFTDNAConvolutional Neural Network",
+                    "classes": [
+                        "Convolutional Neural Network"
+                    ]
+                },
+                "trainedOn": {
+                    "instance": "DeepLIFTDNADataset",
+                    "classes": [
+                        "Dataset"
+                    ],
+                    "hasDataType": {
+                        "instance": "DNA Sequences",
+                        "classes": [
+                            "Data Type"
+                        ]
+                    }
+                }
+            },
+            "hasExplainer": {
+                "instance": "DeepLIFTDNAExplainer",
+                "classes": [
+                    "Explainer"
+                ],
+                "utilises": {
+                    "instance": "DeepLIFTDNAExplainabilityTechnique",
+                    "classes": [
+                        "Explainability Technique"
+                    ],
+                    "hasPortability": {
+                        "instance": "model-specific",
+                        "classes": [
+                            "Portability"
+                        ]
+                    },
+                    "hasExplanationScope": {
+                        "instance": "local",
+                        "classes": [
+                            "Explanation Scope"
+                        ]
+                    },
+                    "targetType": {
+                        "instance": "prediction",
+                        "classes": [
+                            "Explanation Target"
+                        ]
+                    },
+                    "hasPresentation": {
+                        "instance": "Sequence Logo",
+                        "classes": [
+                            "textual entity"
+                        ]
+                    },
+                    "hasConcurrentness": {
+                        "instance": "post-hoc",
+                        "classes": [
+                            "Explainer Concurrentness"
+                        ]
+                    },
+                    "hasOutputType": {
+                        "instance": "Saliency Map Explanation",
+                        "classes": [
+                            "Explanation"
+                        ]
+                    }
+                }
+            },
+            "hasUser": {
+                "instance": "DeepLIFTDNAAny UserUser",
+                "classes": [
+                    "User"
+                ],
+                "hasIntent": {
+                    "instance": "Understand system prediction",
+                    "classes": [
+                        "Trust, Transparency"
+                    ]
+                },
+                "hasResources": {
+                    "instance": "ScreenDisplay",
+                    "classes": [
+                        "Technical Facilities"
+                    ],
+                    "canHandle": [
+                        {
+                            "instance": "Any",
+                            "classes": [
+                                "ExplanationModality"
+                            ]
+                        }
+                    ]
+                },
+                "possess": {
+                    "instance": "DeepLIFTDNAUserDomain",
+                    "classes": [
+                        "Domain Knowledge"
+                    ],
+                    "levelOfKnowledge": {
+                        "instance": "Low, High",
+                        "classes": [
+                            "KnowledgeLevel"
+                        ]
+                    }
+                },
+                "asks": {
+                    "instance": "Why does the system predict motif Y present in sequence X?",
+                    "classes": [
+                        "Why question"
+                    ]
+                }
+            }
+        }
+    }
+]
