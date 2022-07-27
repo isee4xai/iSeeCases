@@ -95,7 +95,8 @@
                 "hasIntent": {
                     "instance": "Understand system recommendation",
                     "classes": [
-                        "Trust, Scruitability"
+                        "Trust", 
+                        "Scruitability"
                     ]
                 },
                 "hasResources": {
@@ -363,7 +364,8 @@
                 "hasIntent": {
                     "instance": "Understand why model made a decision",
                     "classes": [
-                        "Transparency/Education"
+                        "Transparency",
+                        "Education"
                     ]
                 },
                 "hasResources": {
@@ -497,7 +499,8 @@
                 "hasIntent": {
                     "instance": "Reducing cancer risk",
                     "classes": [
-                        "Education, Taking Action"
+                        "Education",
+                        "Taking Action"
                     ]
                 },
                 "hasResources": {
@@ -631,7 +634,8 @@
                 "hasIntent": {
                     "instance": "Understand system prediction",
                     "classes": [
-                        "Trust, Transparency"
+                        "Trust",
+                        "Transparency"
                     ]
                 },
                 "hasResources": {
@@ -765,7 +769,8 @@
                 "hasIntent": {
                     "instance": "Understand system prediction",
                     "classes": [
-                        "Trust, Transparency"
+                        "Trust",
+                        "Transparency"
                     ]
                 },
                 "hasResources": {
@@ -899,7 +904,8 @@
                 "hasIntent": {
                     "instance": "Understand system prediction",
                     "classes": [
-                        "Transparency, Trust"
+                        "Transparency",
+                        "Trust"
                     ]
                 },
                 "hasResources": {
@@ -1033,7 +1039,8 @@
                 "hasIntent": {
                     "instance": "Understand how system works",
                     "classes": [
-                        "Transparancy, Trust"
+                        "Transparancy",
+                        "Trust"
                     ]
                 },
                 "hasResources": {
@@ -1167,7 +1174,7 @@
                 "hasIntent": {
                     "instance": "Understand how system works",
                     "classes": [
-                        "Transparancy, Trust"
+                        "Transparancy", "Trust"
                     ]
                 },
                 "hasResources": {
@@ -1301,7 +1308,9 @@
                 "hasIntent": {
                     "instance": "Understand how system works",
                     "classes": [
-                        "Transparancy, Trust, Education"
+                        "Transparancy", 
+                        "Trust",
+                        "Education"
                     ]
                 },
                 "hasResources": {
@@ -1435,7 +1444,7 @@
                 "hasIntent": {
                     "instance": "Understand how system works",
                     "classes": [
-                        "Transparancy, Trust"
+                        "Transparancy","Trust"
                     ]
                 },
                 "hasResources": {
@@ -1837,7 +1846,8 @@
                 "hasIntent": {
                     "instance": "Understand model recommendation",
                     "classes": [
-                        "Transparency, Trust"
+                        "Transparency",
+                        "Trust"
                     ]
                 },
                 "hasResources": {
@@ -1971,7 +1981,9 @@
                 "hasIntent": {
                     "instance": "Understand model recommendation is not as expected",
                     "classes": [
-                        "Transparency, Trust, Actionable"
+                        "Transparency",
+                        "Trust",
+                        "Actionable"
                     ]
                 },
                 "hasResources": {
@@ -2105,7 +2117,8 @@
                 "hasIntent": {
                     "instance": "Understand system prediction",
                     "classes": [
-                        "Trust, Transparency"
+                        "Trust",
+                        "Transparency"
                     ]
                 },
                 "hasResources": {
@@ -2239,7 +2252,8 @@
                 "hasIntent": {
                     "instance": "Understand system prediction",
                     "classes": [
-                        "Trust, Transparency"
+                        "Trust", 
+                        "Transparency"
                     ]
                 },
                 "hasResources": {
