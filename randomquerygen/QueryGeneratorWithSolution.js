@@ -8,8 +8,8 @@ var taxonomyData, aiTasks, intents, aiMethods;
 fs.readFile('Taxonomy.json', 'utf8', (err, data) => {
   if (err) console.error(err);
   taxonomyData = JSON.parse(data);
-  aiTasks = taxonomyData.utilises.classes;
-  aiMethods = taxonomyData.solves.classes;
+  aiTasks = taxonomyData.solves.classes;
+  aiMethods = taxonomyData.utilises.classes;
   intents = taxonomyData.hasIntent.classes;
   dataTypes = taxonomyData.hasDataType.instance;
   technicalFacilities = taxonomyData.hasResources.instance;
@@ -30,7 +30,7 @@ var allModifications = {
     // console.log("randTask: " + randomQuery.hasDescription.hasAIModel.solves.classes);
     randomQuery.hasDescription.hasAIModel.solves.instance = randomCaseName.concat(" ", randTask);
     // console.log("New Instance: " + randomQuery.hasDescription.hasAIModel.solves.instance);
-    console.log("modifyAITask")
+    console.log("modifyAITask: "+randTask);
   },
   modifyIntent: function(randomQuery, randomCaseName) {
     var randIntent = intents[Math.floor(Math.random() * intents.length)];
@@ -38,7 +38,7 @@ var allModifications = {
     // console.log("randIntent: " + randomQuery.hasDescription.hasUser.hasIntent.classes);
     randomQuery.hasDescription.hasUser.hasIntent.instance = randomCaseName.concat(" ", randIntent);
     // console.log("New Instance: " + randomQuery.hasDescription.hasUser.hasIntent.instance);
-    console.log("modifyIntent")
+    console.log("modifyIntent: "+randIntent);
   },
   modifyAIMethod: function(randomQuery, randomCaseName) {
     var randMethod = aiMethods[Math.floor(Math.random() * aiMethods.length)];
@@ -46,52 +46,53 @@ var allModifications = {
     // console.log("randMethod: " + randomQuery.hasDescription.hasAIModel.utilises.classes);
     randomQuery.hasDescription.hasAIModel.utilises.instance = randomCaseName.concat(" ", randMethod);
     // console.log("New Instance: " + randomQuery.hasDescription.hasAIModel.utilises.instance);
-    console.log("modifyAIMethod");
+    console.log("modifyAIMethod: "+randMethod);
   },
   modifyDataType: function(randomQuery, randomCaseName) {
     var randDataType = dataTypes[Math.floor(Math.random() * dataTypes.length)];
     randomQuery.hasDescription.hasAIModel.trainedOn.hasDataType.instance = randDataType;
-    console.log("modifyDataType");
+    console.log("modifyDataType: "+randDataType);
   },
   modifyResources: function(randomQuery, randomCaseName) {
     var randTechFacility = technicalFacilities[Math.floor(Math.random() * technicalFacilities.length)];
     randomQuery.hasDescription.hasUser.hasResources.instance = randTechFacility;
-    console.log("modifyResources");
+    console.log("modifyResources: "+randTechFacility);
   },    
   modifyHandles: function(randomQuery, randomCaseName) {
     var randmodality= explanationModalities[Math.floor(Math.random() * explanationModalities.length)];
+    console.log("modifyHandles before: "+randomQuery.hasDescription.hasUser.hasResources.canHandle.instance);
     randomQuery.hasDescription.hasUser.hasResources.canHandle.instance = randmodality;
-    console.log("modifyHandles");
+    console.log("modifyHandles after: "+randmodality);
   },
   modifyLevelOfKnowledge: function(randomQuery, randomCaseName){
     var randknowledge = knowledgeLevels[Math.floor(Math.random() * knowledgeLevels.length)];
     randomQuery.hasDescription.hasUser.possess.levelOfKnowledge.instance = randknowledge;
-    console.log("modifyLevelOfKnowledge");
+    console.log("modifyLevelOfKnowledge: "+randknowledge);
   },    
   modifyPortability: function(randomQuery, randomCaseName){
     var randVal = portabilities[Math.floor(Math.random() * portabilities.length)];
     randomQuery.hasDescription.hasExplainer.utilises.hasPortability.instance = randVal;
-    console.log("modifyPortability");
+    console.log("modifyPortability: "+randVal);
   },    
   modifyConcurrentness: function(randomQuery, randomCaseName){
     var randVal = concurrents[Math.floor(Math.random() * concurrents.length)];
     randomQuery.hasDescription.hasExplainer.utilises.hasConcurrentness.instance = randVal;
-    console.log("modifyConcurrentness");
+    console.log("modifyConcurrentness: "+randVal);
   },    
   modifyExplanationScope: function(randomQuery, randomCaseName){
     var randVal = scopes[Math.floor(Math.random() * scopes.length)];
     randomQuery.hasDescription.hasExplainer.utilises.hasExplanationScope.instance = randVal;
-    console.log("modifyExplanationScope");
+    console.log("modifyExplanationScope: "+randVal);
   },    
   modifyPresentation: function(randomQuery, randomCaseName){
     var randVal = presentations[Math.floor(Math.random() * presentations.length)];
     randomQuery.hasDescription.hasExplainer.utilises.hasPresentation.instance = randVal;
-    console.log("modifyPresentation");
+    console.log("modifyPresentation: "+randVal);
   },    
   modifyTargetType: function(randomQuery, randomCaseName){
     var randVal = targets[Math.floor(Math.random() * targets.length)];
     randomQuery.hasDescription.hasExplainer.utilises.targetType.instance = randVal;
-    console.log("modifyTargetType");
+    console.log("modifyTargetType: "+randVal);
   }
 };
 
@@ -104,15 +105,15 @@ function genRandomQuery() {
     const randKey = keys[Math.floor(Math.random() * keys.length)];
     const randCase = allCases[randKey];
 
-    // try {
+    try {
     // Convert pretty-print JSON object (random) to string - serialize JSON object (properly formatted)
-    // const caseData = JSON.stringify(randCase, null, 4);
+    const caseData = JSON.stringify(randCase, null, 4);
     // Write JSON string to a new file
-    // fs.writeFileSync('RandomCase.json', caseData);
-    // console.log("Random case selected.");
-    // } catch (error) {
-    // console.error(err);
-    // }
+    fs.writeFileSync('RandomCase.json', caseData);
+    console.log("Random case selected.");
+    } catch (error) {
+    console.error(err);
+    }
 
     //Get a random case name
     const randomCaseName = caseNames[Math.floor(Math.random() * caseNames.length)];
@@ -160,7 +161,6 @@ function replaceCaseName(randomQuery, randCaseName, extractedName) {
   randomQuery.hasDescription.hasUser.instance = randCaseName.concat("User");
   randomQuery.hasDescription.hasUser.possess.instance = randomQuery.hasDescription.hasUser.possess.instance.replace(extractedName, randCaseName);
 }
-
 
 function getModifications(){
   var arr = [...Array(Object.keys(allModifications).length).keys()];
