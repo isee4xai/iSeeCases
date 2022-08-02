@@ -1,0 +1,118 @@
+{
+	"hasDataType": {
+		"instance": [
+            "Image",
+			"Tabular", 
+            "Audio",
+			"Video", 
+            "Timeseries",
+			"Structured Text",
+			"Unstructured Text",
+			"Combined"
+		],
+		"classes": ["Data Type"]
+	},
+	"hasConcurrentness": {
+		"instance": [
+        "anti-hoc",
+        "post-hoc"
+        ],
+		"classes": ["Explainer Concurrentness"]
+	},
+	"hasExplanationScope": {
+		"instance": [
+        "cohort",
+        "global",
+        "local"
+        ],
+		"classes": ["Explanation Scope"]
+	},
+	"targetType": {
+		"instance": [
+            "data",
+            "model",
+            "event"
+        ],
+		"classes": ["Explanation Target"]
+	},
+	"hasPresentation": {
+		"instance": ["Any"],
+		"classes": ["textual entity"]
+	},
+	"hasPortability": {
+		"instance": [
+            "model-class specific",
+            "model-agnostic",
+            "model specific"
+        ],
+		"classes": ["Portability"]
+	},
+	"solves": {
+		"instance": [],
+		"classes": [
+            "Abductive Task",	
+            "Classification",	
+            "Anomaly Detection",	
+            "Deductive Task",	
+            "Forecasting",	
+            "Inductive Task"
+        ]
+	},
+	"utilises": {
+		"instance": [],
+		"classes": [
+            "Computer Heuristics",	
+            "Fuzzy Logic",	
+            "Knowledge based Systems",	
+            "Expert Systems",	
+            "Knowledge Bases",	
+            "Biological Ontologies",	
+            "Machine Learning",	
+            "Supervised Machine Learning",
+            "Unsupervised Machine Learning",	
+            "Natural Language Processing",	
+            "Term frequency", 
+            "ÄìInverse document frequency",	
+            "Neural Networks"
+        ]
+	},
+	"hasIntent": {
+		"instance": [],
+		"classes": [
+            "Debugging",
+            "Education",
+            "Effectiveness",
+            "Efficiency",
+            "Persuasiveness",	
+            "Satisfaction",	
+            "Scruitablity",	
+            "Transparency",	
+            "Trust"
+        ]
+	},
+	"levelOfKnowledge": {
+		"instance": [
+            "high",
+            "medium",
+            "low"
+        ],
+		"classes": ["KnowledgeLevel"]
+	},
+	"hasResources": {
+		"instance": [
+            "Audio Facilities", 
+            "Touch Facilities", 
+            "Visual Facilities"
+        ],
+		"classes": ["Technical Facilities"]
+	},
+	"canHandle": {
+		"instance": [
+            "Text",
+            "Image",
+            "Tabular",
+            "Audio"
+        ],
+		"classes": ["ExplanationModality"]
+	}
+}
