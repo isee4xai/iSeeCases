@@ -1,172 +1,213 @@
 const fs = require('fs');
-//Read the Taxonomy file
-var taxonomyData;
+//Create a list of instance names
+const caseNames = ["Apple", "Netflix", "Microsoft", "Amazon", "Samsung", "Nokia", "Meta", "Adidas", "Google", "Intel"];
+
+const noOfVersions = 5;
+
+var taxonomyData, aiTasks, intents, aiMethods;
 fs.readFile('Taxonomy.json', 'utf8', (err, data) => {
-  // if (err) console.error(err);
+  if (err) console.error(err);
   taxonomyData = JSON.parse(data);
-  // console.log(taxonomyData);
+  aiTasks = taxonomyData.utilises.classes;
+  aiMethods = taxonomyData.solves.classes;
+  intents = taxonomyData.hasIntent.classes;
+  dataTypes = taxonomyData.hasDataType.instance;
+  technicalFacilities = taxonomyData.hasResources.instance;
+  explanationModalities = taxonomyData.canHandle.instance;
+  knowledgeLevels = taxonomyData.levelOfKnowledge.instance;
+  portabilities = taxonomyData.hasPortability.instance;
+  scopes = taxonomyData.hasExplanationScope.instance;
+  targets = taxonomyData.targetType.instance;
+  presentations = taxonomyData.hasPresentation.instance;
+  concurrents = taxonomyData.hasConcurrentness.instance;
 });
 
-// Generating a random query from SeedCase.json file
-function getRandQuery(){
-  fs.readFile('SeedCase.json', 'utf8', (err, data) => {
-      if (err) console.error(err);
-      var jsonData = JSON.parse(data);
-      const keys = Object.keys(jsonData);
-      const randIndex = Math.floor(Math.random() * keys.length);
-      const randKey = keys[randIndex];
-      const randVal = jsonData[randKey];
-      // Convert pretty-print JSON object (random) to string - serialize JSON object (properly formatted)
-      const caseData = JSON.stringify(randVal, null, 4);
-      // Write JSON string to a new file
-      try {
-        fs.writeFileSync('RandomQuery.json', caseData);
-        console.log("Random query generated.");
-      } catch (error) {
-          console.error(err);
-      }
-      callback(randVal); // call the callback function and pass the random value as the parameter to it
-    });
-  }
 
- /* Generates the randomQuery*/
-function callback (randomQueGen) {
-  console.log(randomQueGen);
-   //Assign empty value to the hasExplainer instance
+var allModifications = {
+  modifyAITask: function(randomQuery, randomCaseName) {
+    var randTask = aiTasks[Math.floor(Math.random() * aiTasks.length)];
+    randomQuery.hasDescription.hasAIModel.solves.classes = [randTask];
+    // console.log("randTask: " + randomQuery.hasDescription.hasAIModel.solves.classes);
+    randomQuery.hasDescription.hasAIModel.solves.instance = randomCaseName.concat(" ", randTask);
+    // console.log("New Instance: " + randomQuery.hasDescription.hasAIModel.solves.instance);
+    console.log("modifyAITask")
+  },
+  modifyIntent: function(randomQuery, randomCaseName) {
+    var randIntent = intents[Math.floor(Math.random() * intents.length)];
+    randomQuery.hasDescription.hasUser.hasIntent.classes = [randIntent];
+    // console.log("randIntent: " + randomQuery.hasDescription.hasUser.hasIntent.classes);
+    randomQuery.hasDescription.hasUser.hasIntent.instance = randomCaseName.concat(" ", randIntent);
+    // console.log("New Instance: " + randomQuery.hasDescription.hasUser.hasIntent.instance);
+    console.log("modifyIntent")
+  },
+  modifyAIMethod: function(randomQuery, randomCaseName) {
+    var randMethod = aiMethods[Math.floor(Math.random() * aiMethods.length)];
+    randomQuery.hasDescription.hasAIModel.utilises.classes = [randMethod];
+    // console.log("randMethod: " + randomQuery.hasDescription.hasAIModel.utilises.classes);
+    randomQuery.hasDescription.hasAIModel.utilises.instance = randomCaseName.concat(" ", randMethod);
+    // console.log("New Instance: " + randomQuery.hasDescription.hasAIModel.utilises.instance);
+    console.log("modifyAIMethod");
+  },
+  modifyDataType: function(randomQuery, randomCaseName) {
+    var randDataType = dataTypes[Math.floor(Math.random() * dataTypes.length)];
+    randomQuery.hasDescription.hasAIModel.trainedOn.hasDataType.instance = randDataType;
+    console.log("modifyDataType");
+  },
+  modifyResources: function(randomQuery, randomCaseName) {
+    var randTechFacility = technicalFacilities[Math.floor(Math.random() * technicalFacilities.length)];
+    randomQuery.hasDescription.hasUser.hasResources.instance = randTechFacility;
+    console.log("modifyResources");
+  },    
+  modifyHandles: function(randomQuery, randomCaseName) {
+    var randmodality= explanationModalities[Math.floor(Math.random() * explanationModalities.length)];
+    randomQuery.hasDescription.hasUser.hasResources.canHandle.instance = randmodality;
+    console.log("modifyHandles");
+  },
+  modifyLevelOfKnowledge: function(randomQuery, randomCaseName){
+    var randknowledge = knowledgeLevels[Math.floor(Math.random() * knowledgeLevels.length)];
+    randomQuery.hasDescription.hasUser.possess.levelOfKnowledge.instance = randknowledge;
+    console.log("modifyLevelOfKnowledge");
+  },    
+  modifyPortability: function(randomQuery, randomCaseName){
+    var randVal = portabilities[Math.floor(Math.random() * portabilities.length)];
+    randomQuery.hasDescription.hasExplainer.utilises.hasPortability.instance = randVal;
+    console.log("modifyPortability");
+  },    
+  modifyConcurrentness: function(randomQuery, randomCaseName){
+    var randVal = concurrents[Math.floor(Math.random() * concurrents.length)];
+    randomQuery.hasDescription.hasExplainer.utilises.hasConcurrentness.instance = randVal;
+    console.log("modifyConcurrentness");
+  },    
+  modifyExplanationScope: function(randomQuery, randomCaseName){
+    var randVal = scopes[Math.floor(Math.random() * scopes.length)];
+    randomQuery.hasDescription.hasExplainer.utilises.hasExplanationScope.instance = randVal;
+    console.log("modifyExplanationScope");
+  },    
+  modifyPresentation: function(randomQuery, randomCaseName){
+    var randVal = presentations[Math.floor(Math.random() * presentations.length)];
+    randomQuery.hasDescription.hasExplainer.utilises.hasPresentation.instance = randVal;
+    console.log("modifyPresentation");
+  },    
+  modifyTargetType: function(randomQuery, randomCaseName){
+    var randVal = targets[Math.floor(Math.random() * targets.length)];
+    randomQuery.hasDescription.hasExplainer.utilises.targetType.instance = randVal;
+    console.log("modifyTargetType");
+  }
+};
+
+
+function genRandomQuery() {
+  fs.readFile('SeedCase.json', 'utf8', (err, data) => {
+    if (err) console.error(err);
+    const allCases = JSON.parse(data);
+    const keys = Object.keys(allCases);
+    const randKey = keys[Math.floor(Math.random() * keys.length)];
+    const randCase = allCases[randKey];
+
+    // try {
+    // Convert pretty-print JSON object (random) to string - serialize JSON object (properly formatted)
+    // const caseData = JSON.stringify(randCase, null, 4);
+    // Write JSON string to a new file
+    // fs.writeFileSync('RandomCase.json', caseData);
+    // console.log("Random case selected.");
+    // } catch (error) {
+    // console.error(err);
+    // }
+
+    //Get a random case name
+    const randomCaseName = caseNames[Math.floor(Math.random() * caseNames.length)];
+    console.log("randomCaseName: " + randomCaseName);
+
+    callback(randCase, randomCaseName); // call the callback function and pass the random value as the parameter to it
+  });
+}
+
+function callback(randomCase, randCaseName) {
+  //Assign empty value to the hasExplainer instance
+  removeSolution(randomCase);
+
+  //  Get the caseName from randomCase
+  var instanceName = randomCase.instance;
+  if (instanceName.includes("ExplanationExperience")) {
+    var currentCaseName = instanceName.split("ExplanationExperience")[0];
+    console.log("CurrentCaseName: " + currentCaseName);
+  }
+  //replace caseName with the randCaseName
+  replaceCaseName(randomCase, randCaseName, currentCaseName);
+  // Saves the randomQuery with a new usecase name
+  // fs.writeFileSync('RandomQueryNameChanged.json', JSON.stringify(randomCase, null, 4));
+  console.log("Case name changed.");
+
+  //modify randomCase multiple times
+  var modifications = getModifications();
+  // console.log("modifications: "+modifications);
+  for (let i = 0; i < noOfVersions; i++) {
+    modifyCase(randomCase, randCaseName, modifications[i]);
+    // Saves the randomQuery with a new usecase name and class modifications
+    fs.writeFileSync(randCaseName + 'Query('+(modifications[i]+1)+').json', JSON.stringify(randomCase, null, 4));
+    console.log("Random case modified.");
+  }
+  
+}
+
+function replaceCaseName(randomQuery, randCaseName, extractedName) {
+  randomQuery.hasDescription.hasAIModel.solves.instance = randomQuery.hasDescription.hasAIModel.solves.instance.replace(extractedName, randCaseName);
+  randomQuery.hasDescription.hasAIModel.utilises.instance = randomQuery.hasDescription.hasAIModel.utilises.instance.replace(extractedName, randCaseName);
+  randomQuery.hasDescription.hasUser.hasIntent.instance = randomQuery.hasDescription.hasUser.hasIntent.instance.replace(extractedName, randCaseName); //Usually no change
+  randomQuery.instance = randomQuery.instance.replace(extractedName, randCaseName);
+  randomQuery.hasDescription.hasAIModel.instance = randomQuery.hasDescription.hasAIModel.instance.replace(extractedName, randCaseName);
+  randomQuery.hasDescription.hasAIModel.trainedOn.instance = randomQuery.hasDescription.hasAIModel.trainedOn.instance.replace(extractedName, randCaseName);
+  randomQuery.hasDescription.hasUser.instance = randCaseName.concat("User");
+  randomQuery.hasDescription.hasUser.possess.instance = randomQuery.hasDescription.hasUser.possess.instance.replace(extractedName, randCaseName);
+}
+
+
+function getModifications(){
+  var arr = [...Array(Object.keys(allModifications).length).keys()];
+  // console.log(arr);
+  let currentIndex = arr.length, randomIndex;
+  while (currentIndex != 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+    [arr[currentIndex], arr[randomIndex]] = [arr[randomIndex], arr[currentIndex]];
+  }
+  // console.log(arr);
+  arr = arr.splice(0, noOfVersions);
+  // console.log(arr);
+  return arr;
+}
+
+function modifyCase(randomQuery, randomCaseName, modifications) {
+  modifications = modifications+1;
+  console.log("modifications: "+modifications);
+  var usedKeys = [];
+  while(modifications>0){
+    const keys = Object.keys(allModifications);
+    // console.log(keys);
+    var randKey;
+    do{
+      randKey = keys[Math.floor(Math.random() * keys.length)];
+      // console.log("usedKeys: "+usedKeys);
+      // console.log("randKey: "+randKey);
+    } while (usedKeys.includes(randKey));
+
+    usedKeys.push(randKey);
+    allModifications[randKey](randomQuery, randomCaseName);
+    modifications = modifications - 1;
+  } 
+}
+
+function removeSolution(randomQueGen) {
   var explainer;
-  if(explainer = randomQueGen.hasDescription.hasExplainer){
+  if (explainer = randomQueGen.hasDescription.hasExplainer) {
     explainer.instance = "";
     explainer.utilises.instance = "";
     explainer.utilises.hasOutputType.instance = "";
   }
-  else{
+  else {
     console.log('Exit');
   }
-
- //Create a list of instance names
-  var caseName =["Apple", "Netflix", "Microsoft", "Amazon", "Samsung", "Nokia", "Meta", "Adidas", "Google", "Intel"];
-  //Get a random instance
-  const randIndexCaseName = Math.floor(Math.random() * caseName.length);
-  const randomCaseName = caseName[randIndexCaseName];
-  console.log("randomCaseName: "+randomCaseName); 
-
-  //  Get the seedCaseName from randomQuery
-  var instanceName = randomQueGen.instance;
-  if (instanceName.includes("ExplanationExperience")) {
-    const myArray = instanceName.split("ExplanationExperience");
-    var extractedInstanceName = myArray[0];
-    console.log("extractedInstanceName: " + extractedInstanceName);
-  }
-  randomCN(randomQueGen, randomCaseName, extractedInstanceName);
-  randomCaseInsGen(randomQueGen, randomCaseName, extractedInstanceName);
-  const randomQueryData = JSON.stringify(randomQueGen, null, 4);
-  // Generates the randomQuery with a new usecase name
-  fs.writeFileSync('RandomQueryNameChange.json', randomQueryData);
-  console.log("Case name changed.");
-
-  //Modify the property values - random class, random instance, replace instance name
-  randomClassGen(randomQueGen,randomCaseName);
-  randomCaseInsGen(randomQueGen, randomCaseName, extractedInstanceName);
-  const randomQueryModification = JSON.stringify(randomQueGen, null, 4);
-  // Generates the randomQuery with a new usecase name and class modifications
-  fs.writeFileSync('RandomQueryModification.json', randomQueryModification);
-  console.log("Random class modification.");
-  // console.log(randomQueryModification);
 }
 
-/* Replace the seedCaseName with randomCaseName - randomCaseQuery.hasDescription.hasAIModel.solves.instance,randomCaseQuery.hasDescription.hasAIModel.utilises.instance, 
-randomCaseQuery.hasDescription.hasUser.hasIntent.instance*/
-function randomCN(randomCaseQuery,randomCN,extractedName) {
-  //Get random aiTask - randomQuery.hasDescription.hasAIModel -> solves, utilises, trainedOn.hasDataType; randomQuery.hasDescription.hasUser -> hasIntent, hasResources, hasResources.canHandle, possess.levelOfKnowledge
-  var aiTaskS=randomCaseQuery.hasDescription.hasAIModel.solves.instance, aiTaskU=randomCaseQuery.hasDescription.hasAIModel.utilises.instance, 
-  aiTaskI=randomCaseQuery.hasDescription.hasUser.hasIntent.instance;
-  var instanceArray = [aiTaskS,aiTaskU,aiTaskI];
-  //Modify the instance names 
-  for(let i in instanceArray){
-    var newInstanceName=instanceArray[i].replace(extractedName, randomCN);
-    if(instanceArray[i]==aiTaskS){
-      randomCaseQuery.hasDescription.hasAIModel.solves.instance=newInstanceName;
-    }else if(instanceArray[i]==aiTaskU){
-      randomCaseQuery.hasDescription.hasAIModel.utilises.instance=newInstanceName;
-    }else if(instanceArray[i]==aiTaskI){
-      randomCaseQuery.hasDescription.hasUser.hasIntent.instance=newInstanceName; //Usually no change
-    }else {
-      console.log("Exit");
-    }
-    console.log("newinstanceArray "+ i + ": " + newInstanceName);
-  } 
-}
 
-/* Replace the seedCaseName with randomCaseName - randomQuery.instance, randomQuery.hasDescription.hasAIModel.instance, 
-   randomQuery.hasDescription.hasAIModel.trainedOn.instance, randomQuery.hasDescription.hasUser.instance, randomQuery.hasDescription.hasUser.possess.instance*/
-function randomCaseInsGen(randomQuery,randomCaseName,extractedCaseInsName){
-  var instanceName = randomQuery.instance, aiModelIns=randomQuery.hasDescription.hasAIModel.instance, trainedOnIns=randomQuery.hasDescription.hasAIModel.trainedOn.instance, 
-  hasUserIns=randomQuery.hasDescription.hasUser.instance, possessIns=randomQuery.hasDescription.hasUser.possess.instance;
-  var instanceArray = [instanceName,aiModelIns,trainedOnIns,hasUserIns,possessIns];
-   // InstanceName: GradCAMModelFailDetectionExplanationExperience, extractedInstanceName: GradCAMModelFailDetection, randomCaseName: Netflix
-   for(let i in instanceArray){
-     var newInstanceName=instanceArray[i].replace(extractedCaseInsName, randomCaseName);
-     if(instanceArray[i]==instanceName){
-      randomQuery.instance=newInstanceName;
-     }else if(instanceArray[i]==aiModelIns){
-      randomQuery.hasDescription.hasAIModel.instance=newInstanceName;
-     }else if(instanceArray[i]==trainedOnIns){
-      randomQuery.hasDescription.hasAIModel.trainedOn.instance=newInstanceName;
-     }else if(instanceArray[i]==hasUserIns){
-        newInstanceName= randomCaseName.concat("User");
-        randomQuery.hasDescription.hasUser.instance=newInstanceName;
-     }else if(instanceArray[i]==possessIns){
-      randomQuery.hasDescription.hasUser.possess.instance=newInstanceName;
-     }else {
-       console.log("Exit");
-     }
-     console.log("newinstanceArray "+ i + ": " + newInstanceName);
-   }
-}
-
-/*Modify the property values - random class, random instance, replace instance name*/
-function randomClassGen(randomQuery,randomCaseName){
- //Get random aiTask - randomQuery.hasDescription.hasAIModel -> solves, utilises, trainedOn.hasDataType; randomQuery.hasDescription.hasUser -> hasIntent, hasResources, hasResources.canHandle, possess.levelOfKnowledge
- var aiTaskModel = randomQuery.hasDescription.hasAIModel, aiTaskUser = randomQuery.hasDescription.hasUser;
- var aiTaskS = taxonomyData.solves.classes, aiTaskU = taxonomyData.utilises.classes, aiTaskI = taxonomyData.hasIntent.classes;
- var aiTaskArray = [aiTaskS,aiTaskU,aiTaskI];
- // var aiTaskD = taxonomyData.hasDataType.instance, aiTaskR = taxonomyData.hasResources.instance, aiTaskC = taxonomyData.canHandle.instance, aiTaskL = taxonomyData.levelOfKnowledge.instance;
- // var aiTaskArrayInst = [aiTaskD,aiTaskR,aiTaskC,aiTaskL]; 
- /* Modify the property values - random class, random instance, concat instance name with random class*/
- for(let i in aiTaskArray){
-   console.log("aiTaskArray "+ i + ": "+ aiTaskArray[i])
-   if(aiTaskArray[i]==aiTaskS){
-     const randIndex = Math.floor(Math.random() * aiTaskS.length);
-     const randaiTask = aiTaskS[randIndex];
-     aiTaskModel.solves.classes = [randaiTask];
-     console.log("randaiTask "+ i + ": "+ randaiTask); 
-     //Concantenate randomCaseName with randaiTask (class)
-     aiTaskModel.solves.instance = randomCaseName.concat(" ", randaiTask);
-     console.log("New Instance "+ i + ": "+ randomCaseName.concat(" ", randaiTask));
-   }
-   else if(aiTaskArray[i]==aiTaskU){
-     const randIndex = Math.floor(Math.random() * aiTaskU.length);
-     const randaiTask = aiTaskU[randIndex];
-     aiTaskModel.utilises.classes = [randaiTask];
-     console.log("randaiTask "+ i + ": "+ randaiTask);
-     //Concantenate randomCaseName with randaiTask (class)
-     aiTaskModel.utilises.instance = randomCaseName.concat(" ", randaiTask);
-     console.log("New Instance "+ i + ": "+ randomCaseName.concat(" ", randaiTask)); 
-   } 
-   else if(aiTaskArray[i]==aiTaskI){
-     const randIndex = Math.floor(Math.random() * aiTaskI.length);
-     const randaiTask = aiTaskI[randIndex];
-     aiTaskUser.hasIntent.classes = [randaiTask];
-     console.log("randaiTask "+ i + ": "+ randaiTask);
-     //Concantenate randomCaseName with randaiTask (class)
-     aiTaskUser.hasIntent.instance = randomCaseName.concat(" ", randaiTask);
-     console.log("New Instance "+ i + ": "+ randomCaseName.concat(" ", randaiTask)); 
-   }
-   else {
-     console.log("Exit");
-   }
- }
-}
-
-//pass the callback function as an argument to the getRandQuery()
-getRandQuery(callback);
+genRandomQuery();
