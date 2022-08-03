@@ -2,12 +2,14 @@ const fs = require('fs');
 //Create a list of instance names
 const caseNames = ["Apple", "Netflix", "Microsoft", "Amazon", "Samsung", "Nokia", "Meta", "Adidas", "Google", "Intel"];
 
-const noOfVersions = 5;
+//cannot be larger than number of features to modify (12 at the moment)
+const noOfVersions = 5; 
 
 var taxonomyData, aiTasks, intents, aiMethods;
 fs.readFile('Taxonomy.json', 'utf8', (err, data) => {
   if (err) console.error(err);
   taxonomyData = JSON.parse(data);
+  //pre-load all taxonomies for future, 
   aiTasks = taxonomyData.solves.classes;
   aiMethods = taxonomyData.utilises.classes;
   intents = taxonomyData.hasIntent.classes;
@@ -22,7 +24,8 @@ fs.readFile('Taxonomy.json', 'utf8', (err, data) => {
   concurrents = taxonomyData.hasConcurrentness.instance;
 });
 
-
+/*dictionary of all modifications. 
+in future we can add functions here if new case features are introduced.*/
 var allModifications = {
   modifyAITask: function(randomQuery, randomCaseName) {
     var randTask = aiTasks[Math.floor(Math.random() * aiTasks.length)];
@@ -133,8 +136,10 @@ function callback(randomCase, randCaseName) {
   // fs.writeFileSync('RandomQueryNameChanged.json', JSON.stringify(randomCase, null, 4));
   console.log("Case name changed.");
 
-  //modify randomCase multiple times
-  var modifications = getModifications();
+  //modify randomCase multiple times, each time select random number of features to modify
+  // var modifications = getRandModifications();
+  //modify randomCase multiple times, each time incrementally change the number of features modified
+  var modifications = getIncModifications();
   // console.log("modifications: "+modifications);
   for (let i = 0; i < noOfVersions; i++) {
     modifyCase(randomCase, randCaseName, modifications[i]);
@@ -156,9 +161,10 @@ function replaceCaseName(randomQuery, randCaseName, extractedName) {
   randomQuery.hasDescription.hasUser.possess.instance = randomQuery.hasDescription.hasUser.possess.instance.replace(extractedName, randCaseName);
 }
 
-function getModifications(){
+function getRandModifications(){
   var arr = [...Array(Object.keys(allModifications).length).keys()];
   // console.log(arr);
+  //shuffle array of indices
   let currentIndex = arr.length, randomIndex;
   while (currentIndex != 0) {
     randomIndex = Math.floor(Math.random() * currentIndex);
@@ -167,6 +173,14 @@ function getModifications(){
   }
   // console.log(arr);
   arr = arr.splice(0, noOfVersions);
+  // console.log(arr);
+  return arr;
+}
+
+function getIncModifications(){
+  var arr = getRandModifications();
+  // console.log(arr);
+  arr.sort((a,b)=>a-b)
   // console.log(arr);
   return arr;
 }
