@@ -1,0 +1,132 @@
+{
+    "instance": "GoogleExplanationExperience",
+    "classes": [
+        "Explanation Experience"
+    ],
+    "hasDescription": {
+        "instance": "Predict patient mortality base on clinical, nutritional and behaviorial factors",
+        "classes": [
+            "Description"
+        ],
+        "hasAIModel": {
+            "instance": "GoogleModel",
+            "classes": [
+                "Artificial Intelligence Model"
+            ],
+            "solves": {
+                "instance": "Google Deductive Task",
+                "classes": [
+                    "Deductive Task"
+                ]
+            },
+            "utilises": {
+                "instance": "Google Neural Networks",
+                "classes": [
+                    "Neural Networks"
+                ]
+            },
+            "trainedOn": {
+                "instance": "GoogleDataset",
+                "classes": [
+                    "Dataset"
+                ],
+                "hasDataType": {
+                    "instance": "Tabular",
+                    "classes": [
+                        "Data Type"
+                    ]
+                }
+            }
+        },
+        "hasExplainer": {
+            "classes": [
+                "Explainer"
+            ],
+            "utilises": {
+                "classes": [
+                    "Explainability Technique"
+                ],
+                "hasPortability": {
+                    "instance": "model-agnostic",
+                    "classes": [
+                        "Portability"
+                    ]
+                },
+                "hasExplanationScope": {
+                    "instance": "global",
+                    "classes": [
+                        "Explanation Scope"
+                    ]
+                },
+                "targetType": {
+                    "instance": "model",
+                    "classes": [
+                        "Explanation Target"
+                    ]
+                },
+                "hasPresentation": {
+                    "instance": "Any",
+                    "classes": [
+                        "textual entity"
+                    ]
+                },
+                "hasConcurrentness": {
+                    "instance": "post-hoc",
+                    "classes": [
+                        "Explainer Concurrentness"
+                    ]
+                },
+                "hasOutputType": {
+                    "instance": "<Explanation>",
+                    "classes": [
+                      "Explanation"
+                    ]
+                  }
+            }
+        },
+        "hasUser": {
+            "instance": "GoogleUser",
+            "classes": [
+                "User"
+            ],
+            "hasIntent": {
+                "instance": "Google Education",
+                "classes": [
+                    "Education"
+                ]
+            },
+            "hasResources": {
+                "instance": "ScreenDisplay",
+                "classes": [
+                    "Technical Facilities"
+                ],
+                "canHandle": [
+                    {
+                        "instance": "Any",
+                        "classes": [
+                            "ExplanationModality"
+                        ]
+                    }
+                ]
+            },
+            "possess": {
+                "instance": "GoogleUserDomain",
+                "classes": [
+                    "Domain Knowledge"
+                ],
+                "levelOfKnowledge": {
+                    "instance": "high",
+                    "classes": [
+                        "KnowledgeLevel"
+                    ]
+                }
+            },
+            "asks": {
+                "instance": "What/How features contributed to predicting mortality Y for patient X?",
+                "classes": [
+                    "What/How Question"
+                ]
+            }
+        }
+    }
+}

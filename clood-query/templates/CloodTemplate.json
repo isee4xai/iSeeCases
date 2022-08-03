@@ -1,0 +1,17 @@
+{
+    "Name": "instance",
+    "DataType": "hasDescription.hasAIModel.trainedOn.hasDataType.instance",
+    "AITask": "hasDescription.hasAIModel.solves.classes.0",
+    "AIMethod": "hasDescription.hasAIModel.utilises.classes.0",
+    "Portability": "hasDescription.hasExplainer.utilises.hasPortability.instance",
+    "ExplainerConcurrentness": "hasDescription.hasExplainer.utilises.hasConcurrentness.instance",
+    "ExplanationScope": "hasDescription.hasExplainer.utilises.hasExplanationScope.instance",
+    "ExplanationTarget": "hasDescription.hasExplainer.utilises.targetType.instance",
+    "InformationContentEntity": "hasDescription.hasExplainer.utilises.hasPresentation.instance",
+    "Intent": "hasDescription.hasUser.hasIntent.classes.0",
+    "TechnicalFacilities": "hasDescription.hasUser.hasResources.instance",
+    "ExplanationModality": "hasDescription.hasUser.hasResources.canHandle.0.instance",
+    "KnowledgeLevel": "hasDescription.hasUser.possess.levelOfKnowledge.instance",
+    "QuestionType": "hasDescription.hasUser.asks.classes.0",
+    "SolutionExplanation": "hasDescription.hasExplainer.utilises.hasOutputType.instance"
+}
