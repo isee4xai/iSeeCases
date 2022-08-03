@@ -2,8 +2,8 @@ const fs = require('fs');
 //Create a list of instance names
 const caseNames = ["Apple", "Netflix", "Microsoft", "Amazon", "Samsung", "Nokia", "Meta", "Adidas", "Google", "Intel"];
 
-//cannot be larger than number of features to modify (12 at the moment)
-const noOfVersions = 5; 
+//cannot be larger than number of features to modify (11 at the moment)
+const noOfVersions = 11; 
 
 var taxonomyData, aiTasks, intents, aiMethods;
 fs.readFile('Taxonomy.json', 'utf8', (err, data) => {
@@ -28,7 +28,7 @@ fs.readFile('Taxonomy.json', 'utf8', (err, data) => {
 in future we can add functions here if new case features are introduced.*/
 var allModifications = {
   modifyAITask: function(randomQuery, randomCaseName) {
-    var randTask = aiTasks[Math.floor(Math.random() * aiTasks.length)];
+    var randTask = aiTasks[ Math.floor(Math.random() * aiTasks.length)];
     randomQuery.hasDescription.hasAIModel.solves.classes = [randTask];
     randomQuery.hasDescription.hasAIModel.solves.instance = randomCaseName.concat(" ", randTask);
     // console.log("modifyAITask: "+randTask);
@@ -71,11 +71,12 @@ var allModifications = {
     randomQuery.hasDescription.hasExplainer.utilises.hasPortability.instance = randVal;
     // console.log("modifyPortability: "+randVal);
   },    
-  modifyConcurrentness: function(randomQuery, randomCaseName){
-    var randVal = concurrents[Math.floor(Math.random() * concurrents.length)];
-    randomQuery.hasDescription.hasExplainer.utilises.hasConcurrentness.instance = randVal;
-    // console.log("modifyConcurrentness: "+randVal);
-  },    
+  //concurrentness is always post-hoc
+  // modifyConcurrentness: function(randomQuery, randomCaseName){
+  //   var randVal = concurrents[Math.floor(Math.random() * concurrents.length)];
+  //   randomQuery.hasDescription.hasExplainer.utilises.hasConcurrentness.instance = randVal;
+  //   // console.log("modifyConcurrentness: "+randVal);
+  // },    
   modifyExplanationScope: function(randomQuery, randomCaseName){
     var randVal = scopes[Math.floor(Math.random() * scopes.length)];
     randomQuery.hasDescription.hasExplainer.utilises.hasExplanationScope.instance = randVal;
@@ -133,13 +134,11 @@ function callback(randomCase, randCaseName) {
   //replace caseName with the randCaseName
   replaceCaseName(randomCase, randCaseName, currentCaseName);
   // Saves the randomQuery with a new usecase name
-  // fs.writeFileSync('RandomQueryNameChanged.json', JSON.stringify(randomCase, null, 4));
+  fs.writeFileSync(randCaseName + 'Query.json', JSON.stringify(randomCase, null, 4));
   console.log("Case name changed.");
 
   //modify randomCase multiple times, each time select random number of features to modify
-  // var modifications = getRandModifications();
-  //modify randomCase multiple times, each time incrementally change the number of features modified
-  var modifications = getIncModifications();
+  var modifications = getRandModifications();
   // console.log("modifications: "+modifications);
   for (let i = 0; i < noOfVersions; i++) {
     modifyCase(randomCase, randCaseName, modifications[i]);
@@ -163,7 +162,7 @@ function replaceCaseName(randomQuery, randCaseName, extractedName) {
 
 function getRandModifications(){
   var arr = [...Array(Object.keys(allModifications).length).keys()];
-  // console.log(arr);
+  console.log(arr);
   //shuffle array of indices
   let currentIndex = arr.length, randomIndex;
   while (currentIndex != 0) {
@@ -171,17 +170,9 @@ function getRandModifications(){
     currentIndex--;
     [arr[currentIndex], arr[randomIndex]] = [arr[randomIndex], arr[currentIndex]];
   }
-  // console.log(arr);
+  console.log(arr);
   arr = arr.splice(0, noOfVersions);
-  // console.log(arr);
-  return arr;
-}
-
-function getIncModifications(){
-  var arr = getRandModifications();
-  // console.log(arr);
-  arr.sort((a,b)=>a-b)
-  // console.log(arr);
+  console.log(arr);
   return arr;
 }
 
@@ -200,6 +191,7 @@ function modifyCase(randomQuery, randomCaseName, modifications) {
     } while (usedKeys.includes(randKey));
 
     usedKeys.push(randKey);
+    // calling anonymous
     allModifications[randKey](randomQuery, randomCaseName);
     modifications = modifications - 1;
   } 
