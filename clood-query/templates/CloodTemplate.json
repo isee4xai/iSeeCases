@@ -12,6 +12,6 @@
     "TechnicalFacilities": "hasDescription.hasUser.hasResources.instance",
     "ExplanationModality": "hasDescription.hasUser.hasResources.canHandle.0.instance",
     "KnowledgeLevel": "hasDescription.hasUser.possess.levelOfKnowledge.instance",
-    "QuestionType": "hasDescription.hasUser.asks.classes.0",
+    "UserQuestion": "hasDescription.hasUser.asks.classes.0",
     "SolutionExplanation": "hasDescription.hasExplainer.utilises.hasOutputType.instance"
 }

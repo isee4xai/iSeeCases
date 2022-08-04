@@ -2,6 +2,8 @@ from flatten import flatten_json
 import json
 import urllib.request, json 
 import requests
+import copy
+import os
 
 class Clood:
     def __init__(self, CLOOD_PROJECT_ID, CLOOD_API_URL):
@@ -23,22 +25,82 @@ class Clood:
         flatten_case = flatten_json(case_json)
         for key, value in conv_struct.items():
             converted_format[key] = flatten_case[value]
-
+       
+        # FOR FUTURE SOLUTION PART
+        converted_format["SolutionBT"] = "BT JSON"
         return converted_format
 
-    def query(self, file):
+    def query(self, file, topK, soln):
+        print("❓ Starting Query for "+file+ " for topK="+str(topK))
+        print("")
         query_case = self.convert_to_clood(file)
-        print(json.dumps(query_case, indent=4))
         url = self.CLOOD_API_URL+"/project/"+self.CLOOD_PROJECT_ID
         payload={}
         headers = {}
         response = requests.request("GET", url, headers=headers, data=payload)
+        conv_res = response.json()
+        arr = []
+        for attrib in conv_res['attributes']:
+            if attrib['name'] == 'KnowledgeLevel':
+                if query_case[attrib["name"]] == 'low':
+                    query_case[attrib["name"]] = 1
+                elif query_case[attrib["name"]] == 'medium':
+                    query_case[attrib["name"]] = 3
+                else:
+                    query_case[attrib["name"]] = 5                
 
-        print(response.text)
+            attrib_sort = { 
+                "name": attrib["name"] , 
+                "type": attrib["type"],
+                "similarity": attrib["similarity"], 
+                "weight": attrib["weight"], 
+                "value": query_case[attrib["name"]],
+                "unknown": attrib["name"] in soln, 
+                "strategy": "Best Match" 
+            }
 
+            # Conversion for Query Intersecrion
+            if attrib['similarity'] == 'Query Intersection':
+                attrib_sort["value"] = [ query_case[attrib["name"]] ]
 
+            arr.append(attrib_sort)
+        
+        url = self.CLOOD_API_URL+"/retrieve"
+        payload={ "data":arr,"topk": topK,"globalSim": "Weighted Sum", "projectId": self.CLOOD_PROJECT_ID}
+        headers = {}
+        response = requests.request("POST", url, headers=headers, data=json.dumps(payload))
+        retrv_res = response.json()
+        print("🟢 Completed retrieval")
+        print("")
+        return retrv_res["bestK"]
+
+    def export_cases(self,file, retrieved_cases):
+        print("Exporting Matched Cases")
+        print("")
+        if not os.path.exists("export"):
+            os.mkdir("export")
+
+        with urllib.request.urlopen("https://raw.githubusercontent.com/isee4xai/iSeeCases/main/case-structure.json?v1") as url:
+            data = json.dumps(url.read().decode())
+            index = 1
+            for case in retrieved_cases:
+                with open("templates/CloodTemplate.json", "r") as conv_struct_j:
+                    conv_struct = json.load(conv_struct_j)
+                temp = copy.deepcopy(data)
+                temp = temp.replace("<casename>", str(case["Name"]))
+
+                for key, value in conv_struct.items():
+                    temp = temp.replace("<"+key+">", str(case[key]))
+                filename = 'export/'+file+'_matched_case_'+str(index)+'.json'
+                with open(filename, 'w') as f:
+                    json.dump(json.loads(json.loads(temp)), fp=f, indent=4)
+                    print("----- ✅ Exporting Case "+str(index)+" -> "+ filename)
+                    print("")
+
+                index +=1
     # This function will get the 17 seed cases from GitHub and add to the case base
     def seedcases(self):
+        print("Preloading with Seed Cases ✅")
         with urllib.request.urlopen("https://raw.githubusercontent.com/isee4xai/iSeeCases/main/seed-cases.json") as url:
             data = json.loads(url.read().decode())
             for case in data:
