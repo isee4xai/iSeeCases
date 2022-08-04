@@ -98,7 +98,7 @@
         ]
       },
       "hasResources": {
-        "instance": "<Technical Facilities>",
+        "instance": "<TechnicalFacilities>",
         "classes": [
           "Technical Facilities"
         ],
