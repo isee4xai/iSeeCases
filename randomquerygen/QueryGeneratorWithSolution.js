@@ -1,6 +1,8 @@
 const fs = require('fs');
+// var fs1 = require('fs-extra'); 
 //Create a list of instance names
-const caseNames = ["Apple", "Netflix", "Microsoft", "Amazon", "Samsung", "Nokia", "Meta", "Adidas", "Google", "Intel"];
+const caseNames = ["Adidas","Alphabet","Amazon","Apple","Cisco","Foxconn","Google","Huawei","Hitachi","IBM","Intel","Lenovo",
+"Netflix","Nokia","Meta","Microsoft","Panasonic","Qualcomm","Samsung","Sony"];
 
 //cannot be larger than number of features to modify (11 at the moment)
 const noOfVersions = 11; 
@@ -102,20 +104,28 @@ function genRandomQuery() {
     const keys = Object.keys(allCases);
     const randKey = keys[Math.floor(Math.random() * keys.length)];
     const randCase = allCases[randKey];
+    //Get a random case name
+    const randomCaseName = caseNames[Math.floor(Math.random() * caseNames.length)];
+    console.log("randomCaseName: " + randomCaseName);
 
     try {
     // Convert pretty-print JSON object (random) to string - serialize JSON object (properly formatted)
     const caseData = JSON.stringify(randCase, null, 4);
-    // Write JSON string to a new file
-    fs.writeFileSync('RandomCase.json', caseData);
+    // create new directory
+    const dir = 'RandomQuery';
+    // check if directory already exists
+    if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir);
+        console.log("RandomQuery Directory is created.");
+    } else {
+        console.log("RandomQuery Directory already exists.");
+    }
+    // Write random query to a new file
+    fs.writeFileSync('./RandomQuery/RandomCase.json', caseData);
     console.log("Random case selected.");
     } catch (error) {
     console.error(err);
     }
-
-    //Get a random case name
-    const randomCaseName = caseNames[Math.floor(Math.random() * caseNames.length)];
-    console.log("randomCaseName: " + randomCaseName);
 
     callback(randCase, randomCaseName); // call the callback function and pass the random value as the parameter to it
   });
@@ -124,7 +134,6 @@ function genRandomQuery() {
 function callback(randomCase, randCaseName) {
   //Assign empty value to the hasExplainer instance
   removeSolution(randomCase);
-
   //  Get the caseName from randomCase
   var instanceName = randomCase.instance;
   if (instanceName.includes("ExplanationExperience")) {
@@ -133,18 +142,35 @@ function callback(randomCase, randCaseName) {
   }
   //replace caseName with the randCaseName
   replaceCaseName(randomCase, randCaseName, currentCaseName);
-  // Saves the randomQuery with a new usecase name
-  fs.writeFileSync(randCaseName + 'Query.json', JSON.stringify(randomCase, null, 4));
-  console.log("Case name changed.");
 
-  //modify randomCase multiple times, each time select random number of features to modify
-  var modifications = getRandModifications();
-  // console.log("modifications: "+modifications);
-  for (let i = 0; i < noOfVersions; i++) {
-    modifyCase(randomCase, randCaseName, modifications[i]);
-    // Saves the randomQuery with a new usecase name and class modifications
-    fs.writeFileSync(randCaseName + 'Query('+(modifications[i]+1)+').json', JSON.stringify(randomCase, null, 4));
+  var oldPath = './RandomQuery/RandomCase.json'
+  //Creates a folder with the new case name
+  const randomCaseDir = './RandomQuery/'+randCaseName +'/';
+  // check if directory already exists
+  if (!fs.existsSync(randomCaseDir)) {
+    fs.mkdirSync(randomCaseDir);
+    console.log(randCaseName + " Directory is created.");
+    //Move the RandomCase.json to the new case folder 
+    var newPath = randomCaseDir+currentCaseName+'.json'
+    fs.rename(oldPath, newPath, function (err) {
+    if (err) throw err
+      console.log('Successfully renamed - RandomCase file moved!')
+    })
+
+    // Saves the randomQuery with a new usecase name
+    fs.writeFileSync(randomCaseDir + randCaseName +'Query.json', JSON.stringify(randomCase, null, 4));   
+    console.log("Case name changed.");
+    //modify randomCase multiple times, each time select random number of features to modify
+    var modifications = getRandModifications();
+    // console.log("modifications: "+modifications);
+    for (let i = 0; i < noOfVersions; i++) {
+      modifyCase(randomCase, randCaseName, modifications[i]);
+      // Saves the randomQuery with a new usecase name and class modifications
+      fs.writeFileSync(randomCaseDir + randCaseName + 'Query('+(modifications[i]+1)+').json', JSON.stringify(randomCase, null, 4));
+    }
     console.log("Random case modified.");
+  } else {
+      console.log(randCaseName + " Directory already exists.");
   }
   
 }
@@ -162,7 +188,7 @@ function replaceCaseName(randomQuery, randCaseName, extractedName) {
 
 function getRandModifications(){
   var arr = [...Array(Object.keys(allModifications).length).keys()];
-  console.log(arr);
+  // console.log(arr);
   //shuffle array of indices
   let currentIndex = arr.length, randomIndex;
   while (currentIndex != 0) {
@@ -170,15 +196,15 @@ function getRandModifications(){
     currentIndex--;
     [arr[currentIndex], arr[randomIndex]] = [arr[randomIndex], arr[currentIndex]];
   }
-  console.log(arr);
+  // console.log(arr);
   arr = arr.splice(0, noOfVersions);
-  console.log(arr);
+  // console.log(arr);
   return arr;
 }
 
 function modifyCase(randomQuery, randomCaseName, modifications) {
   modifications = modifications+1;
-  console.log("modifications: "+modifications);
+  // console.log("modifications: "+modifications);
   var usedKeys = [];
   while(modifications>0){
     const keys = Object.keys(allModifications);
