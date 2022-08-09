@@ -164,9 +164,10 @@ function callback(randomCase, randCaseName) {
     var modifications = getRandModifications();
     // console.log("modifications: "+modifications);
     for (let i = 0; i < noOfVersions; i++) {
-      modifyCase(randomCase, randCaseName, modifications[i]);
+      let randomCaseInstance = JSON.parse(JSON.stringify(randomCase));
+      modifyCase(randomCaseInstance, randCaseName, modifications[i]);
       // Saves the randomQuery with a new usecase name and class modifications
-      fs.writeFileSync(randomCaseDir + randCaseName + 'Query('+(modifications[i]+1)+').json', JSON.stringify(randomCase, null, 4));
+      fs.writeFileSync(randomCaseDir + randCaseName + 'Query('+(modifications[i]+1)+').json', JSON.stringify(randomCaseInstance, null, 4));
     }
     console.log("Random case modified.");
   } else {
