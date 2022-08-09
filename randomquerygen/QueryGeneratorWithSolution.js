@@ -26,17 +26,26 @@ fs.readFile('Taxonomy.json', 'utf8', (err, data) => {
   concurrents = taxonomyData.hasConcurrentness.instance;
 });
 
+function getRandomValue(previous, collection){
+  var randVal;
+    console.log('previous: '+previous);
+    do{
+      randVal = collection[ Math.floor(Math.random() * collection.length)];
+      console.log('now: '+randVal);
+    } while (randVal===previous);
+    return randVal;
+}
 /*dictionary of all modifications. 
 in future we can add functions here if new case features are introduced.*/
 var allModifications = {
   modifyAITask: function(randomQuery, randomCaseName) {
-    var randTask = aiTasks[ Math.floor(Math.random() * aiTasks.length)];
+    var randTask = getRandomValue(randomQuery.hasDescription.hasAIModel.solves.classes[0], aiTasks);
     randomQuery.hasDescription.hasAIModel.solves.classes = [randTask];
     randomQuery.hasDescription.hasAIModel.solves.instance = randomCaseName.concat(" ", randTask);
     // console.log("modifyAITask: "+randTask);
   },
   modifyIntent: function(randomQuery, randomCaseName) {
-    var randIntent = intents[Math.floor(Math.random() * intents.length)];
+    var randIntent = getRandomValue(randomQuery.hasDescription.hasUser.hasIntent.classes[0], intents);
     randomQuery.hasDescription.hasUser.hasIntent.classes = [randIntent];
     randomQuery.hasDescription.hasUser.hasIntent.instance = randomCaseName.concat(" ", randIntent);
     // console.log("modifyIntent: "+randIntent);
