@@ -41,14 +41,6 @@ class Clood:
         conv_res = response.json()
         arr = []
         for attrib in conv_res['attributes']:
-            if attrib['name'] == 'KnowledgeLevel':
-                if query_case[attrib["name"]] == 'low':
-                    query_case[attrib["name"]] = 1
-                elif query_case[attrib["name"]] == 'medium':
-                    query_case[attrib["name"]] = 3
-                else:
-                    query_case[attrib["name"]] = 5                
-
             attrib_sort = { 
                 "name": attrib["name"] , 
                 "type": attrib["type"],

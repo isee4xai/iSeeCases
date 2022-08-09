@@ -119,7 +119,7 @@
                         "Domain Knowledge"
                     ],
                     "levelOfKnowledge": {
-                        "instance": 5,
+                        "instance": "high",
                         "classes": [
                             "KnowledgeLevel"
                         ]
@@ -253,7 +253,7 @@
                         "Domain Knowledge"
                     ],
                     "levelOfKnowledge": {
-                        "instance": 5,
+                        "instance": "high",
                         "classes": [
                             "KnowledgeLevel"
                         ]
@@ -388,7 +388,7 @@
                         "Domain Knowledge"
                     ],
                     "levelOfKnowledge": {
-                        "instance": 5,
+                        "instance": "high",
                         "classes": [
                             "KnowledgeLevel"
                         ]
@@ -523,7 +523,7 @@
                         "Domain Knowledge"
                     ],
                     "levelOfKnowledge": {
-                        "instance": 3,
+                        "instance": "medium",
                         "classes": [
                             "KnowledgeLevel"
                         ]
@@ -658,7 +658,7 @@
                         "Domain Knowledge"
                     ],
                     "levelOfKnowledge": {
-                        "instance": 1,
+                        "instance": "low",
                         "classes": [
                             "KnowledgeLevel"
                         ]
@@ -793,7 +793,7 @@
                         "Domain Knowledge"
                     ],
                     "levelOfKnowledge": {
-                        "instance": 1,
+                        "instance": "low",
                         "classes": [
                             "KnowledgeLevel"
                         ]
@@ -928,7 +928,7 @@
                         "Domain Knowledge"
                     ],
                     "levelOfKnowledge": {
-                        "instance": 1,
+                        "instance": "low",
                         "classes": [
                             "KnowledgeLevel"
                         ]
@@ -1063,7 +1063,7 @@
                         "Domain Knowledge"
                     ],
                     "levelOfKnowledge": {
-                        "instance": 3,
+                        "instance": "medium",
                         "classes": [
                             "KnowledgeLevel"
                         ]
@@ -1197,7 +1197,7 @@
                         "Domain Knowledge"
                     ],
                     "levelOfKnowledge": {
-                        "instance": 3,
+                        "instance": "medium",
                         "classes": [
                             "KnowledgeLevel"
                         ]
@@ -1333,7 +1333,7 @@
                         "Domain Knowledge"
                     ],
                     "levelOfKnowledge": {
-                        "instance": 5,
+                        "instance": "high",
                         "classes": [
                             "KnowledgeLevel"
                         ]
@@ -1467,7 +1467,7 @@
                         "Domain Knowledge"
                     ],
                     "levelOfKnowledge": {
-                        "instance": 1,
+                        "instance": "low",
                         "classes": [
                             "KnowledgeLevel"
                         ]
@@ -1601,7 +1601,7 @@
                         "Domain Knowledge"
                     ],
                     "levelOfKnowledge": {
-                        "instance": 5,
+                        "instance": "high",
                         "classes": [
                             "KnowledgeLevel"
                         ]
@@ -1735,7 +1735,7 @@
                         "Domain Knowledge"
                     ],
                     "levelOfKnowledge": {
-                        "instance": 5,
+                        "instance": "high",
                         "classes": [
                             "KnowledgeLevel"
                         ]
@@ -1870,7 +1870,7 @@
                         "Domain Knowledge"
                     ],
                     "levelOfKnowledge": {
-                        "instance": 1,
+                        "instance": "low",
                         "classes": [
                             "KnowledgeLevel"
                         ]
@@ -2006,7 +2006,7 @@
                         "Domain Knowledge"
                     ],
                     "levelOfKnowledge": {
-                        "instance": 1,
+                        "instance": "low",
                         "classes": [
                             "KnowledgeLevel"
                         ]
@@ -2141,7 +2141,7 @@
                         "Domain Knowledge"
                     ],
                     "levelOfKnowledge": {
-                        "instance": 1,
+                        "instance": "low",
                         "classes": [
                             "KnowledgeLevel"
                         ]
@@ -2276,7 +2276,7 @@
                         "Domain Knowledge"
                     ],
                     "levelOfKnowledge": {
-                        "instance": 3,
+                        "instance": "medium",
                         "classes": [
                             "KnowledgeLevel"
                         ]
