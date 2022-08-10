@@ -4,8 +4,8 @@ const fs = require('fs');
 const caseNames = ["Adidas","Alphabet","Amazon","Apple","Cisco","Foxconn","Google","Huawei","Hitachi","IBM","Intel","Lenovo",
 "Netflix","Nokia","Meta","Microsoft","Panasonic","Qualcomm","Samsung","Sony"];
 
-//cannot be larger than number of features to modify (11 at the moment)
-const noOfVersions = 11; 
+//cannot be larger than number of features to modify (9 at the moment)
+const noOfVersions = 9; 
 
 var taxonomyData, aiTasks, intents, aiMethods;
 fs.readFile('Taxonomy.json', 'utf8', (err, data) => {
@@ -28,12 +28,14 @@ fs.readFile('Taxonomy.json', 'utf8', (err, data) => {
 
 function getRandomValue(previous, collection){
   var randVal;
-    console.log('previous: '+previous);
-    do{
-      randVal = collection[ Math.floor(Math.random() * collection.length)];
-      console.log('now: '+randVal);
-    } while (randVal===previous);
-    return randVal;
+  console.log('previous: '+previous);
+  if (collection.length == 1)
+    return previous;
+  do{
+    randVal = collection[ Math.floor(Math.random() * collection.length)];
+    console.log('now: '+randVal);
+  } while (randVal===previous);
+  return randVal;
 }
 /*dictionary of all modifications. 
 in future we can add functions here if new case features are introduced.*/
@@ -57,12 +59,12 @@ var allModifications = {
     console.log("modifyAIMethod: "+randMethod);
   },
   modifyDataType: function(randomQuery, randomCaseName) {
-    var randDataType =  getRandomValue(randomQuery.hasDescription.hasAIModel.trainedOn.hasDataType.instance[0], dataTypes);
+    var randDataType =  getRandomValue(randomQuery.hasDescription.hasAIModel.trainedOn.hasDataType.instance, dataTypes);
     randomQuery.hasDescription.hasAIModel.trainedOn.hasDataType.instance = randDataType;
     console.log("modifyDataType: "+randDataType);
   },
   modifyResources: function(randomQuery, randomCaseName) {
-    var randTechFacility = getRandomValue(randomQuery.hasDescription.hasUser.hasResources.instance[0], technicalFacilities);
+    var randTechFacility = getRandomValue(randomQuery.hasDescription.hasUser.hasResources.instance, technicalFacilities);
     randomQuery.hasDescription.hasUser.hasResources.instance = randTechFacility;
     console.log("modifyResources: "+randTechFacility);
   },    
@@ -74,12 +76,12 @@ var allModifications = {
   //   console.log("modifyHandles after: "+randmodality);
   // },
   modifyLevelOfKnowledge: function(randomQuery, randomCaseName){
-    var randknowledge = getRandomValue(randomQuery.hasDescription.hasUser.possess.levelOfKnowledge.instance[0], knowledgeLevels);
+    var randknowledge = getRandomValue(randomQuery.hasDescription.hasUser.possess.levelOfKnowledge.instance, knowledgeLevels);
     randomQuery.hasDescription.hasUser.possess.levelOfKnowledge.instance = randknowledge;
     console.log("modifyLevelOfKnowledge: "+randknowledge);
   },    
   modifyPortability: function(randomQuery, randomCaseName){
-    var randVal = getRandomValue(randomQuery.hasDescription.hasExplainer.utilises.hasPortability.instance[0], portabilities);
+    var randVal = getRandomValue(randomQuery.hasDescription.hasExplainer.utilises.hasPortability.instance, portabilities);
     randomQuery.hasDescription.hasExplainer.utilises.hasPortability.instance = randVal;
     console.log("modifyPortability: "+randVal);
   },    
@@ -90,17 +92,17 @@ var allModifications = {
   //   // console.log("modifyConcurrentness: "+randVal);
   // },    
   modifyExplanationScope: function(randomQuery, randomCaseName){
-    var randVal = getRandomValue(randomQuery.hasDescription.hasExplainer.utilises.hasExplanationScope.instance[0], scopes);
+    var randVal = getRandomValue(randomQuery.hasDescription.hasExplainer.utilises.hasExplanationScope.instance, scopes);
     randomQuery.hasDescription.hasExplainer.utilises.hasExplanationScope.instance = randVal;
     console.log("modifyExplanationScope: "+randVal);
   },    
-  modifyPresentation: function(randomQuery, randomCaseName){
-    var randVal = getRandomValue(randomQuery.hasDescription.hasExplainer.utilises.hasPresentation.instance[0], presentations);
-    randomQuery.hasDescription.hasExplainer.utilises.hasPresentation.instance = randVal;
-    console.log("modifyPresentation: "+randVal);
-  },    
+  // modifyPresentation: function(randomQuery, randomCaseName){
+  //   var randVal = getRandomValue(randomQuery.hasDescription.hasExplainer.utilises.hasPresentation.instance, presentations);
+  //   randomQuery.hasDescription.hasExplainer.utilises.hasPresentation.instance = randVal;
+  //   console.log("modifyPresentation: "+randVal);
+  // },    
   modifyTargetType: function(randomQuery, randomCaseName){
-    var randVal = getRandomValue(randomQuery.hasDescription.hasExplainer.utilises.targetType.instance[0], targets);
+    var randVal = getRandomValue(randomQuery.hasDescription.hasExplainer.utilises.targetType.instance, targets);
     randomQuery.hasDescription.hasExplainer.utilises.targetType.instance = randVal;
     console.log("modifyTargetType: "+randVal);
   }
