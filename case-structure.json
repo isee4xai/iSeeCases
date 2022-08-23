@@ -4,14 +4,15 @@
     "Explanation Experience"
   ],
   "hasDescription": {
-    "instance": "<Description>",
+    "instance": "<casename>Description",
+    "value": "<Description>",
     "classes": [
       "Description"
     ],
     "hasAIModel": {
       "instance": "<casename>Model",
       "classes": [
-        "Artificial Intelligence Model"
+        "AIModel"
       ],
       "solves": {
         "instance": "<casename><AITask>",
@@ -30,7 +31,21 @@
         "classes": [
           "Dataset"
         ],
-        "hasDataType": {
+        "numberOfFeatures": {
+          "value":"<NumberOfFeatures>",
+          "classes": "integer"
+        },
+        "numberOfInstances": {
+          "value":"<NumberOfInstances>",
+          "classes": "integer"
+        },
+        "hasDatasetType": {
+          "instance": "<DatasetType>",
+          "classes": [
+            "DatasetType"
+          ]
+        },
+        "hasFeatureType": {
           "instance": "<DataType>",
           "classes": [
             "Data Type"
@@ -38,97 +53,190 @@
         }
       }
     },
-    "hasExplainer": {
-      "instance": "<casename>Explainer",
-      "classes": [
-        "Explainer"
+    "hasExplanationRequirements":{
+      "instance": "<casename>Requirements",
+      "classes":[
+        "ExplanationRequirements"
       ],
-      "utilises": {
-        "instance": "<casename>ExplainabilityTechnique",
-        "classes": [
-          "Explainability Technique"
-        ],
-        "hasPortability": {
-          "instance": "<Portability>",
-          "classes": [
-            "Portability"
-          ]
+      "hasExplanationCriteria": [
+        {
+          "instance": "<casename>PortabilityCriteria",
+          "classes":[
+            "ExplanationCriteria"
+          ],
+          "onProperty":"hasPortability",
+          "requiredObjectValue":"<Portability>"
         },
-        "hasExplanationScope": {
-          "instance": "<ExplanationScope>",
-          "classes": [
-            "Explanation Scope"
-          ]
+        {
+          "instance": "<casename>ConcurrentnessCriteria",
+          "classes":[
+            "ExplanationCriteria"
+          ],
+          "onProperty":"hasConcurrentness",
+          "requiredObjectValue":"<Concurrentness>"
         },
-        "targetType": {
-          "instance": "<ExplanationTarget>",
-          "classes": [
-            "Explanation Target"
-          ]
+        {
+          "instance": "<casename>PresentationCriteria",
+          "classes":[
+            "ExplanationCriteria"
+          ],
+          "onProperty":"hasPresentation",
+          "requiredValueType":"<Presentation>"
         },
-        "hasPresentation": {
-          "instance": "<InformationContentEntity>",
-          "classes": [
-            "textual entity"
-          ]
+        {
+          "instance": "<casename>ExplanationScopeCriteria",
+          "classes":[
+            "ExplanationCriteria"
+          ],
+          "onProperty":"hasExplanationScope",
+          "requiredObjectValue":"<ExplanationScope>"
         },
-        "hasConcurrentness": {
-          "instance": "<ExplainerConcurrentness>",
-          "classes": [
-            "Explainer Concurrentness"
-          ]
-        },
-        "hasOutputType": {
-          "instance": "<Explanation>",
-          "classes": [
-            "Explanation"
-          ]
+        {
+          "instance": "<casename>ExplanationTargetCriteria",
+          "classes":[
+            "ExplanationCriteria"
+          ],
+          "onProperty":"targetType",
+          "requiredObjectValue":"<ExplanationTarget>"
         }
-      }
+      ]
     },
     "hasUser": {
-      "instance": "<casename><UserName>User",
+      "instance": "<casename>User",
       "classes": [
-        "User"
+        "user"
       ],
       "hasIntent": {
-        "instance": "<casename>Intent",
+        "instance": "<Intent>",
         "classes": [
-          "<Intent>"
+          "Intent"
         ]
       },
-      "hasResources": {
-        "instance": "<TechnicalFacilities>",
-        "classes": [
-          "Technical Facilities"
-        ],
-        "canHandle": [
-          {
-            "instance": "<ExplanationModality>",
-            "classes": [
-              "ExplanationModality"
+      "hasResources": [
+        {
+          "instance": "<Technical Facilities>",
+          "classes": [
+            "<Technical Facilities>"
+          ]
+        },
+        {
+          "instance": "<Technical Facilities>",
+          "classes": [
+            "<Technical Facilities>"
+          ]
+        }
+      ],
+      "possess": [
+        {
+          "instance": "<casename>UserAIKnowledge",
+          "classes": [
+            "AI Method Knowledge"
+          ],
+          "levelOfKnowledge": {
+            "instance":"<AIKnowledgeLevel>",
+            "classes":[
+              "Knowledge Level"
             ]
           }
-        ]
-      },
-      "possess": {
-        "instance": "<casename>UserDomain",
-        "classes": [
-          "Domain Knowledge"
-        ],
-        "levelOfKnowledge": {
-          "instance": "<KnowledgeLevel>",
+        },
+        {
+          "instance": "<casename>UserDomainKnowledge",
           "classes": [
-            "KnowledgeLevel"
+            "Domain Knowledge"
+          ],
+          "levelOfKnowledge": {
+            "instance":"<DomainKnowledgeLevel>",
+            "classes":[
+              "Level of Knowledge"
+            ]
+          }
+        }
+      ],
+      "asks": {
+        "instance": "<casename>UserQuestion",
+        "comment": "<UserQuestion>",
+        "classes": [
+          "<UserQuestion>"
+        ],
+        "hasQuestionTarget": {
+          "instance": "<casename><UserQuestionTarget>",
+          "comment": "<UserQuestionTargetComment>",
+          "classes": [
+            "<UserQuestionTarget>"
+          ]
+        }
+      }
+    }
+  },
+  "hasSolution":{
+    "instance": "<casename>BehaviourTree",
+    "comment": "{\n  \"version\": \"0.1.0\",\n  \"scope\": \"tree\",\n  \"id\": \"746258ff-4884-4f4d-a789-a2de151b872f\",\n  \"Instance\": \"Explanation Experience\",\n  \"description\": \"\",\n  \"root\": \"fd5b284f-59f2-4521-890d-31a71ccbe724\",\n  \"properties\": {},\n  \"nodes\": {\n    \"fd5b284f-59f2-4521-890d-31a71ccbe724\": {\n      \"id\": \"fd5b284f-59f2-4521-890d-31a71ccbe724\",\n      \"Concept\": \"Explanation Method\",\n      \"Instance\": \"Netflix Explanation Method\",\n      \"description\": \"\",\n      \"properties\": {},\n      \"display\": {\n        \"x\": -96,\n        \"y\": 144\n      }\n    }\n  },\n  \"display\": {\n    \"camera_x\": 872.5,\n    \"camera_y\": 440,\n    \"camera_z\": 1,\n    \"x\": -84,\n    \"y\": -48\n  },\n  \"custom_nodes\": []\n}",
+    "classes":[
+      "BehaviourTree"
+    ]
+  },
+  "hasOutcome":{
+    "instance": "<casename>Outcome",
+    "comment": "The explanation strategy was not too bad.",
+    "classes":[
+      "Outcome"
+    ],
+    "is derived from":[
+      {
+        "instance": "<casename>UserEvalResult01",
+        "comment": "<UserEvaluationResult>",
+        "classes":[
+          "UserEvaluationResult"
+        ],
+        "basedOn":{
+          "instance": "<casename>UserEvalQuestion01",
+          "comment": "<Question>",
+          "classes":[
+            "Question"
+          ],
+          "measures":{
+            "instance": "<UserEvaluationDimension>",
+            "classes":[
+              "User Evaluation Dimension"
+            ]
+
+          }
+        },
+        "wasAssociatedWith":{
+          "instance": "<casename>User",
+          "classes":[
+            "user"
           ]
         }
       },
-      "asks": {
-        "instance": "<casename>UserQuestion",
-        "classes": [
-          "<UserQuestion>"
-        ]
+      {
+        "instance": "<casename>UserEvalResult02",
+        "comment": "<UserEvaluationResult>",
+        "classes":[
+          "UserEvaluationResult"
+        ],
+        "basedOn":{
+          "instance": "<casename>UserEvalQuestion02",
+          "comment": "<Question>",
+          "classes":[
+            "Question"
+          ],
+          "measures":{
+            "instance": "<UserEvaluationDimension>",
+            "classes":[
+              "User Evaluation Dimension"
+            ]
+
+          }
+        },
+        "wasAssociatedWith":{
+          "instance": "<casename>User",
+          "classes":[
+            "user"
+          ]
+        }
       }
-    }
+    ]
   }
+
 }
