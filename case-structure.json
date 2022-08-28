@@ -156,7 +156,7 @@
         "instance": "<casename>UserQuestion",
         "comment": "<UserQuestion>",
         "classes": [
-          "<UserQuestion>"
+          "User Question"
         ],
         "hasQuestionTarget": {
           "instance": "<casename><UserQuestionTarget>",
@@ -170,10 +170,91 @@
   },
   "hasSolution":{
     "instance": "<casename>BehaviourTree",
-    "comment": "{\n  \"version\": \"0.1.0\",\n  \"scope\": \"tree\",\n  \"id\": \"746258ff-4884-4f4d-a789-a2de151b872f\",\n  \"Instance\": \"Explanation Experience\",\n  \"description\": \"\",\n  \"root\": \"fd5b284f-59f2-4521-890d-31a71ccbe724\",\n  \"properties\": {},\n  \"nodes\": {\n    \"fd5b284f-59f2-4521-890d-31a71ccbe724\": {\n      \"id\": \"fd5b284f-59f2-4521-890d-31a71ccbe724\",\n      \"Concept\": \"Explanation Method\",\n      \"Instance\": \"Netflix Explanation Method\",\n      \"description\": \"\",\n      \"properties\": {},\n      \"display\": {\n        \"x\": -96,\n        \"y\": 144\n      }\n    }\n  },\n  \"display\": {\n    \"camera_x\": 872.5,\n    \"camera_y\": 440,\n    \"camera_z\": 1,\n    \"x\": -84,\n    \"y\": -48\n  },\n  \"custom_nodes\": []\n}",
     "classes":[
       "BehaviourTree"
-    ]
+    ],
+    "data": {
+      "instance": "<casename>BTData",
+      "classes": [
+        "Data"
+      ],
+      "custom_nodes": [],
+      "selectedTree": "<casename>ESTree",
+      "trees": [
+        {
+          "instance": "<casename>ESTree",
+          "classes": [
+            "Tree"
+          ],
+          "rootNode": {
+            "instance": "<casename>PriorityNode",
+            "classes": [
+              "PriorityNode"
+            ],
+            "firstChild":"<casename>XExplainerNode",
+            "next": "None",
+            "display": {
+              "x": 0,
+              "y": -12
+            }
+          },
+          "nodes":[
+            {
+              "instance": "<casename>XExplainerNode",
+              "classes": [
+                "Explanation Node"
+              ],
+              "firstChild": "None",
+              "next": "<casename>YExplainerNode",
+              "display": {
+                "x": 0,
+                "y": 168
+              }
+            },
+            {
+              "instance": "<casename>YExplainerNode",
+              "classes": [
+                "Explanation Node"
+              ],
+              "firstChild": "None",
+              "next": "<casename>ZExplainerNode",
+              "display": {
+                "x": -120,
+                "y": 168
+              }
+            },
+            {
+              "instance": "<casename>ZExplainerNode",
+              "classes": [
+                "Explanation Node"
+              ],
+              "firstChild": "None",
+              "next": "None",
+              "display": {
+                "x": -120,
+                "y": 168
+              }
+            }
+          ],
+          "display": {
+            "camera_x": 872.5,
+            "camera_y": 440,
+            "camera_z": 1,
+            "x": 0,
+            "y": -132
+          }
+        },
+        {
+          "instance": "RandomTree",
+          "classes": [
+            "Tree"
+          ],
+          "rootNode": "None",
+          "nodes": []
+        }
+      ]
+    }
+
   },
   "hasOutcome":{
     "instance": "<casename>Outcome",
