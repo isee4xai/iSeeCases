@@ -3,7 +3,8 @@
     "DataType": "hasDescription.hasAIModel.trainedOn.hasDataType.instance",
     "AITask": "hasDescription.hasAIModel.solves.classes.0",
     "AIMethod": "hasDescription.hasAIModel.utilises.classes.0",
-    "Portability": "hasDescription.hasExplainer.utilises.hasPortability.instance",
+    ""
+    "Portability": "hasDescription.hasExplanationRequirements.hasExplanationCriteria", "onProperty", "hasPortability", "requiredObjectValue"
     "ExplainerConcurrentness": "hasDescription.hasExplainer.utilises.hasConcurrentness.instance",
     "ExplanationScope": "hasDescription.hasExplainer.utilises.hasExplanationScope.instance",
     "ExplanationTarget": "hasDescription.hasExplainer.utilises.targetType.instance",
