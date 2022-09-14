@@ -18,13 +18,13 @@
         "solves": {
           "instance": "ShoprRecommendation",
           "classes": [
-            "Recommendation"
+            "http://www.w3id.org/iSeeOnto/aimodel#Recommendation"
           ]
         },
         "utilises": {
           "instance": "ShoprCase based Recommender",
           "classes": [
-            "Case based Recommender"
+            "http://www.w3id.org/iSeeOnto/aimodel#Case-based_Recommender"
           ]
         },
         "trainedOn": {
@@ -261,13 +261,13 @@
         "solves": {
           "instance": "DeepSHAPGlobalBinary Classification",
           "classes": [
-            "Binary Classification"
+            "http://www.w3id.org/iSeeOnto/aimodel#Binary_Classification"
           ]
         },
         "utilises": {
           "instance": "DeepSHAPGlobalNeural Network",
           "classes": [
-            "Neural Network"
+            "http://www.w3id.org/iSeeOnto/aimodel#Neural_Network"
           ]
         },
         "trainedOn": {
@@ -504,13 +504,13 @@
         "solves": {
           "instance": "DeepSHAPLocalBinary Classification",
           "classes": [
-            "Binary Classification"
+            "http://www.w3id.org/iSeeOnto/aimodel#Binary_Classification"
           ]
         },
         "utilises": {
           "instance": "DeepSHAPLocalNeural Network",
           "classes": [
-            "Neural Network"
+            "http://www.w3id.org/iSeeOnto/aimodel#Neural_Network"
           ]
         },
         "trainedOn": {
@@ -747,13 +747,13 @@
         "solves": {
           "instance": "DisCERNMulti-class Classification",
           "classes": [
-            "Multi-class Classification"
+            "http://www.w3id.org/iSeeOnto/aimodel#Multi-class_Classification"
           ]
         },
         "utilises": {
-          "instance": "DisCERNRandomForest",
+          "instance": "DisCERNRandom_Forest",
           "classes": [
-            "RandomForest"
+            "http://www.w3id.org/iSeeOnto/aimodel#Random_Forest"
           ]
         },
         "trainedOn": {
@@ -990,14 +990,14 @@
         "solves": {
           "instance": "COLESentimentBinary Classification",
           "classes": [
-            "Binary Classification"
+            "http://www.w3id.org/iSeeOnto/aimodel#Binary_Classification"
           ]
         },
         "utilises": {
           "instance": "COLESentimentMulti-layer_Perceptron",
           "classes": [
-            "Multi-layer_Perceptron",
-            "Transformers"
+            "http://www.w3id.org/iSeeOnto/aimodel#Multi-layer_Perceptron",
+            "http://www.w3id.org/iSeeOnto/aimodel#Transformers"
           ]
         },
         "trainedOn": {
@@ -1226,13 +1226,13 @@
         "solves": {
           "instance": "COLEImageMulti-class Classification",
           "classes": [
-            "Multi-class Classification"
+            "http://www.w3id.org/iSeeOnto/aimodel#Multi-class_Classification"
           ]
         },
         "utilises": {
           "instance": "COLEImageConvolutional Neural Network",
           "classes": [
-            "Convolutional Neural Network"
+            "http://www.w3id.org/iSeeOnto/aimodel#Convolutional_Neural_Network"
           ]
         },
         "trainedOn": {
@@ -1461,13 +1461,13 @@
         "solves": {
           "instance": "DkNNMulti-class Classification",
           "classes": [
-            "Multi-class Classification"
+            "http://www.w3id.org/iSeeOnto/aimodel#Multi-class_Classification"
           ]
         },
         "utilises": {
           "instance": "DkNNConvolutional Neural Network",
           "classes": [
-            "Convolutional Neural Network"
+            "http://www.w3id.org/iSeeOnto/aimodel#Convolutional_Neural_Network"
           ]
         },
         "trainedOn": {
@@ -1696,13 +1696,13 @@
         "solves": {
           "instance": "SmoothGradMulti-class Classification",
           "classes": [
-            "Multi-class Classification"
+            "http://www.w3id.org/iSeeOnto/aimodel#Multi-class_Classification"
           ]
         },
         "utilises": {
           "instance": "SmoothGradConvolutional Neural Network",
           "classes": [
-            "Convolutional Neural Network"
+            "http://www.w3id.org/iSeeOnto/aimodel#Convolutional_Neural_Network"
           ]
         },
         "trainedOn": {
@@ -1931,13 +1931,13 @@
         "solves": {
           "instance": "IntGradImageMulti-class Classification",
           "classes": [
-            "Multi-class Classification"
+            "http://www.w3id.org/iSeeOnto/aimodel#Multi-class_Classification"
           ]
         },
         "utilises": {
           "instance": "IntGradImageConvolutional Neural Network",
           "classes": [
-            "Convolutional Neural Network"
+            "http://www.w3id.org/iSeeOnto/aimodel#Convolutional_Neural_Network"
           ]
         },
         "trainedOn": {
@@ -2166,13 +2166,13 @@
         "solves": {
           "instance": "IntGradRetinopathyBinary Classification",
           "classes": [
-            "Binary Classification"
+            "http://www.w3id.org/iSeeOnto/aimodel#Binary_Classification"
           ]
         },
         "utilises": {
           "instance": "IntGradRetinopathyConvolutional Neural Network",
           "classes": [
-            "Convolutional Neural Network"
+            "http://www.w3id.org/iSeeOnto/aimodel#Convolutional_Neural_Network"
           ]
         },
         "trainedOn": {
@@ -2395,13 +2395,13 @@
         "solves": {
           "instance": "IntGradTextClassificationMulti-class Classification",
           "classes": [
-            "Multi-class Classification"
+            "http://www.w3id.org/iSeeOnto/aimodel#Multi-class_Classification"
           ]
         },
         "utilises": {
           "instance": "IntGradTextClassificationConvolutional Neural Network",
           "classes": [
-            "Convolutional Neural Network"
+            "http://www.w3id.org/iSeeOnto/aimodel#Convolutional_Neural_Network"
           ]
         },
         "trainedOn": {
@@ -2624,13 +2624,13 @@
         "solves": {
           "instance": "GradCAMModelFailDetectionMulti-class Classification",
           "classes": [
-            "Multi-class Classification"
+            "http://www.w3id.org/iSeeOnto/aimodel#Multi-class_Classification"
           ]
         },
         "utilises": {
           "instance": "GradCAMModelFailDetectionConvolutional Neural Network",
           "classes": [
-            "Convolutional Neural Network"
+            "http://www.w3id.org/iSeeOnto/aimodel#Convolutional_Neural_Network"
           ]
         },
         "trainedOn": {
@@ -2859,13 +2859,13 @@
         "solves": {
           "instance": "GradCAMBiasDetectionMulti-class Classification",
           "classes": [
-            "Multi-class Classification"
+            "http://www.w3id.org/iSeeOnto/aimodel#Multi-class_Classification"
           ]
         },
         "utilises": {
           "instance": "GradCAMBiasDetectionConvolutional Neural Network",
           "classes": [
-            "Convolutional Neural Network"
+            "http://www.w3id.org/iSeeOnto/aimodel#Convolutional_Neural_Network"
           ]
         },
         "trainedOn": {
@@ -3094,13 +3094,13 @@
         "solves": {
           "instance": "GradCAMImageSensitivityMulti-class Classification",
           "classes": [
-            "Multi-class Classification"
+            "http://www.w3id.org/iSeeOnto/aimodel#Multi-class_Classification"
           ]
         },
         "utilises": {
           "instance": "GradCAMImageSensitivityConvolutional Neural Network",
           "classes": [
-            "Convolutional Neural Network"
+            "http://www.w3id.org/iSeeOnto/aimodel#Convolutional_Neural_Network"
           ]
         },
         "trainedOn": {
@@ -3327,15 +3327,15 @@
           "AIModel"
         ],
         "solves": {
-          "instance": "GradCAMImageCounterfactualMulti-class Classification",
+          "instance": "GradCAMImageCounterfactualMulti-class_Classification",
           "classes": [
-            "Multi-class Classification"
+            "http://www.w3id.org/iSeeOnto/aimodel#Multi-class_Classification"
           ]
         },
         "utilises": {
-          "instance": "GradCAMImageCounterfactualConvolutional Neural Network",
+          "instance": "GradCAMImageCounterfactualConvolutional_Neural_Network",
           "classes": [
-            "Convolutional Neural Network"
+            "http://www.w3id.org/iSeeOnto/aimodel#Convolutional_Neural_Network"
           ]
         },
         "trainedOn": {
@@ -3564,13 +3564,13 @@
         "solves": {
           "instance": "DeepLIFTCharactersMulti-class Classification",
           "classes": [
-            "Multi-class Classification"
+            "http://www.w3id.org/iSeeOnto/aimodel#Multi-class_Classification"
           ]
         },
         "utilises": {
           "instance": "DeepLIFTCharactersConvolutional Neural Network",
           "classes": [
-            "Convolutional Neural Network"
+            "http://www.w3id.org/iSeeOnto/aimodel#Convolutional_Neural_Network"
           ]
         },
         "trainedOn": {
@@ -3799,13 +3799,13 @@
         "solves": {
           "instance": "DeepLIFTDNAMulti-class Classification",
           "classes": [
-            "Multi-class Classification"
+            "http://www.w3id.org/iSeeOnto/aimodel#Multi-class_Classification"
           ]
         },
         "utilises": {
           "instance": "DeepLIFTDNAConvolutional Neural Network",
           "classes": [
-            "Convolutional Neural Network"
+            "http://www.w3id.org/iSeeOnto/aimodel#Convolutional_Neural_Network"
           ]
         },
         "trainedOn": {
