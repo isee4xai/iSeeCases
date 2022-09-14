@@ -5,7 +5,7 @@ import sys
 
 ##### CONFIGURATION #####
 CLOOD_PROJECT_ID = "3353c7e2b00a42ec8ce21267e9adada1"
-ISEE_CASES = "/Users/ike/dev/iSeeCases/seed-cases_2.json"
+ISEE_CASES = "/Users/ike/dev/iSeeCases/seed-cases.json"
 FOLDER_NAME = "RandomQuery"
 FILE_NAME = "randcase.json"
 topK = 3

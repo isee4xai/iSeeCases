@@ -3,7 +3,7 @@ from flatten import flatten_json
 import uuid
 
 # json_data = ''
-# with open("../seed-cases_2.json") as json_file:
+# with open("../seed-cases.json") as json_file:
 #     json_data = json.load(json_file)
 
 # print(json_data)
@@ -81,7 +81,7 @@ def add_case_ids():
         entry['id'] = uid.hex
 
     # output
-    with open("../seed-cases_2.json", 'w') as json_file:
+    with open("../seed-cases.json", 'w') as json_file:
         json.dump(json_data, json_file, indent=2)
 
     # Closing file
@@ -89,6 +89,6 @@ def add_case_ids():
 
 
 # add_case_ids()
-# with open("../seed-cases_2.json") as json_file:
+# with open("../seed-cases.json") as json_file:
 #     json_data = json.load(json_file)
 #     clood_format(json_data)
