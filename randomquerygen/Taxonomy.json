@@ -1,118 +1,300 @@
 {
-	"hasDataType": {
-		"instance": [
-            "Image",
-			"Tabular", 
-            "Audio",
-			"Video", 
-            "Timeseries",
-			"Structured Text",
-			"Unstructured Text",
-			"Combined"
-		],
-		"classes": ["Data Type"]
-	},
-	"hasConcurrentness": {
-		"instance": [
-        "anti-hoc",
-        "post-hoc"
+    "hasFeatureType": {
+        "instance": [
+            "categorical",
+            "numerical",
+            "image",
+            "ordinal"
         ],
-		"classes": ["Explainer Concurrentness"]
-	},
-	"hasExplanationScope": {
-		"instance": [
-        "cohort",
-        "global",
-        "local"
+        "classes": [
+            "Data Type"
+        ]
+    },
+    "hasDatasetType": {
+        "instance": [
+            "multivariate",
+            "univariate",
+            "image",
+            "text",
+            "time-series"
         ],
-		"classes": ["Explanation Scope"]
-	},
-	"targetType": {
-		"instance": [
+        "classes": [
+            "DatasetType"
+        ]
+    },
+    "hasConcurrentness": {
+        "instance": [
+            "anti-hoc",
+            "post-hoc"
+        ],
+        "classes": [
+            "Explainer Concurrentness"
+        ]
+    },
+    "hasExplanationScope": {
+        "instance": [
+            "cohort",
+            "global",
+            "local"
+        ],
+        "classes": [
+            "Explanation Scope"
+        ]
+    },
+    "targetType": {
+        "instance": [
             "data",
             "model",
-            "event"
+            "prediction"
         ],
-		"classes": ["Explanation Target"]
-	},
-	"hasPresentation": {
-		"instance": ["Any"],
-		"classes": ["textual entity"]
-	},
-	"hasPortability": {
-		"instance": [
+        "classes": [
+            "Explanation Target"
+        ]
+    },
+    "hasPresentation": {
+        "instance": [],
+        "classes": [
+            "information content entity",
+            "computational entity",
+            "geometric entity",
+            "language entity",
+            "mathematical entity",
+            "media",
+            "representation",
+            "social entity",
+            "audio recording",
+            "figure",
+            "chart",
+            "image",
+            "table",
+            "figure part",
+            "legend",
+            "plot",
+            "file",
+            "molecular structure file",
+            "flowchart",
+            "heatmap",
+            "histogram",
+            "map",
+            "statistical graph",
+            "textual chart",
+            "venn diagram",
+            "photograph",
+            "geographic image",
+            "pie chart",
+            "treemap",
+            "directed acyclic graph",
+            "bar graph",
+            "line graph",
+            "line-bar graph",
+            "scatter plot",
+            "stack graph",
+            "tag cloud",
+            "word tree"
+        ]
+    },
+    "hasPortability": {
+        "instance": [
             "model-class specific",
             "model-agnostic",
             "model specific"
         ],
-		"classes": ["Portability"]
-	},
-	"solves": {
-		"instance": [],
-		"classes": [
-            "Abductive Task",	
-            "Classification",	
-            "Anomaly Detection",	
-            "Deductive Task",	
-            "Forecasting",	
-            "Inductive Task"
+        "classes": [
+            "Portability"
         ]
-	},
-	"utilises": {
-		"instance": [],
-		"classes": [
-            "Computer Heuristics",	
-            "Fuzzy Logic",	
-            "Knowledge based Systems",	
-            "Expert Systems",	
-            "Knowledge Bases",	
-            "Biological Ontologies",	
-            "Machine Learning",	
+    },
+    "solves": {
+        "instance": [],
+        "classes": [
+            "Abductive Task",
+            "Rule Based",
+            "Deductive Task",
+            "Inductive Task",
+            "Forecasting",
+            "Anomaly Detection",
+            "Audio Processing",
+            "Autonomous Driving",
+            "Classification",
+            "Binary Classification",
+            "Multi-class Classification",
+            "Multi-label Classification",
+            "Clustering",
+            "Divisive Clustering",
+            "Hierarchical Clustering",
+            "Computational Linguistics",
+            "Automatic Speech Recognition",
+            "Machine Translation",
+            "Text Summarisation",
+            "Computer Vision",
+            "Edge Detection",
+            "Face Recognition",
+            "Image Detection",
+            "Image Generation",
+            "Image Restoration",
+            "Image Segmentation",
+            "Object Tracking",
+            "Video Motion Tracking",
+            "Forcasting",
+            "Information Retrieval",
+            "Ranking",
+            "Recommendation",
+            "Optimisation",
+            "Regression",
+            "Signal Processing"
+        ]
+    },
+    "utilises": {
+        "instance": [],
+        "classes": [
+            "Computer Heuristics",
+            "Metaheuristics",
+            "Dimensionality Reduction",
+            "Discrete Cosine Transformation",
+            "Flexible Discriminant Analysis",
+            "Fourier Transformation",
+            "Linear Discriminant Analysis",
+            "Mixture Discriminant Analysis",
+            "Partial Least Squares Regression",
+            "Principal Component Analysis",
+            "Quadratic Discriminant Analysis",
+            "Sammon Mapping",
+            "t-SNE",
+            "Fuzzy Logic",
+            "Instance Based Learning",
+            "Case Based Reasoning",
+            "k-Nearest Neighbour",
+            "Knowledge based Systems",
+            "Expert Systems",
+            "Knowledge Bases",
+            "Biological Ontologies",
+            "Machine Learning",
+            "Reinforcement Learning",
+            "Policy-based Reinforcement Learning",
+            "Q-Learning",
+            "SARSA",
+            "Temporal Difference",
             "Supervised Machine Learning",
-            "Unsupervised Machine Learning",	
-            "Natural Language Processing",	
-            "Term frequency", 
-            "ÄìInverse document frequency",	
-            "Neural Networks"
+            "Decision Tree",
+            "Deep Belief Network",
+            "Ensemble Method",
+            "AdaBoost",
+            "Bootstrapped Aggregation",
+            "Gradient Boosting",
+            "Gradient Tree Boosting"
         ]
-	},
-	"hasIntent": {
-		"instance": [],
-		"classes": [
+    },
+    "hasIntent": {
+        "instance": [],
+        "classes": [
             "Debugging",
             "Education",
             "Effectiveness",
             "Efficiency",
-            "Persuasiveness",	
-            "Satisfaction",	
-            "Scruitablity",	
-            "Transparency",	
+            "Persuasiveness",
+            "Satisfaction",
+            "Scruitablity",
+            "Transparency",
             "Trust"
         ]
-	},
-	"levelOfKnowledge": {
-		"instance": [
-            "high",
-            "medium",
-            "low"
+    },
+    "levelOfKnowledge": {
+        "instance": [
+            "advanced_beginner",
+            "competent",
+            "expert",
+            "no_knowledge",
+            "novice",
+            "proficient"
         ],
-		"classes": ["KnowledgeLevel"]
-	},
-	"hasResources": {
-		"instance": [
-            "Audio Facilities", 
-            "Touch Facilities", 
+        "classes": [
+            "KnowledgeLevel"
+        ]
+    },
+    "hasResources": {
+        "instance": [
+            "Speaker",
+            "Screen Display"
+        ],
+        "classes": [
+            "Audio Facilities",
+            "Touch Facilities",
             "Visual Facilities"
+        ]
+    },
+    "hasQuestionTarget":{
+        "instance": [
         ],
-		"classes": ["Technical Facilities"]
-	},
-	"canHandle": {
-		"instance": [
-            "Text",
-            "Image",
-            "Tabular",
-            "Audio"
+        "classes": [
+            "System Recommendation",
+            "Computer Heuristics",
+            "Metaheuristics",
+            "Dimensionality Reduction",
+            "Discrete Cosine Transformation",
+            "Flexible Discriminant Analysis",
+            "Fourier Transformation",
+            "Linear Discriminant Analysis",
+            "Mixture Discriminant Analysis",
+            "Partial Least Squares Regression",
+            "Principal Component Analysis",
+            "Quadratic Discriminant Analysis",
+            "Sammon Mapping",
+            "t-SNE",
+            "Fuzzy Logic",
+            "Instance Based Learning",
+            "Case Based Reasoning",
+            "k-Nearest Neighbour",
+            "Knowledge based Systems",
+            "Expert Systems",
+            "Knowledge Bases",
+            "Biological Ontologies",
+            "Machine Learning",
+            "Reinforcement Learning",
+            "Policy-based Reinforcement Learning",
+            "Q-Learning",
+            "SARSA",
+            "Temporal Difference",
+            "Supervised Machine Learning",
+            "Decision Tree",
+            "Deep Belief Network",
+            "Ensemble Method",
+            "AdaBoost",
+            "Bootstrapped Aggregation",
+            "Gradient Boosting",
+            "Gradient Tree Boosting"
+        ]
+    },
+    "rootNode": {
+        "instance": [
         ],
-		"classes": ["ExplanationModality"]
-	}
+        "classes": [
+            "Priority Node",
+            "Sequence Node"
+        ]
+    },
+    "nodes": {
+        "instance": [
+        ],
+        "classes": [
+            "Failure Node",
+            "Explanation Method Node",
+            "Succeeder Node",
+            "Condition Node",
+            "Inverter Node",
+            "Limit At Activations Node",
+            "Repeat At X Node",
+            "Repeat Until Failure Node",
+            "Repeat Until Succes sNode",
+            "Evaluation Method Node"
+        ]
+    },
+    "measures":{
+        "instance": [
+            "Goodness",
+            "Satisfaction",
+            "Trust"
+        ],
+        "classes": [
+            "User Evaluation Dimension"
+        ]
+    }
 }
