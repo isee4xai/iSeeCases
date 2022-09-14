@@ -52,7 +52,7 @@ def clood_format(json_data):
         case['ExplainerConcurrentness'] = extract_property('hasConcurrentness', entry['hasDescription']['hasExplanationRequirements']['hasExplanationCriteria'])
         case['ExplanationScope'] = extract_property('hasExplanationScope', entry['hasDescription']['hasExplanationRequirements']['hasExplanationCriteria'])
         case['ExplanationTarget'] = extract_property('targetType', entry['hasDescription']['hasExplanationRequirements']['hasExplanationCriteria'])
-        # case['ExplanationPresentation'] = extract_property('hasPresentation', entry['hasDescription']['hasExplanationRequirements']['hasExplanationCriteria'])
+        case['ExplanationPresentation'] = extract_property('hasPresentation', entry['hasDescription']['hasExplanationRequirements']['hasExplanationCriteria'])
         case['UserIntent'] = entry['hasDescription']['hasUser']['hasIntent']['instance']
         case['TechnicalFacilities'] = extract_all_instances(entry['hasDescription']['hasUser']['hasResources'])
         # case['ExplanationModality'] = ?
