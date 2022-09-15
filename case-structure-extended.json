@@ -55,9 +55,9 @@
     },
     "annotatedBy":[
       {
-        "instance": "<usecase><basedon>",
-        "basedOn": "AIModel Accuracy",
-        "comment": "<value>",
+        "instance": "<casename><AssesmentType>",
+        "basedOn": "<AssesmentType>",
+        "comment": "<AssesmentValue>",
         "measures": "Performance",
         "classes": [
           "AIModelAssessmentResult"
