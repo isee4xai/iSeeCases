@@ -1,29 +1,35 @@
+const { json } = require('express/lib/response');
 const fs = require('fs');
-// var fs1 = require('fs-extra'); 
 //Create a list of instance names
-const caseNames = ["Adidas","Alphabet","Amazon","Apple","Cisco","Foxconn","Google","Huawei","Hitachi","IBM","Intel","Lenovo",
-"Netflix","Nokia","Meta","Microsoft","Panasonic","Qualcomm","Samsung","Sony"];
+// const caseNames = ["Adidas","Alphabet","Amazon","Apple","Cisco","Foxconn","Google","Huawei","Hitachi","IBM","Intel","Lenovo",
+// "Netflix","Nokia","Meta","Microsoft","Panasonic","Qualcomm","Samsung","Sony"];
+const caseNames = ["Adidas","Alphabet"];
+
 
 //cannot be larger than number of features to modify (9 at the moment)
-const noOfVersions = 9; 
+const noOfVersions = 14; 
 
 var taxonomyData, aiTasks, intents, aiMethods;
 fs.readFile('Taxonomy.json', 'utf8', (err, data) => {
   if (err) console.error(err);
   taxonomyData = JSON.parse(data);
   //pre-load all taxonomies for future, 
-  aiTasks = taxonomyData.solves.classes;
-  aiMethods = taxonomyData.utilises.classes;
-  intents = taxonomyData.hasIntent.classes;
-  dataTypes = taxonomyData.hasDataType.instance;
-  technicalFacilities = taxonomyData.hasResources.instance;
-  explanationModalities = taxonomyData.canHandle.instance;
-  knowledgeLevels = taxonomyData.levelOfKnowledge.instance;
-  portabilities = taxonomyData.hasPortability.instance;
-  scopes = taxonomyData.hasExplanationScope.instance;
-  targets = taxonomyData.targetType.instance;
-  presentations = taxonomyData.hasPresentation.instance;
-  concurrents = taxonomyData.hasConcurrentness.instance;
+  aiTasks = taxonomyData.solves.classes; //hasDescription.hasAIModel.solves.classes
+  aiMethods = taxonomyData.utilises.classes; //hasDescription.hasAIModel.utilises.classes
+  featureTypes = taxonomyData.hasFeatureType.instance; // hasDescription.hasAIModel.trainedOn.hasFeatureType.instance
+  datasetTypes = taxonomyData.hasDatasetType.instance; //hasDescription.hasAIModel.trainedOn.hasDatasetType.instance
+  portabilities = taxonomyData.hasPortability.instance; //hasDescription.hasExplanationRequirements.hasExplanationCriteria[0]
+  concurrentness = taxonomyData.hasConcurrentness.instance;//hasDescription.hasExplanationRequirements.hasExplanationCriteria[1]
+  presentations = taxonomyData.hasPresentation.classes; //hasDescription.hasExplanationRequirements.hasExplanationCriteria[2]
+  explanationScopes = taxonomyData.hasExplanationScope.instance; //hasDescription.hasExplanationRequirements.hasExplanationCriteria[3]
+  targetTypes = taxonomyData.targetType.instance; //hasDescription.hasExplanationRequirements.hasExplanationCriteria[4]
+  intents = taxonomyData.hasIntent.classes; //hasDescription.hasUser.hasIntent.instance
+  technicalFacilities = taxonomyData.hasResources.instance; //hasDescription.hasUser.hasResources.instance
+  knowledgeLevels = taxonomyData.levelOfKnowledge.instance; //hasDescription.hasUser.possess[0].levelOfKnowledge.instance
+  userQuestions = taxonomyData.hasQuestionTarget.classes; //hasDescription.hasUser.asks.hasQuestionTarget.classes
+  rootNodes = taxonomyData.rootNode.classes;
+  nodes = taxonomyData.nodes.classes;
+  measures = taxonomyData.measures.instance;
 });
 
 function getRandomValue(previous, collection){
@@ -37,80 +43,112 @@ function getRandomValue(previous, collection){
   } while (randVal===previous);
   return randVal;
 }
+
 /*dictionary of all modifications. 
 in future we can add functions here if new case features are introduced.*/
 var allModifications = {
   modifyAITask: function(randomQuery, randomCaseName) {
     var randTask = getRandomValue(randomQuery.hasDescription.hasAIModel.solves.classes[0], aiTasks);
-    randomQuery.hasDescription.hasAIModel.solves.classes = [randTask];
+    var onto='http://www.w3id.org/iSeeOnto/aimodel#';
+    // randomQuery.hasDescription.hasAIModel.solves.classes = [randTask];
+    // console.log("new aiTasks: "+ onto.concat(randTask));
+    randomQuery.hasDescription.hasAIModel.solves.classes = onto.concat(randTask);
     randomQuery.hasDescription.hasAIModel.solves.instance = randomCaseName.concat(" ", randTask);
     console.log("modifyAITask: "+randTask);
   },
+  modifyAIMethod: function(randomQuery, randomCaseName) {
+    var randMethod = getRandomValue(randomQuery.hasDescription.hasAIModel.utilises.classes[0], aiMethods);
+    var onto='http://www.w3id.org/iSeeOnto/aimodel#';
+    // randomQuery.hasDescription.hasAIModel.utilises.classes = [randMethod];
+    randomQuery.hasDescription.hasAIModel.utilises.classes = onto.concat(randMethod);
+    // console.log("new aiMethods: "+ onto.concat(randMethod));
+    randomQuery.hasDescription.hasAIModel.utilises.instance = randomCaseName.concat(" ", randMethod);
+    console.log("modifyAIMethod: "+randMethod);
+  },
+  modifyFeatureType: function(randomQuery, randomCaseName) {
+    var randFeatureType =  getRandomValue(randomQuery.hasDescription.hasAIModel.trainedOn.hasFeatureType.instance, featureTypes); //multiple values
+    randomQuery.hasDescription.hasAIModel.trainedOn.hasFeatureType.instance = randFeatureType; //Change one value
+    console.log("modifyFeatureType: "+randFeatureType);
+  },
+  modifyDatasetType: function(randomQuery, randomCaseName) {
+    var randDatasetType =  getRandomValue(randomQuery.hasDescription.hasAIModel.trainedOn.hasDatasetType.instance, datasetTypes);
+    randomQuery.hasDescription.hasAIModel.trainedOn.hasDatasetType.instance = randDatasetType;
+    console.log("modifyDatasetType: "+randDatasetType);
+  },
+  modifyPortability: function(randomQuery, randomCaseName){
+    var randPortability = getRandomValue(randomQuery.hasDescription.hasExplanationRequirements.hasExplanationCriteria[0].requiredObjectValue, portabilities);
+    randomQuery.hasDescription.hasExplanationRequirements.hasExplanationCriteria[0].requiredObjectValue = randPortability; //onProperty: hasPortability, requiredObjectValue
+    console.log("modifyPortability: "+randPortability); ////hasDescription.hasExplanationRequirements.hasExplanationCriteria.hasPortability
+  },
+   //concurrentness is always post-hoc
+//   modifyConcurrentness: function(randomQuery, randomCaseName){
+//     var randVal = concurrentness[Math.floor(Math.random() * concurrentness.length)];
+//     randomQuery.hasDescription.hasExplanationRequirements.hasExplanationCriteria.hasConcurrentness.instance = randVal;
+//     // console.log("modifyConcurrentness: "+randVal);
+//   },       
+  modifyPresentation: function(randomQuery, randomCaseName){
+    var randPresentation = getRandomValue(randomQuery.hasDescription.hasExplanationRequirements.hasExplanationCriteria[2].requiredValueType, presentations);
+    console.log("randPresentation: "+randPresentation);
+    randomQuery.hasDescription.hasExplanationRequirements.hasExplanationCriteria[2].requiredValueType = randPresentation;
+    console.log("modifyPresentation: "+randPresentation);
+  },    
+  modifyExplanationScope: function(randomQuery, randomCaseName){
+    var randScope = getRandomValue(randomQuery.hasDescription.hasExplanationRequirements.hasExplanationCriteria[3].requiredObjectValue, explanationScopes);
+    randomQuery.hasDescription.hasExplanationRequirements.hasExplanationCriteria[3].requiredObjectValue = randScope;
+    console.log("modifyExplanationScope: "+randScope);
+  }, 
+  modifyTargetType: function(randomQuery, randomCaseName){
+    var randTargetType= getRandomValue(randomQuery.hasDescription.hasExplanationRequirements.hasExplanationCriteria[4].requiredObjectValue, targetTypes);
+    randomQuery.hasDescription.hasExplanationRequirements.hasExplanationCriteria[4].requiredObjectValue = randTargetType;
+    console.log("modifyTargetType: "+randTargetType);
+  },
+  modifyResources: function(randomQuery, randomCaseName) {
+    var randTechFacility = getRandomValue(randomQuery.hasDescription.hasUser.hasResources[0].instance, technicalFacilities); //Changing only one value
+    // console.log("modifyResources: "+randTechFacility);
+    randomQuery.hasDescription.hasUser.hasResources[0].instance = randTechFacility;
+    console.log("modifyResources: "+randTechFacility);
+  },    
+  modifyLevelOfKnowledge: function(randomQuery, randomCaseName){
+    // var lok = randomQuery.hasDescription.hasUser.possess;
+    // const caseData = JSON.stringify(lok, null, 4);
+    // console.log("caseData: "+caseData);
+    var randKnowledge = getRandomValue(randomQuery.hasDescription.hasUser.possess[0].levelOfKnowledge.instance, knowledgeLevels);
+    // console.log("randKnowledge: "+randKnowledge);
+    var randKnowledge = getRandomValue(randomQuery.hasDescription.hasUser.possess[0].levelOfKnowledge.instance, knowledgeLevels);
+    randomQuery.hasDescription.hasUser.possess[0].levelOfKnowledge.instance = randKnowledge;
+    console.log("modifyLevelOfKnowledge: "+randKnowledge);
+  },        
   modifyIntent: function(randomQuery, randomCaseName) {
     var randIntent = getRandomValue(randomQuery.hasDescription.hasUser.hasIntent.classes[0], intents);
     randomQuery.hasDescription.hasUser.hasIntent.classes = [randIntent];
     randomQuery.hasDescription.hasUser.hasIntent.instance = randomCaseName.concat(" ", randIntent);
     console.log("modifyIntent: "+randIntent);
   },
-  modifyAIMethod: function(randomQuery, randomCaseName) {
-    var randMethod = getRandomValue(randomQuery.hasDescription.hasAIModel.utilises.classes[0], aiMethods);
-    randomQuery.hasDescription.hasAIModel.utilises.classes = [randMethod];
-    randomQuery.hasDescription.hasAIModel.utilises.instance = randomCaseName.concat(" ", randMethod);
-    console.log("modifyAIMethod: "+randMethod);
+  modifyUserQuestions: function(randomQuery, randomCaseName) {
+    var randQuestions = getRandomValue(randomQuery.hasDescription.hasUser.asks.hasQuestionTarget.classes[0], userQuestions);
+    // console.log("randQuestions: "+randQuestions);
+    randomQuery.hasDescription.hasUser.asks.hasQuestionTarget.classes = [randQuestions];
+    randomQuery.hasDescription.hasUser.asks.hasQuestionTarget.instance = randomCaseName.concat(" ", randQuestions);
+    console.log("modifyUserQuestions: "+randQuestions);
   },
-  modifyDataType: function(randomQuery, randomCaseName) {
-    var randDataType =  getRandomValue(randomQuery.hasDescription.hasAIModel.trainedOn.hasDataType.instance, dataTypes);
-    randomQuery.hasDescription.hasAIModel.trainedOn.hasDataType.instance = randDataType;
-    console.log("modifyDataType: "+randDataType);
-  },
-  modifyResources: function(randomQuery, randomCaseName) {
-    var randTechFacility = getRandomValue(randomQuery.hasDescription.hasUser.hasResources.instance, technicalFacilities);
-    randomQuery.hasDescription.hasUser.hasResources.instance = randTechFacility;
-    console.log("modifyResources: "+randTechFacility);
-  },    
-  //canHandle is not working
-  // modifyHandles: function(randomQuery, randomCaseName) {
-  //   var randmodality = getRandomValue(randomQuery.hasDescription.hasUser.hasResources.canHandle.instance[0], explanationModalities);
-  //   // console.log("modifyHandles before: "+randomQuery.hasDescription.hasUser.hasResources.canHandle.instance);
-  //   randomQuery.hasDescription.hasUser.hasResources.canHandle.instance = randmodality;
-  //   console.log("modifyHandles after: "+randmodality);
-  // },
-  modifyLevelOfKnowledge: function(randomQuery, randomCaseName){
-    var randknowledge = getRandomValue(randomQuery.hasDescription.hasUser.possess.levelOfKnowledge.instance, knowledgeLevels);
-    randomQuery.hasDescription.hasUser.possess.levelOfKnowledge.instance = randknowledge;
-    console.log("modifyLevelOfKnowledge: "+randknowledge);
-  },    
-  modifyPortability: function(randomQuery, randomCaseName){
-    var randVal = getRandomValue(randomQuery.hasDescription.hasExplainer.utilises.hasPortability.instance, portabilities);
-    randomQuery.hasDescription.hasExplainer.utilises.hasPortability.instance = randVal;
-    console.log("modifyPortability: "+randVal);
-  },    
-  //concurrentness is always post-hoc
-  // modifyConcurrentness: function(randomQuery, randomCaseName){
-  //   var randVal = concurrents[Math.floor(Math.random() * concurrents.length)];
-  //   randomQuery.hasDescription.hasExplainer.utilises.hasConcurrentness.instance = randVal;
-  //   // console.log("modifyConcurrentness: "+randVal);
-  // },    
-  modifyExplanationScope: function(randomQuery, randomCaseName){
-    var randVal = getRandomValue(randomQuery.hasDescription.hasExplainer.utilises.hasExplanationScope.instance, scopes);
-    randomQuery.hasDescription.hasExplainer.utilises.hasExplanationScope.instance = randVal;
-    console.log("modifyExplanationScope: "+randVal);
-  },    
-  // modifyPresentation: function(randomQuery, randomCaseName){
-  //   var randVal = getRandomValue(randomQuery.hasDescription.hasExplainer.utilises.hasPresentation.instance, presentations);
-  //   randomQuery.hasDescription.hasExplainer.utilises.hasPresentation.instance = randVal;
-  //   console.log("modifyPresentation: "+randVal);
-  // },    
-  modifyTargetType: function(randomQuery, randomCaseName){
-    var randVal = getRandomValue(randomQuery.hasDescription.hasExplainer.utilises.targetType.instance, targets);
-    randomQuery.hasDescription.hasExplainer.utilises.targetType.instance = randVal;
-    console.log("modifyTargetType: "+randVal);
-  }
+  modifyRootNodes: function(randomQuery, randomCaseName) {
+    var randRootNodes = getRandomValue(randomQuery.hasSolution.data.trees[0].rootNode.classes[0], rootNodes); //multiple values for trees
+    randomQuery.hasSolution.data.trees[0].rootNode.classes = [randRootNodes]; 
+    randomQuery.hasSolution.data.trees[0].rootNode.classes[0] = randomCaseName.concat(" ", randRootNodes);
+    console.log("modifyUserQuestions: "+randRootNodes);
+},
+  modifyNodes: function(randomQuery, randomCaseName) {
+    var randNodes = getRandomValue(randomQuery.hasSolution.data.trees[0].nodes[0].classes[0], nodes); //array
+    randomQuery.hasSolution.data.trees[0].nodes[0].classes = [randNodes];
+    randomQuery.hasSolution.data.trees[0].nodes[0].classes[0] = randomCaseName.concat(" ", randNodes);
+    console.log("modifyUserQuestions: "+randNodes);
+}
+//   modifyMeasures: function(randomQuery, randomCaseName) {}
 };
-
+//14 to 15 properties
 
 function genRandomQuery() {
-  fs.readFile('SeedCase.json', 'utf8', (err, data) => {
+  fs.readFile('seed-cases.json', 'utf8', (err, data) => {
     if (err) console.error(err);
     const allCases = JSON.parse(data);
     const keys = Object.keys(allCases);
@@ -144,8 +182,35 @@ function genRandomQuery() {
 }
 
 function callback(randomCase, randCaseName) {
-  //Assign empty value to the hasExplainer instance
+  //Assign empty value to the hasExplanationRequirements instance
   removeSolution(randomCase);
+
+  console.log("aiTasks: "+ randomCase.hasDescription.hasAIModel.solves.classes[0]);
+  console.log("aiMethods: "+ randomCase.hasDescription.hasAIModel.utilises.classes[0]);
+//   console.log(randomCase.hasDescription.hasAIModel.trainedOn.hasFeatureType[1]!=null);
+  if(randomCase.hasDescription.hasAIModel.trainedOn.hasFeatureType[1]!=null){
+     console.log("featureTypes: "+ randomCase.hasDescription.hasAIModel.trainedOn.hasFeatureType[0].instance,","+randomCase.hasDescription.hasAIModel.trainedOn.hasFeatureType[1].instance); //array
+  }
+  else
+    console.log("featureTypes: "+ randomCase.hasDescription.hasAIModel.trainedOn.hasFeatureType.instance);
+  console.log("datasetTypes: "+ randomCase.hasDescription.hasAIModel.trainedOn.hasDatasetType.instance); 
+  console.log("intents: "+ randomCase.hasDescription.hasUser.hasIntent.instance); 
+  console.log("userQuestions: "+ randomCase.hasDescription.hasUser.asks.hasQuestionTarget.classes[0]); 
+//   console.log(randomCase.hasDescription.hasUser.hasResources[1]!=null);
+  if(randomCase.hasDescription.hasUser.hasResources[1]!=null){
+  console.log("technicalFacilities: "+ randomCase.hasDescription.hasUser.hasResources[0].instance,","+ randomCase.hasDescription.hasUser.hasResources[1].instance); //array
+  }
+  else
+   console.log("technicalFacilities: "+ randomCase.hasDescription.hasUser.hasResources.instance);
+  console.log("knowledgeLevels: "+ randomCase.hasDescription.hasUser.possess[0].levelOfKnowledge.instance); //array
+  console.log("portabilities: "+ randomCase.hasDescription.hasExplanationRequirements.hasExplanationCriteria[0].requiredObjectValue); //hasExplanationCriteria is an array
+  console.log("concurrentness: "+ randomCase.hasDescription.hasExplanationRequirements.hasExplanationCriteria[1].requiredObjectValue); 
+  console.log("presentations: "+ randomCase.hasDescription.hasExplanationRequirements.hasExplanationCriteria[2].requiredValueType); 
+  console.log("explanationScopes: "+ randomCase.hasDescription.hasExplanationRequirements.hasExplanationCriteria[3].requiredObjectValue); 
+  console.log("targetTypes: "+ randomCase.hasDescription.hasExplanationRequirements.hasExplanationCriteria[4].requiredObjectValue); 
+  console.log("rootNode: "+ randomCase.hasSolution.data.trees[0].rootNode.classes[0]);
+  console.log("nodes: "+ randomCase.hasSolution.data.trees[0].nodes[0].classes[0]);
+
   //  Get the caseName from randomCase
   var instanceName = randomCase.instance;
   if (instanceName.includes("ExplanationExperience")) {
@@ -185,18 +250,32 @@ function callback(randomCase, randCaseName) {
   } else {
       console.log(randCaseName + " Directory already exists.");
   }
-  
 }
 
 function replaceCaseName(randomQuery, randCaseName, extractedName) {
+  randomQuery.instance = randomQuery.instance.replace(extractedName, randCaseName);
+  randomQuery.hasDescription.instance = randomQuery.hasDescription.instance.replace(extractedName, randCaseName);
+  randomQuery.hasDescription.hasAIModel.instance = randomQuery.hasDescription.hasAIModel.instance.replace(extractedName, randCaseName);
   randomQuery.hasDescription.hasAIModel.solves.instance = randomQuery.hasDescription.hasAIModel.solves.instance.replace(extractedName, randCaseName);
   randomQuery.hasDescription.hasAIModel.utilises.instance = randomQuery.hasDescription.hasAIModel.utilises.instance.replace(extractedName, randCaseName);
-  randomQuery.hasDescription.hasUser.hasIntent.instance = randomQuery.hasDescription.hasUser.hasIntent.instance.replace(extractedName, randCaseName); //Usually no change
-  randomQuery.instance = randomQuery.instance.replace(extractedName, randCaseName);
-  randomQuery.hasDescription.hasAIModel.instance = randomQuery.hasDescription.hasAIModel.instance.replace(extractedName, randCaseName);
   randomQuery.hasDescription.hasAIModel.trainedOn.instance = randomQuery.hasDescription.hasAIModel.trainedOn.instance.replace(extractedName, randCaseName);
+  randomQuery.hasDescription.hasExplanationRequirements.hasExplanationCriteria[0].instance = randomQuery.hasDescription.hasExplanationRequirements.hasExplanationCriteria[0].instance.replace(extractedName, randCaseName);
+  randomQuery.hasDescription.hasExplanationRequirements.hasExplanationCriteria[1].instance = randomQuery.hasDescription.hasExplanationRequirements.hasExplanationCriteria[1].instance.replace(extractedName, randCaseName);
+  randomQuery.hasDescription.hasExplanationRequirements.hasExplanationCriteria[2].instance = randomQuery.hasDescription.hasExplanationRequirements.hasExplanationCriteria[2].instance.replace(extractedName, randCaseName);
+  randomQuery.hasDescription.hasExplanationRequirements.hasExplanationCriteria[3].instance = randomQuery.hasDescription.hasExplanationRequirements.hasExplanationCriteria[3].instance.replace(extractedName, randCaseName);
+  randomQuery.hasDescription.hasExplanationRequirements.hasExplanationCriteria[4].instance = randomQuery.hasDescription.hasExplanationRequirements.hasExplanationCriteria[4].instance.replace(extractedName, randCaseName);
+  randomQuery.hasDescription.hasUser.possess[0].instance = randomQuery.hasDescription.hasUser.possess[0].instance.replace(extractedName, randCaseName); 
+  randomQuery.hasDescription.hasUser.possess[1].instance = randomQuery.hasDescription.hasUser.possess[1].instance.replace(extractedName, randCaseName); 
+  randomQuery.hasDescription.hasUser.asks.instance = randomQuery.hasDescription.hasUser.asks.instance.replace(extractedName, randCaseName); //Usually no change
+  randomQuery.hasDescription.hasUser.asks.hasQuestionTarget.instance = randomQuery.hasDescription.hasUser.asks.hasQuestionTarget.instance.replace(extractedName, randCaseName); //Usually no change
   randomQuery.hasDescription.hasUser.instance = randCaseName.concat("User");
-  randomQuery.hasDescription.hasUser.possess.instance = randomQuery.hasDescription.hasUser.possess.instance.replace(extractedName, randCaseName);
+  randomQuery.hasSolution.instance = randomQuery.hasSolution.instance.replace(extractedName, randCaseName);
+  randomQuery.hasSolution.data.instance = randomQuery.hasSolution.data.instance.replace(extractedName, randCaseName);
+  randomQuery.hasSolution.data.selectedTree = randomQuery.hasSolution.data.selectedTree.replace(extractedName, randCaseName);
+  randomQuery.hasSolution.data.trees[0].instance = randomQuery.hasSolution.data.trees[0].instance.replace(extractedName, randCaseName);
+  randomQuery.hasSolution.data.trees[0].rootNode.instance = randomQuery.hasSolution.data.trees[0].rootNode.instance.replace(extractedName, randCaseName);
+  randomQuery.hasSolution.data.trees[0].rootNode.firstChild = randomQuery.hasSolution.data.trees[0].rootNode.firstChild.replace(extractedName, randCaseName);
+  randomQuery.hasSolution.data.trees[0].nodes[0].instance = randomQuery.hasSolution.data.trees[0].nodes[0].instance.replace(extractedName, randCaseName); 
 }
 
 function getRandModifications(){
@@ -238,16 +317,15 @@ function modifyCase(randomQuery, randomCaseName, modifications) {
 
 function removeSolution(randomQueGen) {
   var explainer;
-  if (explainer = randomQueGen.hasDescription.hasExplainer) {
+  if (explainer = randomQueGen.hasDescription.hasExplanationRequirements) {
     explainer.instance = "";
-    explainer.utilises.instance = "";
-    explainer.utilises.hasOutputType.instance = "";
+    // explainer.hasExplanationCriteria.instance = "";
+    // explainer.hasExplanationCriteria.hasOutputType.instance = "";
   }
   else {
     console.log('Exit');
   }
 }
-
 
 genRandomQuery();
 
