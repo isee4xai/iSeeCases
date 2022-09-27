@@ -45,12 +45,20 @@
             "DatasetType"
           ]
         },
-        "hasFeatureType": {
-          "instance": "<DataType>",
-          "classes": [
-            "Data Type"
-          ]
-        }
+        "hasFeatureType": [
+          {
+            "instance": "<DataType>",
+            "classes": [
+              "Data Type"
+            ]
+          },
+          {
+            "instance": "<DataType>",
+            "classes": [
+              "Data Type"
+            ]
+          }
+        ]
       }
     },
     "hasExplanationRequirements":{
