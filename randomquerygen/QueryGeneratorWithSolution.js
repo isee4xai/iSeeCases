@@ -1,4 +1,3 @@
-const { json } = require('express/lib/response');
 const fs = require('fs');
 //Create a list of instance names
 // const caseNames = ["Adidas","Alphabet","Amazon","Apple","Cisco","Foxconn","Google","Huawei","Hitachi","IBM","Intel","Lenovo",
