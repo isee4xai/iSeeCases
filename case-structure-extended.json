@@ -61,6 +61,26 @@
         ]
       }
     },
+    "annotatedBy":[
+      {
+        "instance": "<casename><AssesmentType>",
+        "basedOn": "<AssesmentType>",
+        "comment": "<AssesmentValue>",
+        "measures": "Performance",
+        "classes": [
+          "AIModelAssessmentResult"
+        ]
+      },
+      {
+        "instance": "<usecase><basedon>",
+        "basedOn": "Inference Time",
+        "comment": "<value>",
+        "measures": "Speed",
+        "classes": [
+          "AIModelAssessmentResult"
+        ]
+      }
+    ],
     "hasExplanationRequirements":{
       "instance": "<casename>Requirements",
       "classes":[
@@ -111,6 +131,7 @@
     },
     "hasUser": {
       "instance": "<casename>User",
+      "hasKnowledgeOfDomain": "<domain>",
       "classes": [
         "user"
       ],
