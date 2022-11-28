@@ -1,331 +1,228 @@
 {
-  "instance": "<casename>ExplanationExperience",
+  "instance": "<ee_IRI><casename>ExplanationExperience",
   "classes": [
-    "Explanation Experience"
+    "<ee_IRI>ExplanationExperience"
   ],
-  "hasDescription": {
-    "instance": "<casename>Description",
-    "value": "<Description>",
+  "<ee_IRI>hasDescription": {
+    "instance": "<ee_IRI><casename>Description",
     "classes": [
-      "Description"
+      "<ee_IRI>Description"
     ],
-    "hasAIModel": {
-      "instance": "<casename>Model",
+    "<ee_IRI>hasAIModel": {
+      "instance": "<ee_IRI><casename>AIModel",
       "classes": [
-        "AIModel"
+        "<aimodel_IRI>AIModel"
       ],
-      "solves": {
-        "instance": "<casename><AITask>",
+      "<aimodel_IRI>solves": {
+        "instance": "<ee_IRI><casename><AITask>",
         "classes": [
           "<AITask>"
-        ]
+        ],
+        "<sio_IRI>SIO_000355": {
+          "instance": "<casename>AITaskGoal",
+          "classes": [
+            "<aimodel_IRI>AITaskGoal"
+          ],
+          "<sio_IRI>SIO_000300": "to predict stuff"
+        }
       },
-      "utilises": {
-        "instance": "<casename><AIMethod>",
+      "<explainer_IRI>utilises": {
+        "instance": "<ee_IRI><casename><AIMethod>",
         "classes": [
           "<AIMethod>"
         ]
       },
-      "trainedOn": {
-        "instance": "<casename>Dataset",
-        "classes": [
-          "Dataset"
-        ],
-        "numberOfFeatures": {
-          "value":"<NumberOfFeatures>",
-          "classes": "integer"
-        },
-        "numberOfInstances": {
-          "value":"<NumberOfInstances>",
-          "classes": "integer"
-        },
-        "hasDatasetType": {
-          "instance": "<DatasetType>",
+      "<aimodel_IRI>trainedOn": [
+        {
+          "instance": "<ee_IRI><casename>Dataset",
           "classes": [
-            "DatasetType"
-          ]
-        },
-        "hasFeatureType": [
-          {
-            "instance": "<DataType>",
+            "<aimodel_IRI>Dataset"
+          ],
+          "<aimodel_IRI>featureCountRange": {
+            "instance": "<aimodel_IRI><Dataset_Feature_Quantity_Range>",
             "classes": [
-              "Data Type"
+              "<aimodel_IRI>Dataset_Feature_Quantity_Range"
             ]
           },
-          {
-            "instance": "<DataType>",
+          "<aimodel_IRI>instanceCountRange": {
+            "value": "<aimodel_IRI><Dataset_Instance_Quantity_Range>",
             "classes": [
-              "Data Type"
+              "<aimodel_IRI>Dataset_Instance_Quantity_Range"
             ]
-          }
-        ]
-      }
+          },
+          "<aimodel_IRI>hasDatasetType": {
+            "instance": "<explainer_IRI><DatasetType>",
+            "classes": [
+              "<explainer_IRI>DatasetType"
+            ]
+          },
+          "<aimodel_IRI>hasFeatureType": [
+            {
+              "instance": "<explainer_IRI><DataType>",
+              "classes": [
+                "<explainer_IRI>DataType"
+              ]
+            }
+          ]
+        }
+      ],
+      "<evaluation_IRI>annotatedBy": []
     },
-    "hasExplanationRequirements":{
-      "instance": "<casename>Requirements",
-      "classes":[
-        "ExplanationRequirements"
+    "<ee_IRI>hasExplanationRequirements": {
+      "instance": "<ee_IRI><casename>ExplanationRequirements",
+      "classes": [
+        "<ee_IRI>ExplanationRequirements"
       ],
       "hasExplanationCriteria": [
         {
-          "instance": "<casename>PortabilityCriteria",
-          "classes":[
-            "ExplanationCriteria"
+          "instance": "<ee_IRI><casename>PortabilityCriteria",
+          "classes": [
+            "<ee_IRI>ExplanationCriteria"
           ],
-          "onProperty":"hasPortability",
-          "requiredObjectValue":"<Portability>"
+          "onProperty": "<explainer_IRI>hasPortability",
+          "requiredObjectValue": "<explainer_IRI><Portability>"
         },
         {
-          "instance": "<casename>ConcurrentnessCriteria",
-          "classes":[
-            "ExplanationCriteria"
+          "instance": "<ee_IRI><casename>ConcurrentnessCriteria",
+          "classes": [
+            "<ee_IRI>ExplanationCriteria"
           ],
-          "onProperty":"hasConcurrentness",
-          "requiredObjectValue":"<Concurrentness>"
+          "onProperty": "<explainer_IRI>hasConcurrentness",
+          "requiredObjectValue": "<explainer_IRI><ExplainerConcurrentness>"
         },
         {
-          "instance": "<casename>PresentationCriteria",
-          "classes":[
-            "ExplanationCriteria"
+          "instance": "<ee_IRI><casename>PresentationCriteria",
+          "classes": [
+            "<ee_IRI>ExplanationCriteria"
           ],
-          "onProperty":"hasPresentation",
-          "requiredValueType":"<Presentation>"
+          "onProperty": "<explainer_IRI>hasPresentation",
+          "requiredValueType": "<sio_IRI><SIO_000015>"
         },
         {
-          "instance": "<casename>ExplanationScopeCriteria",
-          "classes":[
-            "ExplanationCriteria"
+          "instance": "<ee_IRI><casename>ExplanationScopeCriteria",
+          "classes": [
+            "<ee_IRI>ExplanationCriteria"
           ],
-          "onProperty":"hasExplanationScope",
-          "requiredObjectValue":"<ExplanationScope>"
+          "onProperty": "<explainer_IRI>hasExplanationScope",
+          "requiredObjectValue": "<explainer_IRI><ExplanationScope>"
         },
         {
-          "instance": "<casename>ExplanationTargetCriteria",
-          "classes":[
-            "ExplanationCriteria"
+          "instance": "<ee_IRI><casename>ExplanationTargetCriteria",
+          "classes": [
+            "<ee_IRI>ExplanationCriteria"
           ],
-          "onProperty":"targetType",
-          "requiredObjectValue":"<ExplanationTarget>"
+          "onProperty": "<explainer_IRI>targetType",
+          "requiredObjectValue": "<explainer_IRI><ExplanationTarget>"
         }
       ]
     },
-    "hasUser": {
-      "instance": "<casename>User",
+    "<ee_IRI>hasUserGroup": {
+      "instance": "<ee_IRI><casename>UserGroup",
       "classes": [
-        "user"
+        "<user_IRI>UserGroup"
       ],
-      "hasIntent": {
-        "instance": "<Intent>",
+      "<user_IRI>hasIntent": {
+        "instance": "<sio_IRI><SIO_000358>",
         "classes": [
-          "Intent"
+          "<sio_IRI>SIO_000358"
         ]
       },
-      "hasResources": [
+      "<user_IRI>hasResources": [
         {
-          "instance": "<Technical Facilities>",
+          "instance": "<user_IRI>Touchpad",
           "classes": [
-            "<Technical Facilities>"
+            "<user_IRI>VisualFacilities"
           ]
         },
         {
-          "instance": "<Technical Facilities>",
+          "instance": "<user_IRI>ScreenDisplay",
           "classes": [
-            "<Technical Facilities>"
+            "<user_IRI>VisualFacilities"
           ]
         }
       ],
-      "possess": [
+      "<eo_IRI>possess": [
         {
-          "instance": "<casename>UserAIKnowledge",
+          "instance": "<ee_IRI><casename>UserAIKnowledge",
           "classes": [
-            "AI Method Knowledge"
+            "<user_IRI>AIMethodKnowledge"
           ],
-          "levelOfKnowledge": {
-            "instance":"<AIKnowledgeLevel>",
-            "classes":[
-              "Knowledge Level"
-            ]
-          }
-        },
-        {
-          "instance": "<casename>UserDomainKnowledge",
-          "classes": [
-            "Domain Knowledge"
-          ],
-          "levelOfKnowledge": {
-            "instance":"<DomainKnowledgeLevel>",
-            "classes":[
-              "Level of Knowledge"
-            ]
-          }
-        }
-      ],
-      "asks": {
-        "instance": "<casename>UserQuestion",
-        "comment": "<UserQuestion>",
-        "classes": [
-          "User Question"
-        ],
-        "hasQuestionTarget": {
-          "instance": "<casename><UserQuestionTarget>",
-          "comment": "<UserQuestionTargetComment>",
-          "classes": [
-            "<UserQuestionTarget>"
-          ]
-        }
-      }
-    }
-  },
-  "hasSolution":{
-    "instance": "<casename>BehaviourTree",
-    "classes":[
-      "BehaviourTree"
-    ],
-    "data": {
-      "instance": "<casename>BTData",
-      "classes": [
-        "Data"
-      ],
-      "custom_nodes": [],
-      "selectedTree": "<casename>ESTree",
-      "trees": [
-        {
-          "instance": "<casename>ESTree",
-          "classes": [
-            "Tree"
-          ],
-          "rootNode": {
-            "instance": "<casename>PriorityNode",
+          "<user_IRI>levelOfKnowledge": {
+            "instance": "<user_IRI><KnowledgeLevel>",
             "classes": [
-              "PriorityNode"
-            ],
-            "firstChild":"<casename>XExplainerNode",
-            "next": "None",
-            "display": {
-              "x": 0,
-              "y": -12
-            }
-          },
-          "nodes":[
-            {
-              "instance": "<casename>XExplainerNode",
-              "classes": [
-                "Explanation Node"
-              ],
-              "firstChild": "None",
-              "next": "<casename>YExplainerNode",
-              "display": {
-                "x": 0,
-                "y": 168
-              }
-            },
-            {
-              "instance": "<casename>YExplainerNode",
-              "classes": [
-                "Explanation Node"
-              ],
-              "firstChild": "None",
-              "next": "<casename>ZExplainerNode",
-              "display": {
-                "x": -120,
-                "y": 168
-              }
-            },
-            {
-              "instance": "<casename>ZExplainerNode",
-              "classes": [
-                "Explanation Node"
-              ],
-              "firstChild": "None",
-              "next": "None",
-              "display": {
-                "x": -120,
-                "y": 168
-              }
-            }
-          ],
-          "display": {
-            "camera_x": 872.5,
-            "camera_y": 440,
-            "camera_z": 1,
-            "x": 0,
-            "y": -132
+              "<user_IRI>KnowledgeLevel"
+            ]
           }
         },
         {
-          "instance": "RandomTree",
+          "instance": "<ee_IRI><casename>UserDomainKnowledge",
           "classes": [
-            "Tree"
+            "<user_IRI>DomainKnowledge"
           ],
-          "rootNode": "None",
-          "nodes": []
+          "<user_IRI>levelOfKnowledge": {
+            "instance": "<user_IRI><KnowledgeLevel>",
+            "classes": [
+              "<user_IRI>KnowledgeLevel"
+            ]
+          }
+        }
+      ],
+      "<eo_IRI>asks": [
+        {
+          "instance": "<ee_IRI><casename><question>",
+          "<sio_IRI>SIO_000300": "<question>",
+          "classes": [
+            "<sio_IRI>SIO_000085"
+          ],
+          "<user_IRI>hasQuestionTarget": {
+            "instance": "<ee_IRI><casename><UserQuestionTarget>",
+            "classes": [
+              "<UserQuestionTarget>"
+            ]
+          }
         }
       ]
     }
-
   },
-  "hasOutcome":{
-    "instance": "<casename>Outcome",
-    "comment": "The explanation strategy was not too bad.",
-    "classes":[
-      "Outcome"
+  "<ee_IRI>hasSolution": {
+    // insert BT JSON here
+  },
+  "<ee_IRI>hasOutcome": {
+    "instance": "<ee_IRI><casename>Outcome",
+    "classes": [
+      "<ee_IRI>Outcome"
     ],
-    "is derived from":[
+    "<ep_IRI>isBasedOn": [
       {
-        "instance": "<casename>UserEvalResult01",
-        "comment": "<UserEvaluationResult>",
-        "classes":[
-          "UserEvaluationResult"
+        "instance": "<casename><QuestionType>",
+        "classes": [
+          "<ue_IRI><QuestionType>"
         ],
-        "basedOn":{
-          "instance": "<casename>UserEvalQuestion01",
-          "comment": "<Question>",
-          "classes":[
-            "Question"
+        "rdfs:comment": "<QuestionText>",
+        "<ue_IRI>sequenceIndex": "<QuestionIndex>",
+        "<ue_IRI>hasResponseOptions": {
+          "instance": "<ue_IRI><casename>ResponseOptionsSequence",
+          "classes": [
+            "<ue_IRI>ResponseOptionsSequence"
           ],
-          "measures":{
-            "instance": "<UserEvaluationDimension>",
-            "classes":[
-              "User Evaluation Dimension"
-            ]
-
-          }
-        },
-        "wasAssociatedWith":{
-          "instance": "<casename>User",
-          "classes":[
-            "user"
+          "<sio_IRI>SIO_000974": [
+            {
+              "instance": "<ue_IRI><casename>OrderedResponseOptionValuePair",
+              "classes":[
+                "<ue_IRI>OrderedResponseOptionValuePair"
+              ],
+              "<bt_IRI>pair_value_literal":"<ResponseOptionText>",
+              "<bt_IRI>pairKey":"<ResponseOptionIndex>"
+            }
           ]
-        }
-      },
-      {
-        "instance": "<casename>UserEvalResult02",
-        "comment": "<UserEvaluationResult>",
-        "classes":[
-          "UserEvaluationResult"
-        ],
-        "basedOn":{
-          "instance": "<casename>UserEvalQuestion02",
-          "comment": "<Question>",
-          "classes":[
-            "Question"
-          ],
-          "measures":{
-            "instance": "<UserEvaluationDimension>",
-            "classes":[
-              "User Evaluation Dimension"
-            ]
-
-          }
         },
-        "wasAssociatedWith":{
-          "instance": "<casename>User",
-          "classes":[
-            "user"
+        "<qual_IRI>measures": {
+          "instance": "<UserEvaluationDimension>",
+          "classes": [
+            "<ue_IRI>UserEvaluationDimension"
           ]
         }
       }
     ]
   }
-
 }
