@@ -1,5 +1,6 @@
 {
     "ee_IRI":"http://www.w3id.org/iSeeOnto/explanationexperience#",
+    "case_IRI": "<ee_IRI>/casename/",
     "aimodel_IRI":"http://www.w3id.org/iSeeOnto/aimodel#",
     "aitask_IRI":"https://purl.org/heals/eo#",
     "sio_IRI":"http://semanticscience.org/resource/",

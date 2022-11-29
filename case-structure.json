@@ -1,20 +1,20 @@
 {
-  "instance": "<ee_IRI><casename>ExplanationExperience",
+  "instance": "<case_IRI><casename>ExplanationExperience",
   "classes": [
     "<ee_IRI>ExplanationExperience"
   ],
   "<ee_IRI>hasDescription": {
-    "instance": "<ee_IRI><casename>Description",
+    "instance": "<case_IRI><casename>Description",
     "classes": [
       "<ee_IRI>Description"
     ],
     "<ee_IRI>hasAIModel": {
-      "instance": "<ee_IRI><casename>AIModel",
+      "instance": "<case_IRI><casename>AIModel",
       "classes": [
         "<aimodel_IRI>AIModel"
       ],
       "<aimodel_IRI>solves": {
-        "instance": "<ee_IRI><casename><AITask>",
+        "instance": "<case_IRI><casename><AITask>",
         "classes": [
           "<AITask>"
         ],
@@ -27,14 +27,14 @@
         }
       },
       "<explainer_IRI>utilises": {
-        "instance": "<ee_IRI><casename><AIMethod>",
+        "instance": "<case_IRI><casename><AIMethod>",
         "classes": [
           "<AIMethod>"
         ]
       },
       "<aimodel_IRI>trainedOn": [
         {
-          "instance": "<ee_IRI><casename>Dataset",
+          "instance": "<case_IRI><casename>Dataset",
           "classes": [
             "<aimodel_IRI>Dataset"
           ],
@@ -69,13 +69,13 @@
       "<evaluation_IRI>annotatedBy": []
     },
     "<ee_IRI>hasExplanationRequirements": {
-      "instance": "<ee_IRI><casename>ExplanationRequirements",
+      "instance": "<case_IRI><casename>ExplanationRequirements",
       "classes": [
         "<ee_IRI>ExplanationRequirements"
       ],
       "hasExplanationCriteria": [
         {
-          "instance": "<ee_IRI><casename>PortabilityCriteria",
+          "instance": "<case_IRI><casename>PortabilityCriteria",
           "classes": [
             "<ee_IRI>ExplanationCriteria"
           ],
@@ -83,7 +83,7 @@
           "requiredObjectValue": "<explainer_IRI><Portability>"
         },
         {
-          "instance": "<ee_IRI><casename>ConcurrentnessCriteria",
+          "instance": "<case_IRI><casename>ConcurrentnessCriteria",
           "classes": [
             "<ee_IRI>ExplanationCriteria"
           ],
@@ -91,7 +91,7 @@
           "requiredObjectValue": "<explainer_IRI><ExplainerConcurrentness>"
         },
         {
-          "instance": "<ee_IRI><casename>PresentationCriteria",
+          "instance": "<case_IRI><casename>PresentationCriteria",
           "classes": [
             "<ee_IRI>ExplanationCriteria"
           ],
@@ -99,7 +99,7 @@
           "requiredValueType": "<sio_IRI><SIO_000015>"
         },
         {
-          "instance": "<ee_IRI><casename>ExplanationScopeCriteria",
+          "instance": "<case_IRI><casename>ExplanationScopeCriteria",
           "classes": [
             "<ee_IRI>ExplanationCriteria"
           ],
@@ -107,7 +107,7 @@
           "requiredObjectValue": "<explainer_IRI><ExplanationScope>"
         },
         {
-          "instance": "<ee_IRI><casename>ExplanationTargetCriteria",
+          "instance": "<case_IRI><casename>ExplanationTargetCriteria",
           "classes": [
             "<ee_IRI>ExplanationCriteria"
           ],
@@ -117,7 +117,7 @@
       ]
     },
     "<ee_IRI>hasUserGroup": {
-      "instance": "<ee_IRI><casename>UserGroup",
+      "instance": "<case_IRI><casename>UserGroup",
       "classes": [
         "<user_IRI>UserGroup"
       ],
@@ -143,7 +143,7 @@
       ],
       "<eo_IRI>possess": [
         {
-          "instance": "<ee_IRI><casename>UserAIKnowledge",
+          "instance": "<case_IRI><casename>UserAIKnowledge",
           "classes": [
             "<user_IRI>AIMethodKnowledge"
           ],
@@ -155,7 +155,7 @@
           }
         },
         {
-          "instance": "<ee_IRI><casename>UserDomainKnowledge",
+          "instance": "<case_IRI><casename>UserDomainKnowledge",
           "classes": [
             "<user_IRI>DomainKnowledge"
           ],
@@ -169,15 +169,15 @@
       ],
       "<eo_IRI>asks": [
         {
-          "instance": "<ee_IRI><casename><question>",
+          "instance": "<case_IRI><casename><question>",
           "<sio_IRI>SIO_000300": "<question>",
           "classes": [
             "<sio_IRI>SIO_000085"
           ],
           "<user_IRI>hasQuestionTarget": {
-            "instance": "<ee_IRI><casename><UserQuestionTarget>",
+            "instance": "<case_IRI><casename><UserQuestionTarget>",
             "classes": [
-              "<UserQuestionTarget>"
+              "<user_IRI><UserQuestionTarget>"
             ]
           }
         }
@@ -188,26 +188,26 @@
     // insert BT JSON here
   },
   "<ee_IRI>hasOutcome": {
-    "instance": "<ee_IRI><casename>Outcome",
+    "instance": "<case_IRI><casename>Outcome",
     "classes": [
       "<ee_IRI>Outcome"
     ],
     "<ep_IRI>isBasedOn": [
       {
-        "instance": "<casename><QuestionType>",
+        "instance": "<case_IRI><casename><QuestionType>",
         "classes": [
           "<ue_IRI><QuestionType>"
         ],
         "rdfs:comment": "<QuestionText>",
         "<ue_IRI>sequenceIndex": "<QuestionIndex>",
         "<ue_IRI>hasResponseOptions": {
-          "instance": "<ue_IRI><casename>ResponseOptionsSequence",
+          "instance": "<case_IRI><casename>ResponseOptionsSequence",
           "classes": [
             "<ue_IRI>ResponseOptionsSequence"
           ],
           "<sio_IRI>SIO_000974": [
             {
-              "instance": "<ue_IRI><casename>OrderedResponseOptionValuePair",
+              "instance": "<case_IRI><casename>OrderedResponseOptionValuePair",
               "classes":[
                 "<ue_IRI>OrderedResponseOptionValuePair"
               ],
@@ -217,7 +217,7 @@
           ]
         },
         "<qual_IRI>measures": {
-          "instance": "<UserEvaluationDimension>",
+          "instance": "<ue_IRI><UserEvaluationDimension>",
           "classes": [
             "<ue_IRI>UserEvaluationDimension"
           ]
