@@ -19,7 +19,7 @@
           "<AITask>"
         ],
         "<sio_IRI>SIO_000355": {
-          "instance": "<casename>AITaskGoal",
+          "instance": "<case_IRI><casename>AITaskGoal",
           "classes": [
             "<aimodel_IRI>AITaskGoal"
           ],
@@ -122,7 +122,7 @@
         "<user_IRI>UserGroup"
       ],
       "<user_IRI>hasIntent": {
-        "instance": "<sio_IRI><SIO_000358>",
+        "instance": "<user_IRI><intent>",
         "classes": [
           "<sio_IRI>SIO_000358"
         ]
@@ -175,9 +175,9 @@
             "<sio_IRI>SIO_000085"
           ],
           "<user_IRI>hasQuestionTarget": {
-            "instance": "<case_IRI><casename><UserQuestionTarget>",
+            "instance": "<UserQuestionTarget>",
             "classes": [
-              "<user_IRI><UserQuestionTarget>"
+              "<UserQuestionTarget>"
             ]
           }
         }
@@ -208,11 +208,11 @@
           "<sio_IRI>SIO_000974": [
             {
               "instance": "<case_IRI><casename>OrderedResponseOptionValuePair",
-              "classes":[
+              "classes": [
                 "<ue_IRI>OrderedResponseOptionValuePair"
               ],
-              "<bt_IRI>pair_value_literal":"<ResponseOptionText>",
-              "<bt_IRI>pairKey":"<ResponseOptionIndex>"
+              "<bt_IRI>pair_value_literal": "<ResponseOptionText>",
+              "<bt_IRI>pairKey": "<ResponseOptionIndex>"
             }
           ]
         },

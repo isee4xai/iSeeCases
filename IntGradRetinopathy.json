@@ -1,0 +1,195 @@
+{
+  "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/IntGradRetinopathy/IntGradRetinopathyExplanationExperience",
+  "classes": [
+    "http://www.w3id.org/iSeeOnto/explanationexperience#ExplanationExperience"
+  ],
+  "http://www.w3id.org/iSeeOnto/explanationexperience#hasDescription": {
+    "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/IntGradRetinopathy/IntGradRetinopathyDescription",
+    "classes": [
+      "http://www.w3id.org/iSeeOnto/explanationexperience#Description"
+    ],
+    "http://www.w3id.org/iSeeOnto/explanationexperience#hasAIModel": {
+      "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/IntGradRetinopathy/IntGradRetinopathyAIModel",
+      "classes": [
+        "http://www.w3id.org/iSeeOnto/aimodel#AIModel"
+      ],
+      "http://www.w3id.org/iSeeOnto/aimodel#solves": {
+        "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/IntGradRetinopathy/IntGradRetinopathyBinary_Classification",
+        "classes": [
+          "http://www.w3id.org/iSeeOnto/aimodel#Binary_Classification"
+        ],
+        "http://semanticscience.org/resource/SIO_000355": {
+          "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/IntGradRetinopathy/IntGradRetinopathyAITaskGoal",
+          "classes": [
+            "http://www.w3id.org/iSeeOnto/aimodel#AITaskGoal"
+          ],
+          "http://semanticscience.org/resource/SIO_000300": "Predict diabetic retinopathy in a given image"
+        }
+      },
+      "http://www.w3id.org/iSeeOnto/explainer#utilises": {
+        "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/IntGradRetinopathy/IntGradRetinopathyConvolutional_Neural_Network",
+        "classes": [
+          "http://www.w3id.org/iSeeOnto/aimodel##Convolutional_Neural_Network"
+        ]
+      },
+      "http://www.w3id.org/iSeeOnto/aimodel#trainedOn": [
+        {
+          "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/IntGradRetinopathy/IntGradRetinopathyDataset",
+          "classes": [
+            "http://www.w3id.org/iSeeOnto/aimodel#Dataset"
+          ],
+          "http://www.w3id.org/iSeeOnto/aimodel#featureCountRange": {
+            "instance": "http://www.w3id.org/iSeeOnto/aimodel#Less_than_10",
+            "classes": [
+              "http://www.w3id.org/iSeeOnto/aimodel#Dataset_Feature_Quantity_Range"
+            ]
+          },
+          "http://www.w3id.org/iSeeOnto/aimodel#instanceCountRange": {
+            "value": "http://www.w3id.org/iSeeOnto/aimodel#Greater_than_1000",
+            "classes": [
+              "http://www.w3id.org/iSeeOnto/aimodel#Dataset_Instance_Quantity_Range"
+            ]
+          },
+          "http://www.w3id.org/iSeeOnto/aimodel#hasDatasetType": {
+            "instance": "http://www.w3id.org/iSeeOnto/explainer#image",
+            "classes": [
+              "http://www.w3id.org/iSeeOnto/explainer#DatasetType"
+            ]
+          },
+          "http://www.w3id.org/iSeeOnto/aimodel#hasFeatureType": [
+            {
+              "instance": "http://www.w3id.org/iSeeOnto/explainer#image",
+              "classes": [
+                "http://www.w3id.org/iSeeOnto/explainer#DataType"
+              ]
+            }
+          ]
+        }
+      ],
+      "http://www.w3id.org/iSeeOnto/evaluation#annotatedBy": []
+    },
+    "http://www.w3id.org/iSeeOnto/explanationexperience#hasExplanationRequirements": {
+      "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/IntGradRetinopathy/IntGradRetinopathyExplanationRequirements",
+      "classes": [
+        "http://www.w3id.org/iSeeOnto/explanationexperience#ExplanationRequirements"
+      ],
+      "hasExplanationCriteria": [
+        {
+          "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/IntGradRetinopathy/IntGradRetinopathyPortabilityCriteria",
+          "classes": [
+            "http://www.w3id.org/iSeeOnto/explanationexperience#ExplanationCriteria"
+          ],
+          "onProperty": "http://www.w3id.org/iSeeOnto/explainer#hasPortability",
+          "requiredObjectValue": "http://www.w3id.org/iSeeOnto/explainer#model-specific"
+        },
+        {
+          "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/IntGradRetinopathy/IntGradRetinopathyConcurrentnessCriteria",
+          "classes": [
+            "http://www.w3id.org/iSeeOnto/explanationexperience#ExplanationCriteria"
+          ],
+          "onProperty": "http://www.w3id.org/iSeeOnto/explainer#hasConcurrentness",
+          "requiredObjectValue": "http://www.w3id.org/iSeeOnto/explainer#post-hoc"
+        },
+        {
+          "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/IntGradRetinopathy/IntGradRetinopathyPresentationCriteria",
+          "classes": [
+            "http://www.w3id.org/iSeeOnto/explanationexperience#ExplanationCriteria"
+          ],
+          "onProperty": "http://www.w3id.org/iSeeOnto/explainer#hasPresentation",
+          "requiredValueType": "http://semanticscience.org/resource/SIO_001194"
+        },
+        {
+          "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/IntGradRetinopathy/IntGradRetinopathyExplanationScopeCriteria",
+          "classes": [
+            "http://www.w3id.org/iSeeOnto/explanationexperience#ExplanationCriteria"
+          ],
+          "onProperty": "http://www.w3id.org/iSeeOnto/explainer#hasExplanationScope",
+          "requiredObjectValue": "http://www.w3id.org/iSeeOnto/explainer#local"
+        },
+        {
+          "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/IntGradRetinopathy/IntGradRetinopathyExplanationTargetCriteria",
+          "classes": [
+            "http://www.w3id.org/iSeeOnto/explanationexperience#ExplanationCriteria"
+          ],
+          "onProperty": "http://www.w3id.org/iSeeOnto/explainer#targetType",
+          "requiredObjectValue": "http://www.w3id.org/iSeeOnto/explainer#prediction"
+        }
+      ]
+    },
+    "http://www.w3id.org/iSeeOnto/explanationexperience#hasUserGroup": {
+      "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/IntGradRetinopathy/IntGradRetinopathyUserGroup",
+      "classes": [
+        "http://www.w3id.org/iSeeOnto/user#UserGroup"
+      ],
+      "http://www.w3id.org/iSeeOnto/user#hasIntent": {
+        "instance": "http://www.w3id.org/iSeeOnto/user#Transparency",
+        "classes": [
+          "http://semanticscience.org/resource/SIO_000358"
+        ]
+      },
+      "http://www.w3id.org/iSeeOnto/user#hasResources": [
+        {
+          "instance": "http://www.w3id.org/iSeeOnto/user#Touchpad",
+          "classes": [
+            "http://www.w3id.org/iSeeOnto/user#VisualFacilities"
+          ]
+        },
+        {
+          "instance": "http://www.w3id.org/iSeeOnto/user#ScreenDisplay",
+          "classes": [
+            "http://www.w3id.org/iSeeOnto/user#VisualFacilities"
+          ]
+        }
+      ],
+      "https://purl.org/heals/eo#possess": [
+        {
+          "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/IntGradRetinopathy/IntGradRetinopathyUserAIKnowledge",
+          "classes": [
+            "http://www.w3id.org/iSeeOnto/user#AIMethodKnowledge"
+          ],
+          "http://www.w3id.org/iSeeOnto/user#levelOfKnowledge": {
+            "instance": "http://www.w3id.org/iSeeOnto/user#no_knowledge",
+            "classes": [
+              "http://www.w3id.org/iSeeOnto/user#KnowledgeLevel"
+            ]
+          }
+        },
+        {
+          "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/IntGradRetinopathy/IntGradRetinopathyUserDomainKnowledge",
+          "classes": [
+            "http://www.w3id.org/iSeeOnto/user#DomainKnowledge"
+          ],
+          "http://www.w3id.org/iSeeOnto/user#levelOfKnowledge": {
+            "instance": "http://www.w3id.org/iSeeOnto/user#expert",
+            "classes": [
+              "http://www.w3id.org/iSeeOnto/user#KnowledgeLevel"
+            ]
+          }
+        }
+      ],
+      "https://purl.org/heals/eo#asks": [
+        {
+          "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/IntGradRetinopathy/IntGradRetinopathyQuestion",
+          "http://semanticscience.org/resource/SIO_000300": "Why does the system predict RDR for image X?",
+          "classes": [
+            "http://semanticscience.org/resource/SIO_000085"
+          ],
+          "http://www.w3id.org/iSeeOnto/user#hasQuestionTarget": {
+            "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/IntGradRetinopathy/IntGradRetinopathySystemRecommendation",
+            "classes": [
+              "https://purl.org/heals/eo#SystemRecommendation"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "http://www.w3id.org/iSeeOnto/explanationexperience#hasSolution": {},
+  "http://www.w3id.org/iSeeOnto/explanationexperience#hasOutcome": {
+    "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/IntGradRetinopathy/IntGradRetinopathyOutcome",
+    "classes": [
+      "http://www.w3id.org/iSeeOnto/explanationexperience#Outcome"
+    ],
+    "http://linkedu.eu/dedalo/explanationPattern.owl#isBasedOn": []
+  }
+}
