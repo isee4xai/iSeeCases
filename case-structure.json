@@ -180,17 +180,12 @@
       ],
       "<eo_IRI>asks": [
         {
-          "instance": "<case_IRI><casename><question>",
-          "<sio_IRI>SIO_000300": "<question>",
+          "instance": "<case_IRI><casename>UserQuestion",
+          "<sio_IRI>SIO_000300": "<UserQuestion>",
           "classes": [
             "<user_IRI>UserQuestion"
           ],
-          "<user_IRI>hasQuestionTarget": {
-            "instance": "<UserQuestionTarget>",
-            "classes": [
-              "<UserQuestionTarget>"
-            ]
-          }
+          "<user_IRI>hasQuestionTarget": "<UserQuestionTarget>"
         }
       ]
     }
