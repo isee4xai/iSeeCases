@@ -128,11 +128,12 @@
     },
     "<ee_IRI>hasUserGroup": {
       "instance": "<case_IRI><casename>UserGroup",
+      "<rdfs_IRI>comment":"<UserGroup>",
       "classes": [
         "<user_IRI>UserGroup"
       ],
       "<user_IRI>hasIntent": {
-        "instance": "<intent>",
+        "instance": "<Intent>",
         "classes": [
           "<sio_IRI>SIO_000358"
         ]
@@ -153,12 +154,12 @@
       ],
       "<eo_IRI>possess": [
         {
-          "instance": "<case_IRI><casename>UserAIKnowledge",
+          "instance": "<case_IRI><casename>AIMethodKnowledge",
           "classes": [
             "<user_IRI>AIMethodKnowledge"
           ],
           "<user_IRI>levelOfKnowledge": {
-            "instance": "<user_IRI><KnowledgeLevel>",
+            "instance": "<AIKnowledgeLevel>",
             "classes": [
               "<user_IRI>KnowledgeLevel"
             ]
@@ -170,7 +171,7 @@
             "<user_IRI>DomainKnowledge"
           ],
           "<user_IRI>levelOfKnowledge": {
-            "instance": "<user_IRI><KnowledgeLevel>",
+            "instance": "<DomainKnowledgeLevel>",
             "classes": [
               "<user_IRI>KnowledgeLevel"
             ]
