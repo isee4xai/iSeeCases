@@ -49,26 +49,26 @@
             "<aimodel_IRI>Dataset"
           ],
           "<aimodel_IRI>featureCountRange": {
-            "instance": "<aimodel_IRI><Dataset_Feature_Quantity_Range>",
+            "instance": "<Dataset_Feature_Quantity_Range>",
             "classes": [
               "<aimodel_IRI>Dataset_Feature_Quantity_Range"
             ]
           },
           "<aimodel_IRI>instanceCountRange": {
-            "value": "<aimodel_IRI><Dataset_Instance_Quantity_Range>",
+            "value": "<Dataset_Instance_Quantity_Range>",
             "classes": [
               "<aimodel_IRI>Dataset_Instance_Quantity_Range"
             ]
           },
           "<aimodel_IRI>hasDatasetType": {
-            "instance": "<explainer_IRI><DatasetType>",
+            "instance": "<DatasetType>",
             "classes": [
               "<explainer_IRI>DatasetType"
             ]
           },
           "<aimodel_IRI>hasFeatureType": [
             {
-              "instance": "<explainer_IRI><DataType>",
+              "instance": "<DataType>",
               "classes": [
                 "<explainer_IRI>DataType"
               ]
@@ -132,7 +132,7 @@
         "<user_IRI>UserGroup"
       ],
       "<user_IRI>hasIntent": {
-        "instance": "<user_IRI><intent>",
+        "instance": "<intent>",
         "classes": [
           "<sio_IRI>SIO_000358"
         ]
