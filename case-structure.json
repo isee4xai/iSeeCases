@@ -33,7 +33,7 @@
           "classes": [
             "<aimodel_IRI>AITaskGoal"
           ],
-          "<sio_IRI>SIO_000300": "to predict stuff"
+          "<sio_IRI>SIO_000300": "<AITaskGoal>"
         }
       },
       "<explainer_IRI>utilises": {
