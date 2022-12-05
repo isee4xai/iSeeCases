@@ -15,7 +15,7 @@
         "<aimodel_IRI>AIModel"
       ],
       "<aimodel_IRI>solves": {
-        "instance": "<case_IRI><casename><AITask>",
+        "instance": "<case_IRI><casename>AITask",
         "classes": [
           "<AITask>"
         ],
