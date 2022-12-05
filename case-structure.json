@@ -199,7 +199,7 @@
     ],
     "<ep_IRI>isBasedOn": [
       {
-        "instance": "<case_IRI><casename><QuestionType>",
+        "instance": "<case_IRI><casename>Question",
         "classes": [
           "<ue_IRI><QuestionType>"
         ],
@@ -222,7 +222,7 @@
           ]
         },
         "<qual_IRI>measures": {
-          "instance": "<ue_IRI><UserEvaluationDimension>",
+          "instance": "<UserEvaluationDimension>",
           "classes": [
             "<ue_IRI>UserEvaluationDimension"
           ]
