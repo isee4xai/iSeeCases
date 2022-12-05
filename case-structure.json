@@ -90,7 +90,7 @@
             "<ee_IRI>ExplanationCriteria"
           ],
           "<ee_IRI>onProperty": "<explainer_IRI>hasPortability",
-          "<ee_IRI>requiredObjectValue": "<explainer_IRI><Portability>"
+          "<ee_IRI>requiredObjectValue": "<Portability>"
         },
         {
           "instance": "<case_IRI><casename>ConcurrentnessCriteria",
@@ -98,7 +98,7 @@
             "<ee_IRI>ExplanationCriteria"
           ],
           "<ee_IRI>onProperty": "<explainer_IRI>hasConcurrentness",
-          "<ee_IRI>requiredObjectValue": "<explainer_IRI><ExplainerConcurrentness>"
+          "<ee_IRI>requiredObjectValue": "<ExplainerConcurrentness>"
         },
         {
           "instance": "<case_IRI><casename>PresentationCriteria",
@@ -106,7 +106,7 @@
             "<ee_IRI>ExplanationCriteria"
           ],
           "<ee_IRI>onProperty": "<explainer_IRI>hasPresentation",
-          "<ee_IRI>requiredValueType": "<sio_IRI><SIO_000015>"
+          "<ee_IRI>requiredValueType": "<SIO_000015>"
         },
         {
           "instance": "<case_IRI><casename>ExplanationScopeCriteria",
@@ -114,7 +114,7 @@
             "<ee_IRI>ExplanationCriteria"
           ],
           "<ee_IRI>onProperty": "<explainer_IRI>hasExplanationScope",
-          "<ee_IRI>requiredObjectValue": "<explainer_IRI><ExplanationScope>"
+          "<ee_IRI>requiredObjectValue": "<ExplanationScope>"
         },
         {
           "instance": "<case_IRI><casename>EsxplanationTargetCriteria",
@@ -122,7 +122,7 @@
             "<ee_IRI>ExplanationCriteria"
           ],
           "<ee_IRI>onProperty": "<explainer_IRI>targetType",
-          "<ee_IRI>requiredObjectValue": "<explainer_IRI><ExplanationTarget>"
+          "<ee_IRI>requiredObjectValue": "<ExplanationTarget>"
         }
       ]
     },
