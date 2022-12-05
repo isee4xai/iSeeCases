@@ -39,7 +39,7 @@
       "http://www.w3id.org/iSeeOnto/explainer#utilises": {
         "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/GradCAMModelFailDetection/GradCAMModelFailDetectionConvolutional_Neural_Network",
         "classes": [
-          "http://www.w3id.org/iSeeOnto/aimodel##Convolutional_Neural_Network"
+          "http://www.w3id.org/iSeeOnto/aimodel#Convolutional_Neural_Network"
         ]
       },
       "http://www.w3id.org/iSeeOnto/aimodel#trainedOn": [
@@ -187,7 +187,7 @@
           "http://www.w3id.org/iSeeOnto/user#hasQuestionTarget": {
             "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/GradCAMModelFailDetection/GradCAMModelFailDetectionConvolutional_Neural_Network",
             "classes": [
-              "http://www.w3id.org/iSeeOnto/aimodel##Convolutional_Neural_Network"
+              "http://www.w3id.org/iSeeOnto/aimodel#Convolutional_Neural_Network"
             ]
           }
         }

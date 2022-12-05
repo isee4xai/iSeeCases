@@ -29,7 +29,7 @@
       "http://www.w3id.org/iSeeOnto/explainer#utilises": {
         "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/IntGradRetinopathy/IntGradRetinopathyConvolutional_Neural_Network",
         "classes": [
-          "http://www.w3id.org/iSeeOnto/aimodel##Convolutional_Neural_Network"
+          "http://www.w3id.org/iSeeOnto/aimodel#Convolutional_Neural_Network"
         ]
       },
       "http://www.w3id.org/iSeeOnto/aimodel#trainedOn": [
