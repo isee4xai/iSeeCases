@@ -195,7 +195,6 @@
     }
   },
   "<ee_IRI>hasSolution": {
-    // insert BT JSON here
   },
   "<ee_IRI>hasOutcome": {
     "instance": "<case_IRI><casename>Outcome",
