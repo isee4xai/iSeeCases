@@ -1,5 +1,6 @@
 {
   "instance": "<case_IRI><casename>ExplanationExperience",
+  "rdfs:comment": "<casename>",
   "classes": [
     "<ee_IRI>ExplanationExperience"
   ],
