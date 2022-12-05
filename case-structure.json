@@ -1,6 +1,6 @@
 {
   "instance": "<case_IRI><casename>ExplanationExperience",
-  "rdfs:comment": "<casename>",
+  "<rdfs_IRI>comment": "<casename>",
   "classes": [
     "<ee_IRI>ExplanationExperience"
   ],
@@ -18,6 +18,15 @@
         "instance": "<case_IRI><casename><AITask>",
         "classes": [
           "<AITask>"
+        ],
+        "<sio_IRI>SIO_000229": [
+          {
+            "instance": "<case_IRI><casename>SystemRecommendation",
+            "classes": [
+              "<eo_IRI>SystemRecommendation"
+            ],
+            "<rdfs_IRI>comment": "<SystemRecommendation>"
+          }
         ],
         "<sio_IRI>SIO_000355": {
           "instance": "<case_IRI><casename>AITaskGoal",
@@ -74,46 +83,46 @@
       "classes": [
         "<ee_IRI>ExplanationRequirements"
       ],
-      "hasExplanationCriteria": [
+      "<ee_IRI>hasExplanationCriteria": [
         {
           "instance": "<case_IRI><casename>PortabilityCriteria",
           "classes": [
             "<ee_IRI>ExplanationCriteria"
           ],
-          "onProperty": "<explainer_IRI>hasPortability",
-          "requiredObjectValue": "<explainer_IRI><Portability>"
+          "<ee_IRI>onProperty": "<explainer_IRI>hasPortability",
+          "<ee_IRI>requiredObjectValue": "<explainer_IRI><Portability>"
         },
         {
           "instance": "<case_IRI><casename>ConcurrentnessCriteria",
           "classes": [
             "<ee_IRI>ExplanationCriteria"
           ],
-          "onProperty": "<explainer_IRI>hasConcurrentness",
-          "requiredObjectValue": "<explainer_IRI><ExplainerConcurrentness>"
+          "<ee_IRI>onProperty": "<explainer_IRI>hasConcurrentness",
+          "<ee_IRI>requiredObjectValue": "<explainer_IRI><ExplainerConcurrentness>"
         },
         {
           "instance": "<case_IRI><casename>PresentationCriteria",
           "classes": [
             "<ee_IRI>ExplanationCriteria"
           ],
-          "onProperty": "<explainer_IRI>hasPresentation",
-          "requiredValueType": "<sio_IRI><SIO_000015>"
+          "<ee_IRI>onProperty": "<explainer_IRI>hasPresentation",
+          "<ee_IRI>requiredValueType": "<sio_IRI><SIO_000015>"
         },
         {
           "instance": "<case_IRI><casename>ExplanationScopeCriteria",
           "classes": [
             "<ee_IRI>ExplanationCriteria"
           ],
-          "onProperty": "<explainer_IRI>hasExplanationScope",
-          "requiredObjectValue": "<explainer_IRI><ExplanationScope>"
+          "<ee_IRI>onProperty": "<explainer_IRI>hasExplanationScope",
+          "<ee_IRI>requiredObjectValue": "<explainer_IRI><ExplanationScope>"
         },
         {
-          "instance": "<case_IRI><casename>ExplanationTargetCriteria",
+          "instance": "<case_IRI><casename>EsxplanationTargetCriteria",
           "classes": [
             "<ee_IRI>ExplanationCriteria"
           ],
-          "onProperty": "<explainer_IRI>targetType",
-          "requiredObjectValue": "<explainer_IRI><ExplanationTarget>"
+          "<ee_IRI>onProperty": "<explainer_IRI>targetType",
+          "<ee_IRI>requiredObjectValue": "<explainer_IRI><ExplanationTarget>"
         }
       ]
     },
@@ -173,7 +182,7 @@
           "instance": "<case_IRI><casename><question>",
           "<sio_IRI>SIO_000300": "<question>",
           "classes": [
-            "<sio_IRI>SIO_000085"
+            "<user_IRI>UserQuestion"
           ],
           "<user_IRI>hasQuestionTarget": {
             "instance": "<UserQuestionTarget>",
@@ -199,7 +208,7 @@
         "classes": [
           "<ue_IRI><QuestionType>"
         ],
-        "rdfs:comment": "<QuestionText>",
+        "<rdfs_IRI>comment": "<QuestionText>",
         "<ue_IRI>sequenceIndex": "<QuestionIndex>",
         "<ue_IRI>hasResponseOptions": {
           "instance": "<case_IRI><casename>ResponseOptionsSequence",

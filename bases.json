@@ -11,6 +11,7 @@
     "bt_IRI": "https://www.w3id.org/iSeeOnto/BehaviourTree#",
     "ep_IRI":"http://linkedu.eu/dedalo/explanationPattern.owl#",
     "ue_IRI":"http://www.w3id.org/iSeeOnto/userevaluation#",
-    "qual_IRI":"http://sensornet.abdn.ac.uk/onts/Qual-O#"
+    "qual_IRI":"http://sensornet.abdn.ac.uk/onts/Qual-O#",
+    "rdfs_IRI":"http://www.w3.org/2000/01/rdf-schema#"
 }
 

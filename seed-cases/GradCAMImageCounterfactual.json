@@ -1,5 +1,6 @@
 {
   "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/GradCAMImageCounterfactual/GradCAMImageCounterfactualExplanationExperience",
+  "http://www.w3.org/2000/01/rdf-schema#comment":"GradCAMImageCounterfactual",
   "classes": [
     "http://www.w3id.org/iSeeOnto/explanationexperience#ExplanationExperience"
   ],
@@ -24,7 +25,16 @@
             "http://www.w3id.org/iSeeOnto/aimodel#AITaskGoal"
           ],
           "http://semanticscience.org/resource/SIO_000300": "Predict category given an image"
-        }
+        },
+        "http://semanticscience.org/resource/SIO_000229": [
+          {
+            "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/GradCAMImageCounterfactual/GradCAMImageCounterfactualSystemRecommendation",
+            "classes": [
+              "https://purl.org/heals/eo#SystemRecommendation"
+            ],
+            "http://www.w3.org/2000/01/rdf-schema#comment": ""
+          }
+        ]
       },
       "http://www.w3id.org/iSeeOnto/explainer#utilises": {
         "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/GradCAMImageCounterfactual/GradCAMImageCounterfactualConvolutional_Neural_Network",
@@ -73,46 +83,46 @@
       "classes": [
         "http://www.w3id.org/iSeeOnto/explanationexperience#ExplanationRequirements"
       ],
-      "hasExplanationCriteria": [
+      "http://www.w3id.org/iSeeOnto/explanationexperience#hasExplanationCriteria": [
         {
           "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/GradCAMImageCounterfactual/GradCAMImageCounterfactualPortabilityCriteria",
           "classes": [
             "http://www.w3id.org/iSeeOnto/explanationexperience#ExplanationCriteria"
           ],
-          "onProperty": "http://www.w3id.org/iSeeOnto/explainer#hasPortability",
-          "requiredObjectValue": "http://www.w3id.org/iSeeOnto/explainer#model-specific"
+          "http://www.w3id.org/iSeeOnto/explanationexperience#onProperty": "http://www.w3id.org/iSeeOnto/explainer#hasPortability",
+          "http://www.w3id.org/iSeeOnto/explanationexperience#requiredObjectValue": "http://www.w3id.org/iSeeOnto/explainer#model-specific"
         },
         {
           "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/GradCAMImageCounterfactual/GradCAMImageCounterfactualConcurrentnessCriteria",
           "classes": [
             "http://www.w3id.org/iSeeOnto/explanationexperience#ExplanationCriteria"
           ],
-          "onProperty": "http://www.w3id.org/iSeeOnto/explainer#hasConcurrentness",
-          "requiredObjectValue": "http://www.w3id.org/iSeeOnto/explainer#post-hoc"
+          "http://www.w3id.org/iSeeOnto/explanationexperience#onProperty": "http://www.w3id.org/iSeeOnto/explainer#hasConcurrentness",
+          "http://www.w3id.org/iSeeOnto/explanationexperience#requiredObjectValue": "http://www.w3id.org/iSeeOnto/explainer#post-hoc"
         },
         {
           "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/GradCAMImageCounterfactual/GradCAMImageCounterfactualPresentationCriteria",
           "classes": [
             "http://www.w3id.org/iSeeOnto/explanationexperience#ExplanationCriteria"
           ],
-          "onProperty": "http://www.w3id.org/iSeeOnto/explainer#hasPresentation",
-          "requiredValueType": "http://semanticscience.org/resource/SIO_001194"
+          "http://www.w3id.org/iSeeOnto/explanationexperience#onProperty": "http://www.w3id.org/iSeeOnto/explainer#hasPresentation",
+          "http://www.w3id.org/iSeeOnto/explanationexperience#requiredValueType": "http://semanticscience.org/resource/SIO_001194"
         },
         {
           "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/GradCAMImageCounterfactual/GradCAMImageCounterfactualExplanationScopeCriteria",
           "classes": [
             "http://www.w3id.org/iSeeOnto/explanationexperience#ExplanationCriteria"
           ],
-          "onProperty": "http://www.w3id.org/iSeeOnto/explainer#hasExplanationScope",
-          "requiredObjectValue": "http://www.w3id.org/iSeeOnto/explainer#local"
+          "http://www.w3id.org/iSeeOnto/explanationexperience#onProperty": "http://www.w3id.org/iSeeOnto/explainer#hasExplanationScope",
+          "http://www.w3id.org/iSeeOnto/explanationexperience#requiredObjectValue": "http://www.w3id.org/iSeeOnto/explainer#local"
         },
         {
           "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/GradCAMImageCounterfactual/GradCAMImageCounterfactualExplanationTargetCriteria",
           "classes": [
             "http://www.w3id.org/iSeeOnto/explanationexperience#ExplanationCriteria"
           ],
-          "onProperty": "http://www.w3id.org/iSeeOnto/explainer#targetType",
-          "requiredObjectValue": "http://www.w3id.org/iSeeOnto/explainer#prediction"
+          "http://www.w3id.org/iSeeOnto/explanationexperience#onProperty": "http://www.w3id.org/iSeeOnto/explainer#targetType",
+          "http://www.w3id.org/iSeeOnto/explanationexperience#requiredObjectValue": "http://www.w3id.org/iSeeOnto/explainer#prediction"
         }
       ]
     },
@@ -172,7 +182,7 @@
           "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/GradCAMImageCounterfactual/GradCAMImageCounterfactualQuestion",
           "http://semanticscience.org/resource/SIO_000300": "Why does the system predict category Y not Z for image X?",
           "classes": [
-            "http://semanticscience.org/resource/SIO_000085"
+            "http://www.w3id.org/iSeeOnto/user#UserQuestion"
           ],
           "http://www.w3id.org/iSeeOnto/user#hasQuestionTarget": {
             "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/GradCAMImageCounterfactual/GradCAMImageCounterfactualSystemRecommendation",
