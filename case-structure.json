@@ -37,7 +37,7 @@
         }
       },
       "<explainer_IRI>utilises": {
-        "instance": "<case_IRI><casename><AIMethod>",
+        "instance": "<case_IRI><casename>AIMethod",
         "classes": [
           "<AIMethod>"
         ]
