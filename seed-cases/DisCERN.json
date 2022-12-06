@@ -151,6 +151,12 @@
       "classes": [
         "http://www.w3id.org/iSeeOnto/user#UserGroup"
       ],
+      "http://www.w3id.org/iSeeOnto/user#possessKnowledgeOf":{
+        "instance": "http://www.w3id.org/iSeeOnto/user#Healthcare",
+        "classes": [
+          "http://www.w3id.org/iSeeOnto/user#Domain"
+        ]
+      },
       "http://www.w3id.org/iSeeOnto/user#hasIntent": {
         "instance": "http://www.w3id.org/iSeeOnto/user#Transparency",
         "classes": [

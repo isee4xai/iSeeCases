@@ -132,6 +132,12 @@
       "classes": [
         "<user_IRI>UserGroup"
       ],
+      "<user_IRI>possessKnowledgeOf":{
+        "instance": "<Domain>",
+        "classes": [
+          "<user_IRI>Domain"
+        ]
+      },
       "<user_IRI>hasIntent": {
         "instance": "<Intent>",
         "classes": [

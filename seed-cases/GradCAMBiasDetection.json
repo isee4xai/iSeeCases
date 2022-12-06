@@ -131,6 +131,12 @@
       "classes": [
         "http://www.w3id.org/iSeeOnto/user#UserGroup"
       ],
+      "http://www.w3id.org/iSeeOnto/user#possessKnowledgeOf":{
+        "instance": "http://www.w3id.org/iSeeOnto/user#Consumer_Non-Cyclicals",
+        "classes": [
+          "http://www.w3id.org/iSeeOnto/user#Domain"
+        ]
+      },
       "http://www.w3id.org/iSeeOnto/user#hasIntent": {
         "instance": "http://www.w3id.org/iSeeOnto/user#Debugging",
         "classes": [
