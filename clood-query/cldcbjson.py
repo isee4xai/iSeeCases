@@ -12,10 +12,10 @@ import uuid
 def extract_property(prop_relation, prop_array):
     val = None
     for obj in prop_array:
-        if obj['onProperty'] == prop_relation:
-            val = obj.get('requiredObjectValue')
+        if obj['http://www.w3id.org/iSeeOnto/explanationexperience#onProperty'] == prop_relation:
+            val = obj.get('http://www.w3id.org/iSeeOnto/explanationexperience#requiredObjectValue')
             if val is None:
-                val = obj.get('requiredValueType')
+                val = obj.get('http://www.w3id.org/iSeeOnto/explanationexperience#requiredValueType')
     return val
 
 
@@ -29,42 +29,56 @@ def extract_all_instances(prop_array):
         val.append(prop_array.get('instance'))
     return val
 
-def extract_instance_with_class(class_value, prop_array):
+def extract_instance_with_class(class_value, prop_array, prop_relation):
     for obj in prop_array:
-        if class_value in obj.get('classes'):
-            return obj['levelOfKnowledge'].get('instance')
+        if obj.get(prop_relation) is not None:
+            return obj[prop_relation].get('instance')
+        # if class_value in obj.get('classes'):
+        #     return obj[prop_relation].get('instance')
     return None
 
+def extract_class_with_relation(prop_array, prop_relation):
+    for obj in prop_array:
+        if obj.get(prop_relation) is not None:
+            return obj[prop_relation]['classes'][0]
+    return None
+
+def extract_case(entry):
+    case_ins = {}
+    uid = uuid.uuid4()
+    case_ins['id'] = entry.get('id', uid.hex)
+    case_ins['Name'] = entry.get('instance')
+    # case_ins['DataType'] = ?
+    case_ins['DatasetType'] = extract_instance_with_class("http://www.w3id.org/iSeeOnto/explainer#DatasetType", entry['http://www.w3id.org/iSeeOnto/explanationexperience#hasDescription']['http://www.w3id.org/iSeeOnto/explanationexperience#hasAIModel']['http://www.w3id.org/iSeeOnto/aimodel#trainedOn'], "http://www.w3id.org/iSeeOnto/aimodel#hasDatasetType")
+    # case_ins['DatasetFeatureType'] = extract_all_instances(entry['http://www.w3id.org/iSeeOnto/explanationexperience#hasDescription']['http://www.w3id.org/iSeeOnto/explanationexperience#hasAIModel']['http://www.w3id.org/iSeeOnto/aimodel#trainedOn']['http://www.w3id.org/iSeeOnto/aimodel#hasFeatureType'])
+    # case_ins['NumberOfFeatures'] = entry['http://www.w3id.org/iSeeOnto/explanationexperience#hasDescription']['http://www.w3id.org/iSeeOnto/explanationexperience#hasAIModel']['http://www.w3id.org/iSeeOnto/aimodel#trainedOn']['numberOfFeatures']['value']
+    # case_ins['NumberOfInstances'] = entry['http://www.w3id.org/iSeeOnto/explanationexperience#hasDescription']['http://www.w3id.org/iSeeOnto/explanationexperience#hasAIModel']['http://www.w3id.org/iSeeOnto/aimodel#trainedOn']['numberOfInstances']['value']
+    case_ins['AITask'] = entry['http://www.w3id.org/iSeeOnto/explanationexperience#hasDescription']['http://www.w3id.org/iSeeOnto/explanationexperience#hasAIModel']['http://www.w3id.org/iSeeOnto/aimodel#solves']['classes'][0]
+    case_ins['AIMethod'] = entry['http://www.w3id.org/iSeeOnto/explanationexperience#hasDescription']['http://www.w3id.org/iSeeOnto/explanationexperience#hasAIModel']['http://www.w3id.org/iSeeOnto/explainer#utilises']['classes'][0]
+    case_ins['Portability'] = extract_property('http://www.w3id.org/iSeeOnto/explainer#hasPortability', entry['http://www.w3id.org/iSeeOnto/explanationexperience#hasDescription']['http://www.w3id.org/iSeeOnto/explanationexperience#hasExplanationRequirements']['http://www.w3id.org/iSeeOnto/explanationexperience#hasExplanationCriteria'])
+    case_ins['ExplainerConcurrentness'] = extract_property('http://www.w3id.org/iSeeOnto/explainer#hasConcurrentness', entry['http://www.w3id.org/iSeeOnto/explanationexperience#hasDescription']['http://www.w3id.org/iSeeOnto/explanationexperience#hasExplanationRequirements']['http://www.w3id.org/iSeeOnto/explanationexperience#hasExplanationCriteria'])
+    case_ins['ExplanationScope'] = extract_property('http://www.w3id.org/iSeeOnto/explainer#hasExplanationScope', entry['http://www.w3id.org/iSeeOnto/explanationexperience#hasDescription']['http://www.w3id.org/iSeeOnto/explanationexperience#hasExplanationRequirements']['http://www.w3id.org/iSeeOnto/explanationexperience#hasExplanationCriteria'])
+    case_ins['ExplanationTarget'] = extract_property('http://www.w3id.org/iSeeOnto/explainer#targetType', entry['http://www.w3id.org/iSeeOnto/explanationexperience#hasDescription']['http://www.w3id.org/iSeeOnto/explanationexperience#hasExplanationRequirements']['http://www.w3id.org/iSeeOnto/explanationexperience#hasExplanationCriteria'])
+    case_ins['ExplanationPresentation'] = extract_property('http://www.w3id.org/iSeeOnto/explainer#hasPresentation', entry['http://www.w3id.org/iSeeOnto/explanationexperience#hasDescription']['http://www.w3id.org/iSeeOnto/explanationexperience#hasExplanationRequirements']['http://www.w3id.org/iSeeOnto/explanationexperience#hasExplanationCriteria'])
+    case_ins['UserIntent'] = entry['http://www.w3id.org/iSeeOnto/explanationexperience#hasDescription']['http://www.w3id.org/iSeeOnto/explanationexperience#hasUserGroup']['http://www.w3id.org/iSeeOnto/user#hasIntent']['instance']
+    case_ins['TechnicalFacilities'] = extract_all_instances(entry['http://www.w3id.org/iSeeOnto/explanationexperience#hasDescription']['http://www.w3id.org/iSeeOnto/explanationexperience#hasUserGroup']['http://www.w3id.org/iSeeOnto/user#hasResources'])
+    # case_ins['ExplanationModality'] = ?
+    case_ins['UserDomain'] = entry['http://www.w3id.org/iSeeOnto/explanationexperience#hasDescription']['http://www.w3id.org/iSeeOnto/explanationexperience#hasUserGroup']['http://www.w3id.org/iSeeOnto/user#possessKnowledgeOf']['instance']
+    case_ins['AIKnowledgeLevel'] = extract_instance_with_class("http://www.w3id.org/iSeeOnto/user#AIMethodKnowledge", entry['http://www.w3id.org/iSeeOnto/explanationexperience#hasDescription']['http://www.w3id.org/iSeeOnto/explanationexperience#hasUserGroup']['https://purl.org/heals/eo#possess'], "http://www.w3id.org/iSeeOnto/user#levelOfKnowledge")
+    case_ins['DomainKnowledgeLevel'] = extract_instance_with_class("http://www.w3id.org/iSeeOnto/user#DomainKnowledge",
+                                                            entry['http://www.w3id.org/iSeeOnto/explanationexperience#hasDescription']['http://www.w3id.org/iSeeOnto/explanationexperience#hasUserGroup']['https://purl.org/heals/eo#possess'], "http://www.w3id.org/iSeeOnto/user#levelOfKnowledge")
+    case_ins['UserQuestionTarget'] = extract_class_with_relation(entry['http://www.w3id.org/iSeeOnto/explanationexperience#hasDescription']['http://www.w3id.org/iSeeOnto/explanationexperience#hasUserGroup']['https://purl.org/heals/eo#asks'], "http://www.w3id.org/iSeeOnto/user#hasQuestionTarget")
+    case_ins['Solution'] = entry.get('http://www.w3id.org/iSeeOnto/explanationexperience#hasSolution')
+    return case_ins
+
 def clood_format(json_data):
-    clood_cases = []
-    for entry in json_data:
-        case = {}
-        case['id'] = entry.get('id')
-        case['Name'] = entry.get('instance')
-        # case['DataType'] = ?
-        case['DatasetType'] = entry['hasDescription']['hasAIModel']['trainedOn']['hasDatasetType']['instance']
-        # case['DatasetFeatureType'] = extract_all_instances(entry['hasDescription']['hasAIModel']['trainedOn']['hasFeatureType'])
-        # case['NumberOfFeatures'] = entry['hasDescription']['hasAIModel']['trainedOn']['numberOfFeatures']['value']
-        # case['NumberOfInstances'] = entry['hasDescription']['hasAIModel']['trainedOn']['numberOfInstances']['value']
-        case['AITask'] = entry['hasDescription']['hasAIModel']['solves']['classes'][0]
-        case['AIMethod'] = entry['hasDescription']['hasAIModel']['utilises']['classes'][0]
-        case['Portability'] = extract_property('hasPortability', entry['hasDescription']['hasExplanationRequirements']['hasExplanationCriteria'])
-        case['ExplainerConcurrentness'] = extract_property('hasConcurrentness', entry['hasDescription']['hasExplanationRequirements']['hasExplanationCriteria'])
-        case['ExplanationScope'] = extract_property('hasExplanationScope', entry['hasDescription']['hasExplanationRequirements']['hasExplanationCriteria'])
-        case['ExplanationTarget'] = extract_property('targetType', entry['hasDescription']['hasExplanationRequirements']['hasExplanationCriteria'])
-        case['ExplanationPresentation'] = extract_property('hasPresentation', entry['hasDescription']['hasExplanationRequirements']['hasExplanationCriteria'])
-        case['UserIntent'] = entry['hasDescription']['hasUser']['hasIntent']['instance']
-        case['TechnicalFacilities'] = extract_all_instances(entry['hasDescription']['hasUser']['hasResources'])
-        # case['ExplanationModality'] = ?
-        case['AIKnowledgeLevel'] = extract_instance_with_class("AI Method Knowledge", entry['hasDescription']['hasUser']['possess'])
-        case['DomainKnowledgeLevel'] = extract_instance_with_class("Domain Knowledge",
-                                                               entry['hasDescription']['hasUser']['possess'])
-        case['UserQuestion'] = entry['hasDescription']['hasUser']['asks']['hasQuestionTarget']['classes'][0]
-        case['Solution'] = entry.get('hasSolution')
-        clood_cases.append(case)
-        # print(json.dumps(entry, indent=2))
-    # print(json.dumps(clood_cases[0], indent=2))
-    return clood_cases
+    if isinstance(json_data,list):
+        clood_cases = []
+        for entry in json_data:
+            clood_cases.append(extract_case(entry))
+        return clood_cases
+    else:
+        return extract_case(json_data)
 
 # print(clood_cases[0])
 # print(json.dumps(clood_cases[0], indent=2))

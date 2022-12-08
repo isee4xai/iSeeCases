@@ -139,6 +139,30 @@ class Clood:
             }
             response = requests.request("POST", url, headers=headers, data=json.dumps(payload))
             print(payload)
+            print("===========================")
+
+    def seedcases_folder(self, cases_dir_path):
+        print("Preloading with Seed Cases ✅")
+        # with open(filename, "r") as case_j:
+        #     cases = json.load(case_j)  # read isee cases json
+        with os.scandir(cases_dir_path) as folder:
+            for entry in folder:
+                if entry.name.endswith(".json") and entry.is_file():
+                    # print(entry.name, entry.path)
+                    case = self.convert_to_clood(entry.path)  # convert to clood format
+                    payload = {
+                        "data": case,
+                        "projectId": self.CLOOD_PROJECT_ID
+                    }
+
+                    url = self.CLOOD_API_URL+"/retain"
+                    headers = {
+                    'Content-Type': 'application/json'
+                    }
+                    response = requests.request("POST", url, headers=headers, data=json.dumps(payload))
+
+                    print(payload)
+                    print("===========================")
 
 
 

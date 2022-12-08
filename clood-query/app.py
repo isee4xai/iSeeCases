@@ -4,22 +4,24 @@ import os
 import sys 
 
 ##### CONFIGURATION #####
-CLOOD_PROJECT_ID = "3353c7e2b00a42ec8ce21267e9adada1"
-ISEE_CASES = "/Users/ike/dev/iSeeCases/seed-cases.json"
+CLOOD_PROJECT_ID = ""
+ISEE_CASES = ""
+ISEE_CASES_DIR = ""
 FOLDER_NAME = "RandomQuery"
 FILE_NAME = "randcase.json"
 topK = 3
 #########################
 
 
-CLOOD_API_URL    = "http://localhost:3000/dev"
+CLOOD_API_URL    = "https://cbr-dev.isee4xai.com/dev"  # "http://localhost:3000/dev"
 
 print("-------------------------------------------")
 
 clood = Clood(CLOOD_PROJECT_ID, CLOOD_API_URL)
 
 # To Load 17 Cases in to - Do Only Once
-clood.seedcases(ISEE_CASES)
+# clood.seedcases(ISEE_CASES)  # seed from file (.json file with array of cases)
+clood.seedcases_folder(ISEE_CASES_DIR)  # seed from folder (with 1 .json per case)
 
 # Sample Case Structure conversion
 # query_case = clood.convert_to_clood(FILE_NAME)
