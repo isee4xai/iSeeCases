@@ -76,7 +76,11 @@
           ]
         }
       ],
-      "<evaluation_IRI>annotatedBy": []
+      "<evaluation_IRI>annotatedBy": [],
+      "<aimodel_IRI>hasCaseStructureMetaData": {
+        "value":"<MetaDataJSON>",
+        "language" : "en"
+      }
     },
     "<ee_IRI>hasExplanationRequirements": {
       "instance": "<case_IRI><casename>ExplanationRequirements",

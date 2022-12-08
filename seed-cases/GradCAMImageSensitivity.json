@@ -76,7 +76,11 @@
           ]
         }
       ],
-      "http://www.w3id.org/iSeeOnto/evaluation#annotatedBy": []
+      "http://www.w3id.org/iSeeOnto/evaluation#annotatedBy": [],
+      "http://www.w3id.org/iSeeOnto/aimodel#hasCaseStructureMetaData": {
+        "value":"{}",
+        "language" : "en"
+      }
     },
     "http://www.w3id.org/iSeeOnto/explanationexperience#hasExplanationRequirements": {
       "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/GradCAMImageSensitivity/GradCAMImageSensitivityExplanationRequirements",
