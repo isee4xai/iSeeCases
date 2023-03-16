@@ -1,5 +1,6 @@
 {
   "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/IntGradImage/IntGradImageExplanationExperience",
+  "http://www.w3.org/2000/01/rdf-schema#comment":"IntGradImage",
   "classes": [
     "http://www.w3id.org/iSeeOnto/explanationexperience#ExplanationExperience"
   ],
@@ -24,7 +25,16 @@
             "http://www.w3id.org/iSeeOnto/aimodel#AITaskGoal"
           ],
           "http://semanticscience.org/resource/SIO_000300": "Predict category given an image"
-        }
+        },
+        "http://semanticscience.org/resource/SIO_000229": [
+          {
+            "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/IntGradImage/IntGradImageSystemRecommendation",
+            "classes": [
+              "https://purl.org/heals/eo#SystemRecommendation"
+            ],
+            "http://www.w3.org/2000/01/rdf-schema#comment": ""
+          }
+        ]
       },
       "http://www.w3id.org/iSeeOnto/explainer#utilises": {
         "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/IntGradImage/IntGradImageConvolutional_Neural_Network",
@@ -66,53 +76,57 @@
           ]
         }
       ],
-      "http://www.w3id.org/iSeeOnto/evaluation#annotatedBy": []
+      "http://www.w3id.org/iSeeOnto/evaluation#annotatedBy": [],
+      "http://www.w3id.org/iSeeOnto/aimodel#hasCaseStructureMetaData": {
+        "value":"{}",
+        "language" : "en"
+      }
     },
     "http://www.w3id.org/iSeeOnto/explanationexperience#hasExplanationRequirements": {
       "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/IntGradImage/IntGradImageExplanationRequirements",
       "classes": [
         "http://www.w3id.org/iSeeOnto/explanationexperience#ExplanationRequirements"
       ],
-      "hasExplanationCriteria": [
+      "http://www.w3id.org/iSeeOnto/explanationexperience#hasExplanationCriteria": [
         {
           "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/IntGradImage/IntGradImagePortabilityCriteria",
           "classes": [
             "http://www.w3id.org/iSeeOnto/explanationexperience#ExplanationCriteria"
           ],
-          "onProperty": "http://www.w3id.org/iSeeOnto/explainer#hasPortability",
-          "requiredObjectValue": "http://www.w3id.org/iSeeOnto/explainer#model-specific"
+          "http://www.w3id.org/iSeeOnto/explanationexperience#onProperty": "http://www.w3id.org/iSeeOnto/explainer#hasPortability",
+          "http://www.w3id.org/iSeeOnto/explanationexperience#requiredObjectValue": "http://www.w3id.org/iSeeOnto/explainer#model-specific"
         },
         {
           "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/IntGradImage/IntGradImageConcurrentnessCriteria",
           "classes": [
             "http://www.w3id.org/iSeeOnto/explanationexperience#ExplanationCriteria"
           ],
-          "onProperty": "http://www.w3id.org/iSeeOnto/explainer#hasConcurrentness",
-          "requiredObjectValue": "http://www.w3id.org/iSeeOnto/explainer#post-hoc"
+          "http://www.w3id.org/iSeeOnto/explanationexperience#onProperty": "http://www.w3id.org/iSeeOnto/explainer#hasConcurrentness",
+          "http://www.w3id.org/iSeeOnto/explanationexperience#requiredObjectValue": "http://www.w3id.org/iSeeOnto/explainer#post-hoc"
         },
         {
           "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/IntGradImage/IntGradImagePresentationCriteria",
           "classes": [
             "http://www.w3id.org/iSeeOnto/explanationexperience#ExplanationCriteria"
           ],
-          "onProperty": "http://www.w3id.org/iSeeOnto/explainer#hasPresentation",
-          "requiredValueType": "http://semanticscience.org/resource/SIO_001194"
+          "http://www.w3id.org/iSeeOnto/explanationexperience#onProperty": "http://www.w3id.org/iSeeOnto/explainer#hasPresentation",
+          "http://www.w3id.org/iSeeOnto/explanationexperience#requiredValueType": "http://semanticscience.org/resource/SIO_001194"
         },
         {
           "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/IntGradImage/IntGradImageExplanationScopeCriteria",
           "classes": [
             "http://www.w3id.org/iSeeOnto/explanationexperience#ExplanationCriteria"
           ],
-          "onProperty": "http://www.w3id.org/iSeeOnto/explainer#hasExplanationScope",
-          "requiredObjectValue": "http://www.w3id.org/iSeeOnto/explainer#local"
+          "http://www.w3id.org/iSeeOnto/explanationexperience#onProperty": "http://www.w3id.org/iSeeOnto/explainer#hasExplanationScope",
+          "http://www.w3id.org/iSeeOnto/explanationexperience#requiredObjectValue": "http://www.w3id.org/iSeeOnto/explainer#local"
         },
         {
           "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/IntGradImage/IntGradImageExplanationTargetCriteria",
           "classes": [
             "http://www.w3id.org/iSeeOnto/explanationexperience#ExplanationCriteria"
           ],
-          "onProperty": "http://www.w3id.org/iSeeOnto/explainer#targetType",
-          "requiredObjectValue": "http://www.w3id.org/iSeeOnto/explainer#prediction"
+          "http://www.w3id.org/iSeeOnto/explanationexperience#onProperty": "http://www.w3id.org/iSeeOnto/explainer#targetType",
+          "http://www.w3id.org/iSeeOnto/explanationexperience#requiredObjectValue": "http://www.w3id.org/iSeeOnto/explainer#prediction"
         }
       ]
     },
@@ -121,6 +135,12 @@
       "classes": [
         "http://www.w3id.org/iSeeOnto/user#UserGroup"
       ],
+      "http://www.w3id.org/iSeeOnto/user#possessKnowledgeOf":{
+        "instance": "http://www.w3id.org/iSeeOnto/user#Basic_Materials",
+        "classes": [
+          "http://www.w3id.org/iSeeOnto/user#Domain"
+        ]
+      },
       "http://www.w3id.org/iSeeOnto/user#hasIntent": {
         "instance": "http://www.w3id.org/iSeeOnto/user#Transparency",
         "classes": [
@@ -172,7 +192,7 @@
           "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/IntGradImage/IntGradImageQuestion",
           "http://semanticscience.org/resource/SIO_000300": "Why does the system predict category Y for image X?",
           "classes": [
-            "http://semanticscience.org/resource/SIO_000085"
+            "http://www.w3id.org/iSeeOnto/user#UserQuestion"
           ],
           "http://www.w3id.org/iSeeOnto/user#hasQuestionTarget": {
             "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/IntGradImage/IntGradImageSystemRecommendation",
@@ -184,7 +204,66 @@
       ]
     }
   },
-  "http://www.w3id.org/iSeeOnto/explanationexperience#hasSolution": {},
+  "http://www.w3id.org/iSeeOnto/explanationexperience#hasSolution": {
+    "version": "0.1.0",
+    "scope": "project",
+    "selectedTree": "23bb1a7b-a4b3-449e-8c82-4e6f3e0cb327",
+    "trees": [
+      {
+        "version": "0.1.0",
+        "scope": "tree",
+        "id": "23bb1a7b-a4b3-449e-8c82-4e6f3e0cb327",
+        "Instance": "Explanation Experience",
+        "description": "",
+        "root": "ff978c28-7448-49af-acb0-bed28400292f",
+        "properties": {},
+        "nodes": {
+          "ff978c28-7448-49af-acb0-bed28400292f": {
+            "id": "ff978c28-7448-49af-acb0-bed28400292f",
+            "Concept": "Sequence",
+            "Instance": "Sequence",
+            "description": "",
+            "properties": {},
+            "display": {
+              "x": 0,
+              "y": 96
+            },
+            "firstChild": {
+              "Id": "66dd0924-7b59-41c2-b690-a2f613840c68",
+              "Next": null
+            }
+          },
+          "66dd0924-7b59-41c2-b690-a2f613840c68": {
+            "id": "66dd0924-7b59-41c2-b690-a2f613840c68",
+            "Concept": "Explanation Method",
+            "Instance": "/Images/IntegratedGradients",
+            "description": "",
+            "properties": {},
+            "display": {
+              "x": 0,
+              "y": 216
+            },
+            "params": {
+              "target_layer": "",
+              "target_layer_index": "",
+              "target_class": "",
+              "mean": "",
+              "std": "",
+              "aug_smooth": ""
+            }
+          }
+        },
+        "display": {
+          "camera_x": 720,
+          "camera_y": 394.5,
+          "camera_z": 1,
+          "x": 0,
+          "y": 0
+        }
+      }
+    ],
+    "custom_nodes": []
+  },
   "http://www.w3id.org/iSeeOnto/explanationexperience#hasOutcome": {
     "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/IntGradImage/IntGradImageOutcome",
     "classes": [

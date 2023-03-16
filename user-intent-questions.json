@@ -166,7 +166,7 @@
             {
                 "text": "Why is prediction X not Y?",
                 "target": "https://purl.org/heals/eo#SystemRecommendation"
-            },
+            }
         ]
     },
     {
