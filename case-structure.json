@@ -76,10 +76,22 @@
           ]
         }
       ],
-      "<evaluation_IRI>annotatedBy": [],
+      "<evaluation_IRI>annotatedBy": [
+        {
+          "instance": "<case_IRI><casename>AIModelAssessmentResult",
+          "classes": [
+            "<aieval_IRI>AIModelAssessmentResult"
+          ],
+          "http://sensornet.abdn.ac.uk/onts/Qual-O#basedOn": "<aieval_IRI><AssessmentMetric>",
+          "http://www.w3.org/ns/prov#value": {
+            "@type": "<rdfs_IRI>Literal",
+            "@value": "<AssessmentValue>"
+          }
+        }
+      ],
       "<aimodel_IRI>hasCaseStructureMetaData": {
-        "value":"<MetaDataJSON>",
-        "language" : "en"
+        "value": "<MetaDataJSON>",
+        "language": "en"
       }
     },
     "<ee_IRI>hasExplanationRequirements": {
@@ -132,11 +144,11 @@
     },
     "<ee_IRI>hasUserGroup": {
       "instance": "<case_IRI><casename>UserGroup",
-      "<rdfs_IRI>comment":"<UserGroup>",
+      "<rdfs_IRI>comment": "<UserGroup>",
       "classes": [
         "<user_IRI>UserGroup"
       ],
-      "<user_IRI>possessKnowledgeOf":{
+      "<user_IRI>possessKnowledgeOf": {
         "instance": "<Domain>",
         "classes": [
           "<user_IRI>Domain"
@@ -200,8 +212,7 @@
       ]
     }
   },
-  "<ee_IRI>hasSolution": {
-  },
+  "<ee_IRI>hasSolution": {},
   "<ee_IRI>hasOutcome": {
     "instance": "<case_IRI><casename>Outcome",
     "classes": [
