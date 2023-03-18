@@ -82,10 +82,10 @@
           "classes": [
             "<aieval_IRI>AIModelAssessmentResult"
           ],
-          "http://sensornet.abdn.ac.uk/onts/Qual-O#basedOn": "<aieval_IRI><AssessmentMetric>",
-          "http://www.w3.org/ns/prov#value": {
-            "@type": "<rdfs_IRI>Literal",
-            "@value": "<AssessmentValue>"
+          "<qual_IRI>basedOn": "<aieval_IRI><AssessmentMetric>",
+          "<prov_IRI>value": {
+            "type": "<rdfs_IRI>Literal",
+            "value": "<AssessmentValue>"
           }
         }
       ],
