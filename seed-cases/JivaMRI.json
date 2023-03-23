@@ -1,0 +1,312 @@
+{
+  "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/JivaCancer/JivaCancerExplanationExperience",
+  "http://www.w3.org/2000/01/rdf-schema#comment":"JivaCancer",
+  "classes": [
+    "http://www.w3id.org/iSeeOnto/explanationexperience#ExplanationExperience"
+  ],
+  "http://www.w3id.org/iSeeOnto/explanationexperience#hasDescription": {
+    "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/JivaCancer/JivaCancerDescription",
+    "classes": [
+      "http://www.w3id.org/iSeeOnto/explanationexperience#Description"
+    ],
+    "http://www.w3id.org/iSeeOnto/explanationexperience#hasAIModel": {
+      "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/JivaCancer/JivaCancerAIModel",
+      "classes": [
+        "http://www.w3id.org/iSeeOnto/aimodel#AIModel"
+      ],
+      "http://www.w3id.org/iSeeOnto/aimodel#solves": {
+        "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/JivaCancer/JivaCancerBinary_Classification",
+        "classes": [
+          "http://www.w3id.org/iSeeOnto/aimodel#Binary_Classification"
+        ],
+        "http://semanticscience.org/resource/SIO_000355": {
+          "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/JivaCancer/JivaCancerAITaskGoal",
+          "classes": [
+            "http://www.w3id.org/iSeeOnto/aimodel#AITaskGoal"
+          ],
+          "http://semanticscience.org/resource/SIO_000300": "Predict if the mass on an MRI is malignant or benign"
+        },
+        "http://semanticscience.org/resource/SIO_000229": [
+          {
+            "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/JivaCancer/JivaCancerSystemRecommendation_1",
+            "classes": [
+              "https://purl.org/heals/eo#SystemRecommendation"
+            ],
+            "http://www.w3.org/2000/01/rdf-schema#comment": "Malignant"
+          },
+          {
+            "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/JivaCancer/JivaCancerSystemRecommendation_1",
+            "classes": [
+              "https://purl.org/heals/eo#SystemRecommendation"
+            ],
+            "http://www.w3.org/2000/01/rdf-schema#comment": "Benign"
+          }
+        ]
+      },
+      "http://www.w3id.org/iSeeOnto/explainer#utilises": {
+        "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/JivaCancer/JivaCancerConvolutional_Neural_Network",
+        "classes": [
+          "http://www.w3id.org/iSeeOnto/aimodel#Convolutional_Neural_Network"
+        ]
+      },
+      "http://www.w3id.org/iSeeOnto/aimodel#trainedOn": [
+        {
+          "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/JivaCancer/JivaCancerDataset",
+          "classes": [
+            "http://www.w3id.org/iSeeOnto/aimodel#Dataset"
+          ],
+          "http://www.w3id.org/iSeeOnto/aimodel#featureCountRange": {
+            "instance": "http://www.w3id.org/iSeeOnto/aimodel#Greater_than_100",
+            "classes": [
+              "http://www.w3id.org/iSeeOnto/aimodel#Dataset_Feature_Quantity_Range"
+            ]
+          },
+          "http://www.w3id.org/iSeeOnto/aimodel#instanceCountRange": {
+            "value": "http://www.w3id.org/iSeeOnto/aimodel#Greater_than_1000",
+            "classes": [
+              "http://www.w3id.org/iSeeOnto/aimodel#Dataset_Instance_Quantity_Range"
+            ]
+          },
+          "http://www.w3id.org/iSeeOnto/aimodel#hasDatasetType": {
+            "instance": "http://www.w3id.org/iSeeOnto/explainer#image",
+            "classes": [
+              "http://www.w3id.org/iSeeOnto/explainer#DatasetType"
+            ]
+          },
+          "http://www.w3id.org/iSeeOnto/aimodel#hasFeatureType": [
+            {
+              "instance": "http://www.w3id.org/iSeeOnto/explainer#image",
+              "classes": [
+                "http://www.w3id.org/iSeeOnto/explainer#DataType"
+              ]
+            }
+          ]
+        }
+      ],
+      "http://www.w3id.org/iSeeOnto/evaluation#annotatedBy": [],
+      "http://www.w3id.org/iSeeOnto/aimodel#hasCaseStructureMetaData": {
+        "value":"{}",
+        "language" : "en"
+      }
+    },
+    "http://www.w3id.org/iSeeOnto/explanationexperience#hasExplanationRequirements": {
+      "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/JivaCancer/JivaCancerExplanationRequirements",
+      "classes": [
+        "http://www.w3id.org/iSeeOnto/explanationexperience#ExplanationRequirements"
+      ],
+      "http://www.w3id.org/iSeeOnto/explanationexperience#hasExplanationCriteria": [
+        {
+          "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/JivaCancer/JivaCancerPortabilityCriteria",
+          "classes": [
+            "http://www.w3id.org/iSeeOnto/explanationexperience#ExplanationCriteria"
+          ],
+          "http://www.w3id.org/iSeeOnto/explanationexperience#onProperty": "http://www.w3id.org/iSeeOnto/explainer#hasPortability",
+          "http://www.w3id.org/iSeeOnto/explanationexperience#requiredObjectValue": "http://www.w3id.org/iSeeOnto/explainer#model-agnostic"
+        },
+        {
+          "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/JivaCancer/JivaCancerConcurrentnessCriteria",
+          "classes": [
+            "http://www.w3id.org/iSeeOnto/explanationexperience#ExplanationCriteria"
+          ],
+          "http://www.w3id.org/iSeeOnto/explanationexperience#onProperty": "http://www.w3id.org/iSeeOnto/explainer#hasConcurrentness",
+          "http://www.w3id.org/iSeeOnto/explanationexperience#requiredObjectValue": "http://www.w3id.org/iSeeOnto/explainer#post-hoc"
+        },
+        {
+          "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/JivaCancer/JivaCancerPresentationCriteria",
+          "classes": [
+            "http://www.w3id.org/iSeeOnto/explanationexperience#ExplanationCriteria"
+          ],
+          "http://www.w3id.org/iSeeOnto/explanationexperience#onProperty": "http://www.w3id.org/iSeeOnto/explainer#hasPresentation",
+          "http://www.w3id.org/iSeeOnto/explanationexperience#requiredValueType": "http://semanticscience.org/resource/SIO_001194"
+        },
+        {
+          "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/JivaCancer/JivaCancerExplanationScopeCriteria",
+          "classes": [
+            "http://www.w3id.org/iSeeOnto/explanationexperience#ExplanationCriteria"
+          ],
+          "http://www.w3id.org/iSeeOnto/explanationexperience#onProperty": "http://www.w3id.org/iSeeOnto/explainer#hasExplanationScope",
+          "http://www.w3id.org/iSeeOnto/explanationexperience#requiredObjectValue": "http://www.w3id.org/iSeeOnto/explainer#local"
+        },
+        {
+          "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/JivaCancer/JivaCancerExplanationTargetCriteria",
+          "classes": [
+            "http://www.w3id.org/iSeeOnto/explanationexperience#ExplanationCriteria"
+          ],
+          "http://www.w3id.org/iSeeOnto/explanationexperience#onProperty": "http://www.w3id.org/iSeeOnto/explainer#targetType",
+          "http://www.w3id.org/iSeeOnto/explanationexperience#requiredObjectValue": "http://www.w3id.org/iSeeOnto/explainer#prediction"
+        }
+      ]
+    },
+    "http://www.w3id.org/iSeeOnto/explanationexperience#hasUserGroup": {
+      "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/JivaCancer/JivaCancerUserGroup",
+      "classes": [
+        "http://www.w3id.org/iSeeOnto/user#UserGroup"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#comment":"Clinician",
+      "http://www.w3id.org/iSeeOnto/user#possessKnowledgeOf":{
+        "instance": "http://www.w3id.org/iSeeOnto/user#Healthcare",
+        "classes": [
+          "http://www.w3id.org/iSeeOnto/user#Domain"
+        ]
+      },
+      "http://www.w3id.org/iSeeOnto/user#hasIntent": {
+        "instance": "http://www.w3id.org/iSeeOnto/user#Transparency",
+        "classes": [
+          "http://semanticscience.org/resource/SIO_000358"
+        ]
+      },
+      "http://www.w3id.org/iSeeOnto/user#hasResources": [
+        {
+          "instance": "http://www.w3id.org/iSeeOnto/user#Touchpad",
+          "classes": [
+            "http://www.w3id.org/iSeeOnto/user#VisualFacilities"
+          ]
+        },
+        {
+          "instance": "http://www.w3id.org/iSeeOnto/user#ScreenDisplay",
+          "classes": [
+            "http://www.w3id.org/iSeeOnto/user#VisualFacilities"
+          ]
+        }
+      ],
+      "https://purl.org/heals/eo#possess": [
+        {
+          "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/JivaCancer/JivaCancerUserAIKnowledge",
+          "classes": [
+            "http://www.w3id.org/iSeeOnto/user#AIMethodKnowledge"
+          ],
+          "http://www.w3id.org/iSeeOnto/user#levelOfKnowledge": {
+            "instance": "http://www.w3id.org/iSeeOnto/user#no_knowledge",
+            "classes": [
+              "http://www.w3id.org/iSeeOnto/user#KnowledgeLevel"
+            ]
+          }
+        },
+        {
+          "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/JivaCancer/JivaCancerUserDomainKnowledge",
+          "classes": [
+            "http://www.w3id.org/iSeeOnto/user#DomainKnowledge"
+          ],
+          "http://www.w3id.org/iSeeOnto/user#levelOfKnowledge": {
+            "instance": "http://www.w3id.org/iSeeOnto/user#expert",
+            "classes": [
+              "http://www.w3id.org/iSeeOnto/user#KnowledgeLevel"
+            ]
+          }
+        }
+      ],
+      "https://purl.org/heals/eo#asks": [
+        {
+          "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/JivaCancer/JivaCancerQuestion_1",
+          "http://semanticscience.org/resource/SIO_000300": "What patterns contributed to the system prediction?",
+          "classes": [
+            "http://www.w3id.org/iSeeOnto/user#UserQuestion"
+          ],
+          "http://www.w3id.org/iSeeOnto/user#hasQuestionTarget": {
+            "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/JivaCancer/JivaCancerSystemRecommendation",
+            "classes": [
+              "https://purl.org/heals/eo#SystemRecommendation"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "http://www.w3id.org/iSeeOnto/explanationexperience#hasSolution": {
+    "version": "0.1.0",
+    "scope": "project",
+    "selectedTree": "a6ec9fa5-a63d-4145-828f-fa9e52054c19",
+    "trees": [
+      {
+        "version": "0.1.0",
+        "scope": "tree",
+        "id": "a6ec9fa5-a63d-4145-828f-fa9e52054c19",
+        "Instance": "Jiva-MRI",
+        "description": "",
+        "root": "827534a1-b5db-42b3-809e-ca97f520f83f",
+        "properties": {},
+        "custom_nodes": [],
+        "nodes": {
+          "7646e480-e196-4f2d-89d4-75b7791f616e": {
+            "id": "7646e480-e196-4f2d-89d4-75b7791f616e",
+            "Concept": "Variant",
+            "Instance": "Variant",
+            "description": "Right sibling(s) generate explanations that clarify explanations generated by the left sibling(s)",
+            "properties": {},
+            "display": {
+              "x": 0,
+              "y": 48
+            },
+            "firstChild": {
+              "Id": "1a539240-5981-41e2-98bb-39a687bdff8c",
+              "Next": {
+                "Id": "49109ea8-53f2-477a-966f-9d6ec5e6fa45",
+                "Next": null
+              }
+            }
+          },
+          "1a539240-5981-41e2-98bb-39a687bdff8c": {
+            "id": "1a539240-5981-41e2-98bb-39a687bdff8c",
+            "Concept": "Explanation Method",
+            "Instance": "/Images/IntegratedGradients",
+            "description": "",
+            "properties": {},
+            "display": {
+              "x": -132,
+              "y": 216
+            },
+            "params": {
+              "target_class": "",
+              "method": "",
+              "n_steps": "",
+              "internal_batch_size": "",
+              "png_width": "",
+              "png_height": ""
+            }
+          },
+          "49109ea8-53f2-477a-966f-9d6ec5e6fa45": {
+            "id": "49109ea8-53f2-477a-966f-9d6ec5e6fa45",
+            "Concept": "Explanation Method",
+            "Instance": "/Images/NearestNeighbours",
+            "description": "",
+            "properties": {},
+            "display": {
+              "x": 96,
+              "y": 216
+            }
+          },
+          "827534a1-b5db-42b3-809e-ca97f520f83f": {
+            "id": "827534a1-b5db-42b3-809e-ca97f520f83f",
+            "Concept": "Sequence",
+            "Instance": "Sequence",
+            "description": "",
+            "properties": {},
+            "display": {
+              "x": 0,
+              "y": -24
+            },
+            "firstChild": {
+              "Id": "7646e480-e196-4f2d-89d4-75b7791f616e",
+              "Next": null
+            }
+          }
+        },
+        "display": {
+          "camera_x": 720,
+          "camera_y": 394.5,
+          "camera_z": 1,
+          "x": 0,
+          "y": -108
+        }
+      }
+    ],
+    "custom_nodes": []
+  },
+  "http://www.w3id.org/iSeeOnto/explanationexperience#hasOutcome": {
+    "instance": "http://www.w3id.org/iSeeOnto/explanationexperience/JivaCancer/JivaCancerOutcome",
+    "classes": [
+      "http://www.w3id.org/iSeeOnto/explanationexperience#Outcome"
+    ],
+    "http://linkedu.eu/dedalo/explanationPattern.owl#isBasedOn": []
+  }
+}
