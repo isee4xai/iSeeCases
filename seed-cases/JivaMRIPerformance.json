@@ -244,7 +244,7 @@
           "66dd0924-7b59-41c2-b690-a2f613840c68": {
             "id": "66dd0924-7b59-41c2-b690-a2f613840c68",
             "Concept": "Explanation Method",
-            "Instance": "/Misc/AIModePerformance",
+            "Instance": "/Misc/AIModelPerformance",
             "description": "",
             "properties": {},
             "display": {
