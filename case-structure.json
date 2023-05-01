@@ -1,6 +1,7 @@
 {
   "instance": "<case_IRI><casename>ExplanationExperience",
   "<rdfs_IRI>comment": "<casename>",
+  "version": "<version>",
   "classes": [
     "<ee_IRI>ExplanationExperience"
   ],
