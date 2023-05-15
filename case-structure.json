@@ -56,7 +56,7 @@
             ]
           },
           "<aimodel_IRI>instanceCountRange": {
-            "value": "<Dataset_Instance_Quantity_Range>",
+            "instance": "<Dataset_Instance_Quantity_Range>",
             "classes": [
               "<aimodel_IRI>Dataset_Instance_Quantity_Range"
             ]
@@ -243,6 +243,28 @@
             }
           ]
         },
+        "<ue_IRI>hasAnswerFrom": [
+          {
+            "instance": "<case_IRI><casename>MaximumNumber",
+            "classes": [
+              "<ue_IRI>MaximumNumber"
+            ],
+            "<prov_IRI>value": {
+              "type": "<xml_IRI>float",
+              "value": "<max_value>"
+            }
+          },
+          {
+            "instance": "<case_IRI><casename>MinimumNumber",
+            "classes": [
+              "<ue_IRI>MinimumNumber"
+            ],
+            "<prov_IRI>value": {
+              "type": "<xml_IRI>float",
+              "value": "<min_value>"
+            }
+          }
+        ],
         "<qual_IRI>measures": {
           "instance": "<UserEvaluationDimension>",
           "classes": [
