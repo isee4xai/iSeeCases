@@ -272,6 +272,20 @@
           ]
         }
       }
+    ],
+    "<prov_IRI>wasDerivedFrom": [
+      {
+        "instance": "<case_IRI><casename>AnalysisResult",
+        "classes": [
+          "<ue_IRI>AnalysisResult"
+        ],
+        "<qual_IRI>#annotates": "<NodeId>",
+        "<qual_IRI>#measures": "<ue_IRI><AnalysisDimension>",
+        "<prov_IRI>value": {
+          "type": "<xml_IRI>integer",
+          "value": "<AnalysisDimensionValue>"
+        }
+      }
     ]
   }
 }
